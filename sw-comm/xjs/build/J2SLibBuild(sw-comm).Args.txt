@@ -1,0 +1,20 @@
+#-path /snsoft90/topideal/20-irmp-ciq/xjs/src/main/java=>/snsoft90/topideal/20-irmp-ciq/ciq-ui/web/xjslib
+#
+#  使用相对路径： ${BASEDIR}  为当前文件所在目录
+#
+
+#define SNADKSRC_ROOT ${BASEDIR}/../../..
+
+
+-classpath ${SNADKSRC_ROOT}/snadk-cli/snadk-xjs/target/classes
+-classpath ${SNADKSRC_ROOT}/snadk-cli/snadk-xjs/target/test-classes
+
+-classpath ${BASEDIR}/../target/classes
+
+-path  ${BASEDIR}/../src/main/java=>${BASEDIR}/../../ciq-ui/web/xjslib
+
+
+
+-langs=
+-buildfiles js+java+css
+-copyfiles html+gif+png+jpg

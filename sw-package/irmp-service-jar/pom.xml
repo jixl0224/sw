@@ -1,0 +1,217 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>cn.topideal.irmp</groupId>
+		<artifactId>parents-irmp</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../../irmp-parents/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>irmp-service-jar</artifactId>
+	<version>${irmp-pk.version}</version>
+	<name>irmp-service.jar</name>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<!-- dubbo -->
+		<dependency>
+			<groupId>cn.snsoft.snadk</groupId>
+			<artifactId>snadk-dubbo</artifactId>
+			<version>${snadk.core.version}</version>
+		</dependency>
+		
+		<!-- snadk-sso -->
+		<dependency>
+			<groupId>cn.snsoft.snadk</groupId>
+			<artifactId>snadk-sso-client-impl</artifactId>
+		</dependency>
+		
+		<!-- snadk-bas -->
+		<dependency>
+			<groupId>cn.snsoft.snadk</groupId>
+			<artifactId>snadk-bas</artifactId>
+		</dependency>
+		
+		<!-- snadk-approval -->
+		<dependency>
+			<groupId>cn.snsoft.snadk</groupId>
+			<artifactId>snadk-approval-impl</artifactId>
+		</dependency>
+		
+		<!-- snadk-bpm -->
+		<dependency>
+			<groupId>cn.snsoft.snadk</groupId>
+			<artifactId>snadk-bpm-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.snsoft.snadk</groupId>
+			<artifactId>snadk-bpm-impl</artifactId>
+		</dependency>
+		
+		<!-- snadk-cmc -->
+		<dependency>
+			<groupId>cn.snsoft.snadk</groupId>
+			<artifactId>snadk-cmc</artifactId>
+		</dependency>
+		
+		<!-- IRMP -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>00-irmp-comm-impl</artifactId>
+			<version>${irmp-comm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>10-irmp-web-impl</artifactId>
+			<version>${irmp-web.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>11-irmp-declare-impl</artifactId>
+			<version>${irmp-declare.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>20-irmp-ciq-impl</artifactId>
+			<version>${irmp-ciq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>21-irmp-rms-impl</artifactId>
+			<version>${irmp-rms.version}</version>
+		</dependency>
+		
+		<!--boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>1.5.2.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- 三方 -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-neo4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.snsoft.snadk</groupId>
+			<artifactId>snadk-rjdbc</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.microsoft</groupId>
+			<artifactId>mssql-jdbc4</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>db2jcc</groupId>
+			<artifactId>db2jcc</artifactId>
+			<version>4.16.53</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun</groupId>
+			<artifactId>tools</artifactId>
+			<version>1.8</version>
+			<scope>system</scope>
+			<systemPath>${java.home}/../lib/tools.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<finalName>irmp-service</finalName>
+		<resources>
+			<!-- 控制资源文件的拷贝 -->
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- 设置源文件编码方式(Groovy) -->
+			<plugin>
+				<groupId>org.codehaus.gmavenplus</groupId>
+				<artifactId>gmavenplus-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<!-- 打包jar文件时，配置manifest文件，加入lib包的jar依赖 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<!--change addClasspath to true if daks is desktop version -->
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>snsoftboot.BootLaunch</mainClass>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+						</manifest>
+						<manifestEntries>
+							<Permissions>${Permissions}</Permissions>
+							<Caller-Allowable-Codebase>${Caller-Allowable-Codebase}</Caller-Allowable-Codebase>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<!-- 打源码包 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
