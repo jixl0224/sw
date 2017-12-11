@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menumodel id="SW-PM" title="项目管理" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://snsoft.cn/schema/Menu"
+	xsi:schemaLocation="http://snsoft.cn/schema/Menu
+		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/Menu.xsd">
+	<menu title="项目管理">
+		<menu title="项目管理">
+			<menu title="项目看板">
+				<menu title="参与者" cmd="ui:SW-PM.Actor"></menu>
+				<menu title="项目管理" cmd="ui:SW-PM.Project"></menu>
+				<menu title="项目看板[时点]" cmd="ui:SW-PM.View_point"></menu>
+				<menu title="项目看板[区间]" cmd="ui:SW-PM.View_period"></menu>
+			</menu>
+		</menu>
+	</menu>
+	<include id="90" sysid="90" title="引入管控中心菜单定义" />
+</menumodel>
+
+
+

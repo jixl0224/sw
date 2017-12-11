@@ -7,16 +7,9 @@ snadk-ui/snadk-ui
 #管控中心
 snadk-cmc/cmc
 snadk-cmc/cmc-ui
-#内容发布
-snadk-cms/cms-api
-snadk-cms/cms-impl
-snadk-cms/cms-ui
 
-#IRMP
-00-irmp-comm/comm-ui
-11-irmp-declare/declare-ui
-20-irmp-ciq/ciq-ui
-21-irmp-rms/rms-ui
-10-irmp-web/web-ui
+#SW
+sw-comm/comm-ui
+sw-pm/pm-ui
 
 

@@ -11,6 +11,7 @@
 	<modules>
 		<!-- -->
 		<module>../sw-comm</module>
+		<module>../sw-pm</module>
 		<!-- 打包war -->
 		<module>../sw-package/sw-ui-war</module>
 		<!-- 打包jar -->
@@ -20,6 +21,7 @@
 	<properties>
 		<!-- 模块版本 -->
 		<sw-comm.version>1.0.0-SNAPSHOT</sw-comm.version>
+		<sw-pm.version>1.0.0-SNAPSHOT</sw-pm.version>
 		<!-- 打包版本 -->
 		<sw-pk.version>1.0.0-SNAPSHOT</sw-pk.version>
 

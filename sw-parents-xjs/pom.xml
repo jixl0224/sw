@@ -13,6 +13,7 @@
 	<modules>
 		<!-- -->
 		<module>../sw-comm/xjs</module>
+		<module>../sw-pm/xjs</module>
 	</modules>
 
 	<properties>

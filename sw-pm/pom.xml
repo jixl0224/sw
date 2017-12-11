@@ -10,15 +10,15 @@
 	</parent>
 
 	<!-- 版本号:xx.yy.zz xx:为大版本,yy:为小版本,zz后面的:为只改bug,不增加新功能 -->
-	<artifactId>parents-sw-comm</artifactId>
+	<artifactId>parents-sw-pm</artifactId>
 	<packaging>pom</packaging>
-	<name>cn.eport.sw-sw-comm-${project.version}.pom</name>
+	<name>cn.eport.sw-sw-pm-${project.version}.pom</name>
 
 	<modules>
 		<!--  -->
-		<module>comm-api</module>
-		<module>comm-impl</module>
-		<module>comm-ui</module>
+		<module>pm-api</module>
+		<module>pm-impl</module>
+		<module>pm-ui</module>
 	</modules>
 
 </project>
