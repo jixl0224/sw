@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<m:B fullPage="true" title="数据导入">
+	<m:DialogPane layoutm="grid" name="query" region="north" showToolbar="true">
+		<c name="decl_date" sqltype="91" title="申报日期" noblank="true" 
+			aidInputerBtn="true" initval="%CURDATEYEAR-%CURDATEMONTH-01"
+		/>
+	</m:DialogPane>
+	<m:GridTable mainui="query" name="sw_decl" sqlexpr="sw_decl" autoRefresh="true">
+		<uilisteners>
+       <![CDATA[
+       snsoft.bas.sheet.SheetLimitListener.new?sheetCode=admin&opids=R&justCheck=true;
+       ]]>
+		</uilisteners>
+		<c name="declid" sqltype="12" title="主键" initval="AutoAlloc:____________" hidden="true"/>
+		<c name="decl_date" sqltype="91" title="申报日期" width="110" initval="QueryParam:" rdonly="true"/>
+		<c name="platid" sqltype="12" title="平台" width="90" />
+		<c name="custom" sqltype="12" title="关区" width="90" />
+		<c name="owner_code" sqltype="12" title="生产制造单位|编码" width="90" />
+		<c name="owner_name" sqltype="12" title="生产制造单位|名称" width="200" tipIfOverflow="true" />
+		<c name="trade_code" sqltype="12" title="收发货单位|编码" width="90" />
+		<c name="trade_name" sqltype="12" title="收发货单位|名称" width="200" tipIfOverflow="true" />
+		<c name="agent_code" sqltype="12" title="申报单位|编码" width="90" />
+		<c name="agent_name" sqltype="12" title="申报单位|名称" width="200" tipIfOverflow="true" />
+		<c name="cnt" sqltype="4" title="单量" width="70" />
+	</m:GridTable>
+</m:B>

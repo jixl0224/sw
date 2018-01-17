@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menumodel id="SW" title="单一窗口" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://snsoft.cn/schema/Menu"
+	xsi:schemaLocation="http://snsoft.cn/schema/Menu
+		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/Menu.xsd">
+	<menu title="单一窗口">
+		<menu title="标准版">
+			<menu title="基础码表">
+				<menu title="关区" cmd="ui:90.DICTDetail?InitValue.dicticode=SW.custom&amp;title=关区代码表"></menu>
+				<menu title="平台" cmd="ui:90.DICTDetail?InitValue.dicticode=SW.plat&amp;title=平台代码表"></menu>
+			</menu>
+			<menu title="货物申报">
+				<menu title="数据导入" cmd="ui:SW-PM.Actor"></menu>
+				<menu title="单量统计-省份平台" cmd="ui:SW-PM.Project"></menu>
+				<menu title="单量统计-海关关区" cmd="ui:SW-PM.Project"></menu>
+				<menu title="单量统计-生产制造" cmd="ui:SW-PM.Project"></menu>
+				<menu title="单量统计-申报单位" cmd="ui:SW-PM.Project"></menu>
+				<menu title="单量统计-收发货人" cmd="ui:SW-PM.Project"></menu>
+			</menu>
+		</menu>
+	</menu>
+	<include id="90" sysid="90" title="引入管控中心菜单定义" />
+</menumodel>
+
+
+

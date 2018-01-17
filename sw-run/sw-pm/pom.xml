@@ -46,6 +46,17 @@
 			<artifactId>sw-pm-impl</artifactId>
 			<version>${sw-pm.version}</version>
 		</dependency>
+		<!-- SW -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>sw-comm-ui</artifactId>
+			<version>${sw-comm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>sw-comm-impl</artifactId>
+			<version>${sw-comm.version}</version>
+		</dependency>
 		<!-- -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
