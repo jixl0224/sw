@@ -5,7 +5,7 @@
 			aidInputerBtn="true" initval="%CURDATEYEAR-%CURDATEMONTH-01"
 		/>
 	</m:DialogPane>
-	<m:GridTable mainui="query" name="sw_decl" sqlexpr="sw_decl" autoRefresh="true">
+	<m:GridTable mainui="query" name="sw_decl" sqlexpr="sw_decl" autoRefresh="true" dsprops.pageRows="100">
 		<uilisteners>
        <![CDATA[
        snsoft.bas.sheet.SheetLimitListener.new?sheetCode=admin&opids=R&justCheck=true;
