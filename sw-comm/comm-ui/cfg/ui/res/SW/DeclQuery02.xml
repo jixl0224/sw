@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<m:B fullPage="true" title="省份平台">
+	<m:DialogPane layoutm="grid" name="query" region="north" showToolbar="true">
+		<c name="decl_datefm" sqltype="91" title="申报日期从" noblank="true" xprops.sqlop="&gt;="
+			aidInputerBtn="true" initval="%PREVDATEYEAR-%CURDATEMONTH-01" sqlexpr="decl_date" />
+		<c name="decl_dateto" sqltype="91" title="到" xprops.sqlop="&lt;" aidInputerBtn="true" sqlexpr="decl_date" />
+	</m:DialogPane>
+	<m:GridTable mainui="query" name="sw_decl" sqlexpr="sw_decl" rdonly="true">
+		<uilisteners>
+       <![CDATA[
+       snsoft.bas.sheet.SheetLimitListener.new?sheetCode=admin&opids=R&justCheck=true;
+       snsoft.sw.decl.YMCrossListener.new
+       ]]>
+		</uilisteners>
+		<jslistener>
+       <![CDATA[
+       #new snsoft.sw.decl.YMSumListener()
+       ]]>
+		</jslistener>
+		<c name="platid" sqltype="12" title="平台" width="70" asceOrd="true" tipIfOverflow="true" bottomval="合计行：" codedata="#DT_SW.plat" showname="true"/>
+		<c name="ym" sqltype="12" title="年月" width="110" sqlexpr="to_char(decl_date,'yymm')" crossCol="true" />
+		<c name="cnt" sqltype="4" title="单量" width="70" sqlexpr="sum(cnt)" crossData="true" maxdeci="0" bottomval="*"/>
+		<c name="sum" sqltype="4" title="合计" width="100" sqlexpr="0" maxdeci="0" bottomval="*"/>
+	</m:GridTable>
+</m:B>

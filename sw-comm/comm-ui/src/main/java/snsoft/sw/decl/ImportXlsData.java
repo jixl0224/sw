@@ -24,12 +24,12 @@ import snsoft.tools.bigxls.BigExcelFactory;
  * <p>
  * 其他说明：
  * 
- * start = now().getTime()
- * localPath = ""
- * declDate = toDate(2017,5,1)
- * bean = new snsoft.sw.decl.ImportXlsData(localPath,declDate)
- * cnt = bean.importData()
- * println("cnt="+cnt+",gap="+(now().getTime()-start))
+start = now().getTime()
+localPath = "D:/Seafile/项目文档/001 数据中心/02 标准版/003 全国/201711.xlsx"
+declDate = toDate(2017,11,1)
+bean = new snsoft.sw.decl.ImportXlsData(localPath,declDate)
+cnt = bean.importData()
+println("cnt="+cnt+",gap="+(now().getTime()-start))
  * 
  * </p>
  * <p>作者：冀小雷</p>
