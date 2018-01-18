@@ -10,12 +10,12 @@
 				<menu title="平台" cmd="ui:90.DICTDetail?InitValue.dicticode=SW.plat&amp;title=平台代码表"></menu>
 			</menu>
 			<menu title="货物申报">
-				<menu title="数据导入" cmd="ui:SW-PM.Actor"></menu>
-				<menu title="单量统计-省份平台" cmd="ui:SW-PM.Project"></menu>
-				<menu title="单量统计-海关关区" cmd="ui:SW-PM.Project"></menu>
-				<menu title="单量统计-生产制造" cmd="ui:SW-PM.Project"></menu>
-				<menu title="单量统计-申报单位" cmd="ui:SW-PM.Project"></menu>
-				<menu title="单量统计-收发货人" cmd="ui:SW-PM.Project"></menu>
+				<menu title="数据导入" cmd="ui:SW.DeclImport"></menu>
+				<menu title="单量统计-生产制造" cmd="ui:SW.DeclQuery01"></menu>
+				<menu title="单量统计-申报单位*" cmd="ui:"></menu>
+				<menu title="单量统计-收发货人*" cmd="ui:"></menu>
+				<menu title="单量统计-省份平台" cmd="ui:SW.DeclQuery02"></menu>
+				<menu title="单量统计-海关关区*" cmd="ui:"></menu>
 			</menu>
 		</menu>
 	</menu>

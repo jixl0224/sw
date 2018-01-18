@@ -17,6 +17,7 @@ import snsoft.dx.UpdateData;
 import snsoft.dx.mc.service.MakeCodeService;
 import snsoft.dx.mc.service.MakeCodeService.MakeCodeParam;
 import snsoft.tools.bigxls.BigExcelFactory;
+import snsoft.tools.bigxls.BigExcelReader;
 
 /**
  * <p>标题：导入Excel数据</p>
@@ -24,12 +25,12 @@ import snsoft.tools.bigxls.BigExcelFactory;
  * <p>
  * 其他说明：
  * 
- * start = now().getTime()
- * localPath = ""
- * declDate = toDate(2017,5,1)
- * bean = new snsoft.sw.decl.ImportXlsData(localPath,declDate)
- * cnt = bean.importData()
- * println("cnt="+cnt+",gap="+(now().getTime()-start))
+start = now().getTime()
+localPath = "D:/Seafile/项目文档/001 数据中心/02 标准版/003 全国/201711.xlsx"
+declDate = toDate(2017,11,1)
+bean = new snsoft.sw.decl.ImportXlsData(localPath,declDate)
+cnt = bean.importData()
+println("cnt="+cnt+",gap="+(now().getTime()-start))
  * 
  * </p>
  * <p>作者：冀小雷</p>
@@ -67,14 +68,14 @@ public class ImportXlsData
 
 			UpdateData updateData = new UpdateData();
 			List<String> codes = new ArrayList<>(Arrays.asList(codeService.makeCodes(param)));
-			BigExcelFactory.fac.newBigExcelReader(is, "rId1", 1, row -> {
+			BigExcelReader reader = BigExcelFactory.fac.newBigExcelReader(is, "导出工作表", 1);
+			long lines = reader.read(row -> {
 				int int1 = row.getInt(8);
 				if (int1 == 0)
 				{
 					return;
 				}
 				long cnt = counter.incrementAndGet();
-
 				Map<String,Object> data = new HashMap<>();
 				data.put("declid", codes.get(updateData.countUpdate()));
 				data.put("platid", row.getValue(0));
@@ -94,14 +95,13 @@ public class ImportXlsData
 					updateData.clear();
 					codes.clear();
 					codes.addAll(Arrays.asList(codeService.makeCodes(param)));
-					System.out.println("counter=" + counter.get() + ",size=" + updateData.size());
 				}
 			});
-
 			if (updateData.countUpdate() > 0)
 			{
 				db.updateData(updateData, true);
 			}
+			System.out.println("total lines =" + lines);
 		}
 		return counter.get();
 	}
