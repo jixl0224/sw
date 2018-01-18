@@ -2,18 +2,21 @@ package snsoft.sw.decl;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 import snsoft.commons.spring.SpringBeanUtils;
 import snsoft.commons.util.StrUtils;
 import snsoft.dx.DBUtils;
 import snsoft.dx.Database;
-import snsoft.dx.ReadDataSetFactory;
 import snsoft.dx.UpdateData;
-import snsoft.dx.dataset.XlsReadDataSet;
 import snsoft.dx.mc.service.MakeCodeService;
 import snsoft.dx.mc.service.MakeCodeService.MakeCodeParam;
+import snsoft.tools.bigxls.BigExcelFactory;
 
 /**
  * <p>标题：导入Excel数据</p>
@@ -53,7 +56,7 @@ public class ImportXlsData
 		MakeCodeParam param = new MakeCodeParam("sw_decl", "declid");
 		param.setCodeLike(StrUtils.newString('_', 12));
 		int n = 1000;
-		long cnt = 0;
+		AtomicLong counter = new AtomicLong();
 		param.setCount(n);
 		try (
 				//
@@ -61,39 +64,45 @@ public class ImportXlsData
 				//
 				Database db = DBUtils.newDatabaseByTable("sw_decl", true);)
 		{
-			XlsReadDataSet rs = ReadDataSetFactory.impl.newXlsReadDataSet(is, "导出工作表", 1);
+
 			UpdateData updateData = new UpdateData();
-			String[] codes = codeService.makeCodes(param);
-			int i = 0;
-			while (rs.nextRow())
-			{
-				cnt++;
+			List<String> codes = new ArrayList<>(Arrays.asList(codeService.makeCodes(param)));
+			BigExcelFactory.fac.newBigExcelReader(is, "rId1", 1, row -> {
+				int int1 = row.getInt(8);
+				if (int1 == 0)
+				{
+					return;
+				}
+				long cnt = counter.incrementAndGet();
+
 				Map<String,Object> data = new HashMap<>();
-				data.put("declid", codes[i++]);
-				data.put("platid", rs.getValue(0));
-				data.put("custom", rs.getValue(1));
-				data.put("owner_code", rs.getValue(2));
-				data.put("owner_name", rs.getValue(3));
-				data.put("trade_code", rs.getValue(4));
-				data.put("trade_name", rs.getValue(5));
-				data.put("agent_code", rs.getValue(6));
-				data.put("agent_name", rs.getValue(7));
-				data.put("cnt", rs.getValue(8));
+				data.put("declid", codes.get(updateData.countUpdate()));
+				data.put("platid", row.getValue(0));
+				data.put("custom", row.getValue(1));
+				data.put("owner_code", row.getValue(2));
+				data.put("owner_name", row.getValue(3));
+				data.put("trade_code", row.getValue(4));
+				data.put("trade_name", row.getValue(5));
+				data.put("agent_code", row.getValue(6));
+				data.put("agent_name", row.getValue(7));
+				data.put("cnt", int1);
 				data.put("decl_date", declDate);
 				updateData.addInsert("sw_decl", data);
-				if (i == n)
+				if (cnt % n == 0)
 				{
 					db.updateData(updateData, true);
 					updateData.clear();
-					i = 0;
-					codes = codeService.makeCodes(param);
+					codes.clear();
+					codes.addAll(Arrays.asList(codeService.makeCodes(param)));
+					System.out.println("counter=" + counter.get() + ",size=" + updateData.size());
 				}
-			}
-			if (updateData.size() > 0)
+			});
+
+			if (updateData.countUpdate() > 0)
 			{
 				db.updateData(updateData, true);
 			}
 		}
-		return cnt;
+		return counter.get();
 	}
 }
