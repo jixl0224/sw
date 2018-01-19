@@ -4,7 +4,10 @@ snsoft.sw.decl.YMSumListener=function(){};
 Xjs.apply(snsoft.sw.decl.YMSumListener.prototype,{
 dataLoaded:function(dataSet,e)
 {
-var rows=dataSet.getRows(),sumIdx=dataSet.columnAt("sum");
+var rows=dataSet.getRows();
+if(rows.length==0)
+return;
+var sumIdx=dataSet.columnAt("sum");
 for(var i=0;i<rows.length;i++)
 {
 var row=rows[i],sum=0;

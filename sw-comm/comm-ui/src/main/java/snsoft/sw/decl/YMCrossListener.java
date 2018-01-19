@@ -1,6 +1,9 @@
 package snsoft.sw.decl;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -11,6 +14,7 @@ import snsoft.dx.DataTable;
 import snsoft.dx.ReadDataSet;
 import snsoft.dx.ReadDataSetFactory;
 import snsoft.dx.dataset.ArrayReadDataSet;
+import snsoft.sql.SqlParserUtils;
 import snsoft.ui.DefaultUIListener;
 import snsoft.ui.UIComponent;
 import snsoft.ui.UIEvent;
@@ -32,7 +36,16 @@ public class YMCrossListener extends DefaultUIListener
 	@Override
 	public ReadDataSet loadData(UIEvent event)
 	{
-		ReadDataSet rs = event.getDatabase().queryReadDataSet(event.sql);
+		DateFormat format = new SimpleDateFormat("YYMM");
+		Date fm = (Date) event.getParameter("fm");
+		Date to = (Date) event.getParameter("to");
+		String filter = "ym >= " + format.format(fm);
+		if (to != null)
+		{
+			filter += " and ym<=" + format.format(to);
+		}
+		String sql = SqlParserUtils.addSqlFilter(event.sql, filter);
+		ReadDataSet rs = event.getDatabase().queryReadDataSet(sql);
 		ArrayReadDataSet ars = ReadDataSetFactory.impl.toArrayReadDataSet(rs, true);
 		int idx = ars.columnAt("ym");
 		Set<String> yms = new TreeSet<>();

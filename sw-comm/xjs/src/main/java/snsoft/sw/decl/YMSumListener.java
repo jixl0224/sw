@@ -25,6 +25,10 @@ public class YMSumListener
 	public void dataLoaded(DataSet dataSet, DataSetEvent e)
 	{
 		DataSetRow[] rows = dataSet.getRows();
+		if (rows.length == 0)
+		{
+			return;
+		}
 		int sumIdx = dataSet.columnAt("sum");
 		for (int i = 0; i < rows.length; i++)
 		{

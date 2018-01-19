@@ -16,4 +16,17 @@
 		<column id="100" name="cnt" title="单量" type="INTEGER" />
 		<column id="110" name="decl_date" title="申报日期" type="DATE" />
 	</table>
+	<table id="20002" name="sw_ym_plat" title="平台单量月表" datasrcid="SW" storegrp="SNSYSDATA_TBS">
+		<column id="10" name="ym" title="年月" type="CHAR(4)" />
+		<column id="20" name="platid" title="平台" type="CHAR(16)" />
+		<column id="40" name="cnt" title="单量" type="INTEGER" />
+		<index name="sw_ym_plat_ym" fields="ym" storegrp="SNSYSINDX_TBS" />
+	</table>
+	<table id="20002" name="sw_ym_owner" title="企业单量月表" datasrcid="SW" storegrp="SNSYSDATA_TBS">
+		<column id="10" name="ym" title="年月" type="CHAR(4)" />
+		<column id="20" name="platid" title="平台" type="CHAR(16)" />
+		<column id="30" name="owner_name" title="生产制造单位|名称" type="VARCHAR(128)" />
+		<column id="40" name="cnt" title="单量" type="INTEGER" />
+		<index name="sw_ym_owner_ym" fields="ym,platid" storegrp="SNSYSINDX_TBS" />
+	</table>
 </db>
