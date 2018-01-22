@@ -7,7 +7,7 @@
 			initval="%PREVDATEYEAR-%CURDATEMONTH-01" />
 		<c name="to" sqltype="91" title="到" aidInputerBtn="true" />
 	</m:DialogPane>
-	<m:GridTable mainui="query" name="ym" sqlexpr="sw_ym_owner" rdonly="true" nmpre="filter" noCollapseQPaneAfterRefresh="true">
+	<m:GridTable mainui="query" name="ym" sqlexpr="sw_ym_owner" rdonly="true" nmpre="filter" noCollapseQPaneAfterRefresh="true" showToolbar="true">
 		<uilisteners>
        <![CDATA[
        snsoft.bas.sheet.SheetLimitListener.new?sheetCode=admin&opids=R&justCheck=true;
@@ -16,9 +16,16 @@
 		</uilisteners>
 		<jslistener>
        <![CDATA[
-       #new snsoft.sw.decl.YMSumListener()
+		#new snsoft.sw.decl.YMSumListener()
+		oncmd_credit:function()
+		{
+		    window.open("http://gsxt.gdgs.gov.cn/","_blank");
+		}
        ]]>
 		</jslistener>
+		<attrs>
+			<attr type="203" name="credit" title="企业信息查询"/>
+		</attrs>
 		<c name="owner_name" sqltype="12" title="生产制造单位" width="260" asceOrd="true" tipIfOverflow="true"
 			bottomval="合计：" />
 		<c name="ym" sqltype="12" title="年月" width="110" crossCol="true" />
