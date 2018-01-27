@@ -209,7 +209,7 @@ public class BootConfig
 			@Override
 			public void addViewControllers(ViewControllerRegistry registry)
 			{
-				registry.addRedirectViewController("/", "/IRMP-Login.html");
+				registry.addRedirectViewController("/", "/Login.html");
 				registry.addRedirectViewController("/admin", "/admin/index.html");
 				//			registry.addRedirectViewController("/error", "/error.html");
 				registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
