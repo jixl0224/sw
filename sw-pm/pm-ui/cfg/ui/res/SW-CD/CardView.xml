@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<B title="用户信用卡" fullPage="true"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://snsoft.cn/schema/UI"
+	xsi:schemaLocation="http://snsoft.cn/schema/UI
+		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
+		"
+>
+  <m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
+  </m:DialogPane>
+  <m:GridTable name="ucard" title="用户信用卡" region="center" sqlexpr="pm_ucard" mainui="param" 
+      xprops.LoadDataService="SN-PM.CreditUIService#queryCardView"
+      rdonly="true" noCollapseQPaneAfterRefresh="true"
+      uilisteners="snsoft.sw.card.CreditViewListener.new"
+  >
+  	<jslistener>
+  	<![CDATA[
+  	date:new Date().getDate(),
+  	onTableCellRender:function(table,e)
+  	{
+  		var name = table.columns[e.col].name;
+  		if(name.indexOf("$CRCOL$") == 0)
+  		{
+  			if("D" == table.dataSet.getValue(e.col-1,e.row))
+  			{
+  				e.renderInfo.background="#f44336";
+  			} else {
+		  		var date = Number.toInt(name.substring(7,name.lastIndexOf("-")));
+		  		if(this.date == date)
+		  		{
+		  			e.renderInfo.background="#f6a5c1";
+		  		}
+	  		}
+  		}
+  	}
+  	]]>
+  	</jslistener>
+    <c name="ccode" title="信用卡" sqltype="12" width="120" asceOrd="true" crossRow="true" codedata="#91.ccard" showname="true"/>
+    <c name="odate" title="账单日" sqltype="4" width="70" asceOrd="true" crossCol="true" codedata="1:1"/>
+    <c name="datetype" title="还款日" sqltype="12" width="30" crossData="true" codedata="#DT_CD.datetype" showname="true"/>
+  </m:GridTable>
+</B>

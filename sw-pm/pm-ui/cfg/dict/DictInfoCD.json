@@ -1,0 +1,17 @@
+[
+	{
+		"dicticode": "datetype",
+		"name": "日期类型",
+		"remark": "信用卡日期类型：还款日(Due Date)，账单日(Statement Date)",
+		"infos": [
+			{
+				"code": "D",
+				"name": "还"
+			},
+			{
+				"code": "S",
+				"name": "账"
+			}
+		]
+	}
+]

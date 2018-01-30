@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<B title="用户信用卡" fullPage="true"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://snsoft.cn/schema/UI"
+	xsi:schemaLocation="http://snsoft.cn/schema/UI
+		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
+		"
+>
+  <m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
+  </m:DialogPane>
+  <m:GridTable name="ucard" title="用户信用卡" region="center" sqlexpr="pm_ucard" mainui="param" 
+      xprops.LoadDataService="SN-PM.CreditUIService#queryPMUcard"
+      xprops.SaveDataService="SN-PM.CreditUIService#savePMUcard"
+      noCollapseQPaneAfterRefresh="true"
+      showToolbar="true"
+  >
+    <c name="ucode" title="编码" sqltype="12" width="100" noblank="true" hidden="true" initval="%EnvParam(USERCODE)"/>
+    <c name="ccode" title="信用卡" sqltype="12" width="160" noblank="true" asceOrd="true" codedata="#SW-CD.ccard" showname="true" aidInputerBtn="true"/>
+    <c name="sdate" title="账单日" sqltype="4" width="70" noblank="true"/>
+    <c name="ddate" title="还款日" sqltype="4" width="70" noblank="true"/>
+    <c name="cline" title="额度" sqltype="2" width="70" noblank="true" bottomval="*"/>
+  </m:GridTable>
+</B>

@@ -1,4 +1,4 @@
-package snsoft.sw.pm;
+package snsoft.sw.card;
 
 import java.util.ArrayList;
 import java.util.Date;

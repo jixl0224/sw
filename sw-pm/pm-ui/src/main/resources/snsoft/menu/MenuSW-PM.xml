@@ -12,6 +12,13 @@
 				<menu title="项目看板[区间]" cmd="ui:SW-PM.View_period"></menu>
 			</menu>
 		</menu>
+		<menu title="信用卡管理">
+			<menu title="信用卡">
+				<menu title="信用卡定义" cmd="ui:SW-CD.Ccard"></menu>
+				<menu title="用户信用卡" cmd="ui:SW-CD.Ucard"></menu>
+				<menu title="信用卡看板" cmd="ui:SW-CD.CardView"></menu>
+			</menu>
+		</menu>
 	</menu>
 	<include id="90" sysid="90" title="引入管控中心菜单定义" />
 </menumodel>
