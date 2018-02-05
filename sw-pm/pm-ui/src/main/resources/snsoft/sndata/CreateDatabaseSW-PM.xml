@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://snsoft.cn/schema/db
 		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/CreateDatabase.xsd">
 		
-		<table id="2000" name="pm_actor" title="参与者" datasrcid="HELP" localcache="1" storegrp="SNSYSDATA_TBS">
+		<table id="2000" name="pm_actor" title="参与者" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
 			<column id="10" name="ucode" title="参与者|编码" type="VARCHAR(32)"  primkey="true"/>
 			<column id="20" name="uname" title="参与者|名称" type="VARCHAR(32)"/>
 			<column id="25" name="sortidx" title="序号" type="SMALLINT"/>
@@ -14,7 +14,7 @@
 			<column id="60" name="vprepare" title="创建人" type="VARCHAR(32)" />
 			<column id="70" name="vpredate" title="创建时间" type="DATE" />
 		</table>
-		<table id="1020101" name="pm_project" title="项目" datasrcid="HELP" localcache="1" storegrp="SNSYSDATA_TBS">
+		<table id="1020101" name="pm_project" title="项目" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
 			<column id="10" name="pcode" title="项目|编码" type="VARCHAR(32)"  primkey="true"/>
 			<column id="20" name="pname" title="项目|名称" type="VARCHAR(32)"/>
 			<column id="30" name="bedate" title="启用日期" type="DATE" />
@@ -25,7 +25,7 @@
 			<column id="80" name="modifier" title="修改人" type="VARCHAR(32)" />
 			<column id="90" name="modifydate" title="修改时间" type="DATE" />
 		</table>
-		<table id="1020102" name="pm_pactors" title="项目参与者" datasrcid="HELP" storegrp="SNSYSDATA_TBS">
+		<table id="1020102" name="pm_pactors" title="项目参与者" datasrcid="PM" storegrp="SNSYSDATA_TBS">
 			<column id="10" name="pcode" title="项目|编码" type="VARCHAR(32)"  primkey="true"/>
 			<column id="20" name="sortidx" title="序号" type="SMALLINT" primkey="true"/>
 			<column id="10" name="ucode" title="参与者" type="VARCHAR(32)"/>
@@ -34,16 +34,22 @@
 			<column id="50" name="remark" title="说明" type="VARCHAR(256)" />
 		</table>
 		
-		<table id="1020103" name="pm_ccard" title="信用卡" datasrcid="HELP" localcache="1" storegrp="SNSYSDATA_TBS">
+		<table id="1020103" name="pm_ccard" title="信用卡" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
 			<column id="10" name="code" title="编码" type="VARCHAR(32)"  primkey="true"/>
 			<column id="20" name="name" title="名称" type="VARCHAR(28)" />
 			<column id="30" name="remark" title="描述" type="VARCHAR(512)" />
 		</table>
-		<table id="1020103" name="pm_ucard" title="个人信用卡" datasrcid="HELP" localcache="1" storegrp="SNSYSDATA_TBS">
+		<table id="1020103" name="pm_ucard" title="个人信用卡" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
 			<column id="10" name="ucode" title="用户编码" type="VARCHAR(32)"  primkey="true"/>
 			<column id="15" name="ccode" title="信用卡编码" type="VARCHAR(32)"  primkey="true"/>
 			<column id="20" name="sdate" title="账单日" type="INTEGER" />
 			<column id="30" name="ddate" title="还款日" type="INTEGER" />
 			<column id="40" name="cline" title="额度" type="NUMERIC(10.0)" />
+		</table>
+		<table id="1020104" name="pm_mcc" title="MCC" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
+			<column id="10" name="code" title="编码" type="CHAR(4)"  primkey="true"/>
+			<column id="20" name="name" title="名称" type="VARCHAR(128)"  notnull="true"/>
+			<column id="30" name="type" title="分类" type="CHAR(1)"  notnull="true"/>
+			<column id="40" name="remark" title="说明" type="CLOB" />
 		</table>
 </db>

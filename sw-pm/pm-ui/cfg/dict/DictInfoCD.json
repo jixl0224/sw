@@ -13,5 +13,28 @@
 				"name": "账"
 			}
 		]
+	},
+	{
+		"dicticode": "mcc",
+		"name": "MCC",
+		"remark": "MCC类型",
+		"infos": [
+			{
+				"code": "1",
+				"name": "餐饮娱乐"
+			},
+			{
+				"code": "2",
+				"name": "一般"
+			},
+			{
+				"code": "3",
+				"name": "民生类"
+			},
+			{
+				"code": "4",
+				"name": "批发类商户"
+			}
+		]
 	}
 ]
