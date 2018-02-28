@@ -52,4 +52,14 @@
 			<column id="30" name="type" title="分类" type="CHAR(1)"  notnull="true"/>
 			<column id="40" name="remark" title="说明" type="CLOB" />
 		</table>
+		<table id="1020105" name="pm_plat" title="平台" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
+			<column id="10" name="plat_id" title="ID" type="CHAR(2)"  primkey="true"/>
+			<column id="20" name="name" title="名称" type="VARCHAR(128)"  notnull="true"/>
+			<column id="40" name="remark" title="说明" type="CLOB" />
+		</table>
+		<table id="1020106" name="pm_com" title="商户" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
+			<column id="10" name="plat_id" title="平台ID" type="CHAR(2)"  primkey="true"/>
+			<column id="20" name="mcc_code" title="MCC" type="CHAR(4)"  notnull="true"/>
+			<column id="40" name="com_name" title="名称" type="VARCHAR(256)" />
+		</table>
 </db>

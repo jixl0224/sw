@@ -29,7 +29,7 @@ public class CreditViewListener extends DefaultUIListener
 	@Override
 	public Object getCodeNameMap(UIEvent event, UIComponent component)
 	{
-		if ("date".equals(component.uiname))
+		if ("odate".equals(component.uiname))
 		{
 			List<Object[]> list = new ArrayList<>();
 			Date date = new Date();

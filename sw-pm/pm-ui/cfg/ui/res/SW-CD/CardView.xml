@@ -11,7 +11,7 @@
   </m:DialogPane>
   <m:GridTable name="ucard" title="用户信用卡" region="center" sqlexpr="pm_ucard" mainui="param" 
       xprops.LoadDataService="SN-PM.CreditUIService#queryCardView"
-      rdonly="true" noCollapseQPaneAfterRefresh="true"
+      rdonly="true" noCollapseQPaneAfterRefresh="true" readwspid="PM" writewspid="PM"
       uilisteners="snsoft.sw.card.CreditViewListener.new"
   >
   	<jslistener>
@@ -36,7 +36,7 @@
   	}
   	]]>
   	</jslistener>
-    <c name="ccode" title="信用卡" sqltype="12" width="120" asceOrd="true" crossRow="true" codedata="#91.ccard" showname="true"/>
+    <c name="ccode" title="信用卡" sqltype="12" width="120" asceOrd="true" crossRow="true" codedata="#SW-CD.ccard" showname="true"/>
     <c name="odate" title="账单日" sqltype="4" width="70" asceOrd="true" crossCol="true" codedata="1:1"/>
     <c name="datetype" title="还款日" sqltype="12" width="30" crossData="true" codedata="#DT_CD.datetype" showname="true"/>
   </m:GridTable>
