@@ -8,6 +8,7 @@
 			<menu title="项目看板">
 				<menu title="参与者" cmd="ui:SW-PM.Actor"></menu>
 				<menu title="项目管理" cmd="ui:SW-PM.Project"></menu>
+				<menu title="项目事项" cmd="ui:SW-PM.PMEvent"></menu>
 				<menu title="项目看板[时点]" cmd="ui:SW-PM.View_point"></menu>
 				<menu title="项目看板[区间]" cmd="ui:SW-PM.View_period"></menu>
 			</menu>

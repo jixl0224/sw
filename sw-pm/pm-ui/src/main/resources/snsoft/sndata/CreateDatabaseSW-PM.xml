@@ -62,4 +62,12 @@
 			<column id="20" name="mcc_code" title="MCC" type="CHAR(4)"  notnull="true"/>
 			<column id="40" name="com_name" title="名称" type="VARCHAR(256)" />
 		</table>
+		
+		<table id="1020110" name="pm_event" title="事件" datasrcid="PM" storegrp="SNSYSDATA_TBS">
+			<column id="5" name="id" title="ID" type="INTEGER"  primkey="true"/>
+			<column id="10" name="pcode" title="项目" type="VARCHAR(32)" notnull="true"/>
+			<column id="20" name="predate" title="创建时间" type="DATE"/>
+			<column id="40" name="event_desc" title="时间描述" type="CLOB" />
+			<column id="50" name="status" title="完成状态" type="CHAR(1)" />
+		</table>
 </db>

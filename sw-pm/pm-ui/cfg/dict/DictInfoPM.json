@@ -1,0 +1,21 @@
+[
+	{
+		"dicticode": "evt_status",
+		"name": "事件状态",
+		"remark": "",
+		"infos": [
+			{
+				"code": "0",
+				"name": "未完成"
+			},
+			{
+				"code": "1",
+				"name": "已完成"
+			},
+			{
+				"code": "2",
+				"name": "关闭"
+			}
+		]
+	}
+]
