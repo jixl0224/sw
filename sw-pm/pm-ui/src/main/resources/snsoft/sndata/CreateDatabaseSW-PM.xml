@@ -67,6 +67,7 @@
 			<column id="5" name="id" title="ID" type="INTEGER"  primkey="true"/>
 			<column id="10" name="pcode" title="项目" type="VARCHAR(32)" notnull="true"/>
 			<column id="20" name="predate" title="创建时间" type="DATE"/>
+			<column id="30" name="findate" title="完成时间" type="DATE"/>
 			<column id="40" name="event_desc" title="时间描述" type="CLOB" />
 			<column id="50" name="status" title="完成状态" type="CHAR(1)" />
 		</table>
