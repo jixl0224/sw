@@ -29,4 +29,13 @@
 		<column id="40" name="cnt" title="单量" type="INTEGER" />
 		<index name="sw_ym_owner_ym" fields="ym,platid" storegrp="SNSYSINDX_TBS" />
 	</table>
+	<table id="20010" name="sw_curr" title="货物申报货值统计" datasrcid="SW" storegrp="SNSYSDATA_TBS">
+		<column id="10" name="id" title="主键" type="BIGINT" primkey="true" />
+		<column id="20" name="platid" title="平台" type="CHAR(16)" />
+		<column id="40" name="owner_code" title="生产制造单位|编码" type="CHAR(10)" />
+		<column id="55" name="owner_name" title="生产制造单位|名称" type="VARCHAR(128)" />
+		<column id="100" name="cnt" title="单量" type="INTEGER" />
+		<column id="30" name="curr" title="币种" type="NVARCHAR(8)" />
+		<column id="110" name="decl_total" title="货值" type="NUMERIC(18.2)" />
+	</table>
 </db>

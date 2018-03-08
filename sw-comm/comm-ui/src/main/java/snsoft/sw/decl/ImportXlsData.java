@@ -14,7 +14,9 @@ import snsoft.commons.util.StrUtils;
 import snsoft.dx.DBUtils;
 import snsoft.dx.Database;
 import snsoft.dx.UpdateData;
+import snsoft.dx.codedata.CodeDataService;
 import snsoft.dx.mc.service.MakeCodeService;
+import snsoft.dx.mc.service.MakeCodeService.BatchCodeMaker;
 import snsoft.dx.mc.service.MakeCodeService.MakeCodeParam;
 import snsoft.tools.bigxls.BigExcelFactory;
 import snsoft.tools.bigxls.BigExcelReader;
@@ -95,6 +97,64 @@ public class ImportXlsData
 					updateData.clear();
 					codes.clear();
 					codes.addAll(Arrays.asList(codeService.makeCodes(param)));
+				}
+			});
+			if (updateData.countUpdate() > 0)
+			{
+				db.updateData(updateData, true);
+			}
+			System.out.println("total lines =" + lines);
+		}
+		return counter.get();
+	}
+
+	/**
+	 * 导入货值
+	 */
+	public long importCurr() throws Exception
+	{
+		MakeCodeService codeService = SpringBeanUtils.getBeanByName("SN-CORE.MakeCodeService");
+		MakeCodeParam param = new MakeCodeParam("sw_curr", "id");
+		int n = 1000;
+		AtomicLong counter = new AtomicLong();
+		param.setCount(n);
+		try (
+				//
+				InputStream is = new FileInputStream(localPath);
+				//
+				Database db = DBUtils.newDatabaseByTable("sw_curr", true);)
+		{
+			UpdateData updateData = new UpdateData();
+			Map<String,String> nameMap = new HashMap<>();
+			{
+				Object[][] values = CodeDataService.impl.loadCodeData("DT_SW.curr", null).getValues();
+				for(Object[] vs : values)
+				{
+					nameMap.put((String)vs[1], (String)vs[0]);
+				}
+			}
+			BatchCodeMaker codeMaker = codeService.batchMacker(0, n, param);
+			BigExcelReader reader = BigExcelFactory.fac.newBigExcelReader(is, "导出工作表", 1);
+			long lines = reader.read(row -> {
+				int int1 = row.getInt(5);
+				if (int1 == 0)
+				{
+					return;
+				}
+				long cnt = counter.incrementAndGet();
+				Map<String,Object> data = new HashMap<>();
+				data.put("id", codeMaker.nextLong());
+				data.put("platid", row.getValue(0));
+				data.put("owner_code", row.getValue(1));
+				data.put("owner_name", row.getValue(2));
+				data.put("curr", row.getValue(3));
+				data.put("cnt", row.getValue(4));
+				data.put("decl_total", row.getValue(5));
+				updateData.addInsert("sw_curr", data);
+				if (cnt % n == 0)
+				{
+					db.updateData(updateData, true);
+					updateData.clear();
 				}
 			});
 			if (updateData.countUpdate() > 0)

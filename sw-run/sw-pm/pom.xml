@@ -30,6 +30,10 @@
 			<groupId>cn.snsoft.snadk</groupId>
 			<artifactId>snadk-cmc</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>cn.snsoft.snadk</groupId>
+			<artifactId>snadk-approval-impl</artifactId>
+		</dependency>
 		<!-- PM -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
