@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<B title="筹款管理" fullPage="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/UI" xsi:schemaLocation="http://snsoft.cn/schema/UI
+		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
+		">
+	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
+	</m:DialogPane>
+	<m:H uiprops.leftSize="440" region="center">
+		<m:GridTable name="cload" title="筹款" sqlexpr="pm_cload" mainui="param" xprops.LoadDataService="SN-PM.LoadService" xprops.SaveDataService="SN-PM.LoadService" noCollapseQPaneAfterRefresh="true"
+			showToolbar="true" uilisteners="snsoft.bas.sheet.VOListener.new">
+			<c name="lid" sqltype="4" noblank="true" hidden="true" />
+			<c name="total" title="筹款金额" sqltype="2" width="80" />
+			<c name="ratio" title="最大比例" sqltype="2" width="80" percent="true"/>
+			<c name="odate" title="筹款日期" sqltype="91" width="100" aidInputerBtn="true" />
+			<c name="remark" title="筹款事由" sqltype="12" width="100" aidInputerBtn="true" aidInputableIfRdonly="true" mutipleLine="true" tipIfOverflow="true" />
+			<c name="modifydate" title="修改时间" sqltype="91" width="135" rdonly="true" modifydateColumn="true" />
+		</m:GridTable>
+		<m:GridTable name="cloadg" title="筹款明细" sqlexpr="pm_cloadg" mainui="cload" xprops.LoadDataService="SN-PM.LoadService#queryDetail" showToolbar="true"
+			disableAppend="true" disableInsert="true"
+		>
+			<jslistener>
+			<![CDATA[
+			#new snsoft.sw.cd.LoadListener()
+			]]>
+			</jslistener>
+			<attrs>
+				<attr type="203" name="loadCards" title="加载" />
+				<attr type="203" name="calcCards" title="计算" />
+			</attrs>
+			<c name="gid" sqltype="4" hidden="true" />
+			<c name="lid" sqltype="4" hidden="true" xprops.cpmastercol=":lid" />
+			<c name="ccode" title="信用卡编码" sqltype="12" width="120" rdonly="true" codedata="#SW-CD.ccard" showname="true" />
+			<c name="sdate" title="账单日" sqltype="4" width="60" rdonly="true" />
+			<c name="cline" title="额度" sqltype="2" width="60" rdonly="true" />
+			<c name="r1" title="未还款" sqltype="2" width="80" />
+			<c name="r2" title="未出账" sqltype="2" width="80" />
+			<c name="rv" title="剩余" sqltype="2" width="80" rdonly="true" evalexpr="$cline-$r1-$r2" maxdeci="2"/>
+			<c name="cdays" title="无息天数" sqltype="4" width="80" rdonly="true" descOrd="true"/>
+			<c name="cv" title="筹款金额" sqltype="2" width="80" bottomval="*"/>
+		</m:GridTable>
+	</m:H>
+</B>

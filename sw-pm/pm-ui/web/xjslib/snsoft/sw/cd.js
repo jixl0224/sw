@@ -1,0 +1,34 @@
+Xjs.loadedXjs.push("snsoft/sw/cd");
+Xjs.namespace("snsoft.sw.cd");
+snsoft.sw.cd.LoadListener=Xjs.extend(Xjs.table.DefaultTableListener,{
+addTableNotify:function(table)
+{
+this.table=table;
+},
+oncmd_loadCards:function(table)
+{
+if(table.dataSet.getRowCount()==0)
+this.loadCards();
+else 
+Xjs.ui.UIUtil.showYesNoDialog("询问","重新加载将会删除已经存在的数据，确认重新加载吗？",{func:this.onLoadCards,scorp:this},null);
+},
+onLoadCards:function(w,cmd)
+{
+if("yes"==cmd)
+this.loadCards();
+},
+loadCards:function()
+{
+var lid=this.table.masterTable.dataSet.getValue("lid"),service=Xjs.RInvoke.newBean("SN-PM.LoadService");
+service.loadCards(lid);
+this.table.masterTable.dataSet.refreshDetail(this.table.dataSet,null);
+},
+oncmd_calcCards:function(table)
+{
+table.masterTable.saveChanges();
+var lid=table.masterTable.dataSet.getValue("lid"),service=Xjs.RInvoke.newBean("SN-PM.LoadService");
+service.calcCards(lid);
+table.masterTable.dataSet.refreshDetail(table.dataSet,null);
+}
+});
+Xjs.RInvoke.beansDef["SN-PM.LoadService"]={loadCards:{},calcCards:{}};
