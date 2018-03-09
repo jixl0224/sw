@@ -5,13 +5,13 @@
 		">
 	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
 	</m:DialogPane>
-	<m:H uiprops.leftSize="440" region="center">
+	<m:H uiprops.leftSize="510" region="center">
 		<m:GridTable name="cload" title="筹款" sqlexpr="pm_cload" mainui="param" xprops.LoadDataService="SN-PM.LoadService" xprops.SaveDataService="SN-PM.LoadService" noCollapseQPaneAfterRefresh="true"
 			showToolbar="true" uilisteners="snsoft.bas.sheet.VOListener.new">
 			<c name="lid" sqltype="4" noblank="true" hidden="true" />
 			<c name="total" title="筹款金额" sqltype="2" width="80" />
 			<c name="ratio" title="最大比例" sqltype="2" width="80" percent="true"/>
-			<c name="odate" title="筹款日期" sqltype="91" width="100" aidInputerBtn="true" />
+			<c name="odate" title="筹款日期" sqltype="91" width="100" aidInputerBtn="true" descOrd="true"/>
 			<c name="remark" title="筹款事由" sqltype="12" width="100" aidInputerBtn="true" aidInputableIfRdonly="true" mutipleLine="true" tipIfOverflow="true" />
 			<c name="modifydate" title="修改时间" sqltype="91" width="135" rdonly="true" modifydateColumn="true" />
 		</m:GridTable>
