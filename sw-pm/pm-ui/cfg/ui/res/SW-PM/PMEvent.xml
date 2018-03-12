@@ -3,7 +3,9 @@
 		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
 		">
 	<m:DialogPane name="param" region="north" layoutm="grid" showToolbar="true">
-		<c name="pcode" title="项目" sqltype="12" aidInputerBtn="true" disableed="true" codedata="#SW-PM.project" showname="true" mutiple="true" />
+		<c name="pcode" title="项目" sqltype="12" width="120"  aidInputerBtn="true" disableed="true" codedata="#SW-PM.project" showname="true" 
+			droplist="true" droplistWithSearchPane="true" codeNameMatch="true" aiprops="cellTextFmt:['${pcode}:${pname}']"
+		/>
 		<c name="status" title="完成状态" sqltype="12" width="80" initval="0" showname="true" codedata="#DT_PM.evt_status" droplist="true" disableed="true"/>
 	</m:DialogPane>
 	<m:GridTable name="event" region="center" sqlexpr="pm_event" mainui="param" noCollapseQPaneAfterRefresh="true" showToolbar="true">
