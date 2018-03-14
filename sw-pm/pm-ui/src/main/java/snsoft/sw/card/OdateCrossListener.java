@@ -25,23 +25,6 @@ import snsoft.ui.UIEvent;
 public class OdateCrossListener extends DefaultUIListener
 {
 	@Override
-	public void prepareLoadData(UIEvent event)
-	{
-		super.prepareLoadData(event);
-		/*
-		Date odate = DateUtils.toDate(event.getParameter("odate"));
-		int year = DateUtils.getDateYear(odate);
-		int month = DateUtils.getDateMonth(odate);
-		Date fmDate = DateUtils.toDate(year, month, 1);
-		Date toDate = DateUtils.toDate(year, month + 1, 0);
-		SqlExpr fm = new SqlExpr(SqlExpr.GE, SqlExpr.id("odate"), SqlExpr.constExpr(fmDate));
-		SqlExpr to = new SqlExpr(SqlExpr.LE, SqlExpr.id("odate"), SqlExpr.constExpr(toDate));
-		SqlExpr filter = fm.and(to);
-		addFilter(event, "odateFilter", filter);
-		*/
-	}
-
-	@Override
 	public Object getCodeNameMap(UIEvent event, UIComponent component)
 	{
 		if ("odate".equals(component.uiname))
