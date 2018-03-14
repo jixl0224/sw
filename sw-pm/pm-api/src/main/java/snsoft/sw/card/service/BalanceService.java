@@ -61,6 +61,14 @@ public interface BalanceService
 		 * 消费占比
 		 */
 		private BigDecimal	ratio1;
+		/**
+		 * 账单日天数
+		 */
+		private int			sdays;
+		/**
+		 * 还款日天数
+		 */
+		private int			ddays;
 
 		public String getCcode()
 		{
@@ -150,6 +158,26 @@ public interface BalanceService
 		public void setRatio1(BigDecimal ratio1)
 		{
 			this.ratio1 = ratio1;
+		}
+
+		public int getSdays()
+		{
+			return sdays;
+		}
+
+		public void setSdays(int sdays)
+		{
+			this.sdays = sdays;
+		}
+
+		public int getDdays()
+		{
+			return ddays;
+		}
+
+		public void setDdays(int ddays)
+		{
+			this.ddays = ddays;
 		}
 	}
 

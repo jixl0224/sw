@@ -92,6 +92,27 @@ public class BalanceServiceImpl implements BalanceService
 		int year = DateUtils.getDateYear(odate);
 		int month = DateUtils.getDateMonth(odate);
 		int day = DateUtils.getDateDay(odate);
+		// 天数
+		{
+			// 账单日
+			if (day <= card.getSdate())
+			{
+				bill.setSdays(card.getSdate() - day);
+			} else
+			{
+				Date fm = DateUtils.toDate(year, month + 1, card.getSdate());
+				bill.setSdays(DateUtils.diffDate(fm, odate));
+			}
+			// 还款日
+			if (day <= card.getDdate())
+			{
+				bill.setDdays(card.getDdate() - day);
+			} else
+			{
+				Date fm = DateUtils.toDate(year, month + 1, card.getDdate());
+				bill.setDdays(DateUtils.diffDate(fm, odate));
+			}
+		}
 		Date[] dates = new Date[2];
 		if (day <= card.getSdate())
 		{
@@ -124,6 +145,11 @@ public class BalanceServiceImpl implements BalanceService
 		{
 			BigDecimal fcy4 = card.getCline().subtract(bill.getFcy1()).subtract(bill.getFcy2()).add(bill.getFcy3());
 			bill.setFcy4(fcy4);
+		}
+		// 消费占比
+		{
+			BigDecimal ratio1 = card.getCline().subtract(bill.getFcy4()).divide(card.getCline(), 4, BigDecimal.ROUND_HALF_UP);
+			bill.setRatio1(ratio1);
 		}
 	}
 

@@ -17,6 +17,9 @@
 			<c name="fcy2" title="未出账" sqltype="2" width="80" maxdeci="2" bottomval="*"/>
 			<c name="fcy3" title="已还款" sqltype="2" width="80" maxdeci="2" bottomval="*"/>
 			<c name="fcy4" title="剩余额度" sqltype="2" width="80" maxdeci="2" bottomval="*"/>
+			<c name="ratio1" title="消费占比" sqltype="2" width="80" maxdeci="2" percent="true"/>
+			<c name="sdays" title="天数|账单" sqltype="4" width="60" />
+			<c name="ddays" title="天数|还款" sqltype="4" width="60" />
 		</m:GridTable>
 		<m:GridTable name="ucard" title="账单/还款日"   sqlexpr="pm_ucard" mainui="param" xprops.LoadDataService="SN-PM.CreditUIService#queryCardView" nmpre="filter" rdonly="true"
 			noCollapseQPaneAfterRefresh="true" readwspid="PM" writewspid="PM" uilisteners="snsoft.sw.card.CreditViewListener.new">
