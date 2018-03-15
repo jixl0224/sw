@@ -61,3 +61,17 @@ snsoft.sw.cd.SkipTodayListener=Xjs.extend(Xjs.table.DefaultListener,{
         snsoft.sw.cd.SkipTodayListener.superclass.dataLoaded.call(this,dataSet,e);
     }
 });
+/*snsoft/sw/cd/SumValueAccess.java*/
+snsoft.sw.cd.SumValueAccess=Xjs.extend(Xjs.table.ColumnValueAccess,{
+  _js$className_:"snsoft.sw.cd.SumValueAccess",
+    /*snsoft.sw.cd.SumValueAccess.getValue*/
+    getValue:function(dataSet,column,row)
+    {
+        return dataSet.getValue(column.name,row);
+    },
+    /*snsoft.sw.cd.SumValueAccess.setValue*/
+    setValue:function(dataSet,column,value,e)
+    {
+        dataSet.setValue(column.name,eval(value));
+    }
+});

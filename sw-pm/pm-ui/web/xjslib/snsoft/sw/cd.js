@@ -42,3 +42,13 @@ dataLoaded:function(dataSet,e)
 snsoft.sw.cd.SkipTodayListener.superclass.dataLoaded.call(this,dataSet,e);
 }
 });
+snsoft.sw.cd.SumValueAccess=Xjs.extend(Xjs.table.ColumnValueAccess,{
+getValue:function(dataSet,column,row)
+{
+return dataSet.getValue(column.name,row);
+},
+setValue:function(dataSet,column,value,e)
+{
+dataSet.setValue(column.name,eval(value));
+}
+});

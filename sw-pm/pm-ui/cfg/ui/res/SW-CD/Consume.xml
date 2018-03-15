@@ -4,16 +4,36 @@
 		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
 		">
 	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
-		<c name="odate" title="日期" sqltype="91" noblank="true" initval="%CURDATE" aidInputerBtn="true"/>
+		<c name="odate" title="日期" sqltype="91" noblank="true" initval="%CURDATE" aidInputerBtn="true" />
 	</m:DialogPane>
-	<m:GridTable name="consume" region="center" sqlexpr="pm_consume" nmpre="filter" mainui="param" noCollapseQPaneAfterRefresh="true" showToolbar="true"
-		xprops.LoadDataService="SN-PM.BalanceService#queryConsume"
-	>
+	<m:GridTable name="consume" region="center" sqlexpr="pm_consume" nmpre="filter" mainui="param" noCollapseQPaneAfterRefresh="true" showToolbar="true" xprops.LoadDataService="SN-PM.BalanceService#queryConsume">
 		<uilisteners>
 			snsoft.sw.card.OdateCrossListener.new
 		</uilisteners>
+		<jslistener>
+		<![CDATA[
+		@lib:snsoft/sw/cd
+		table:null,
+		addTableNotify(table)
+		{
+			this.table = table;
+		},
+		dataLoaded:function()
+		{
+			var access = new snsoft.sw.cd.SumValueAccess();
+			var tcs = this.table.getColumns();
+			for(var i = 0;i < tcs.length;i++)
+			{
+				if(tcs[i].name.indexOf("$CRCOL$") == 0)
+				{
+					tcs[i].valueAccess = access;
+				}
+			}
+		}
+		]]>
+		</jslistener>
 		<c name="ccode" title="信用卡" sqltype="12" width="80" noblank="true" fixedLeft="true" asceOrd="true" crossRow="true" codedata="#SW-CD.ccard" showname="true" aidInputerBtn="true" />
 		<c name="odate" title="日期" sqltype="12" width="30" asceOrd="true" crossCol="true" />
-		<c name="fcy" title="金额" sqltype="2" width="80" crossData="true" bottomval="*" />
+		<c name="fcy" title="金额" sqltype="12" width="80" crossData="true" bottomval="*" />
 	</m:GridTable>
 </B>
