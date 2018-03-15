@@ -1,2 +1,3 @@
 classes:
  snsoft.sw.cd.LoadListener:Xjs.table.DefaultTableListener
+ snsoft.sw.cd.SkipTodayListener:Xjs.table.DefaultListener

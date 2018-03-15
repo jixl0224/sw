@@ -69,6 +69,10 @@ public interface BalanceService
 		 * 还款日天数
 		 */
 		private int			ddays;
+		/**
+		 * 日均建议
+		 */
+		private BigDecimal	fcy5;
 
 		public String getCcode()
 		{
@@ -178,6 +182,16 @@ public interface BalanceService
 		public void setDdays(int ddays)
 		{
 			this.ddays = ddays;
+		}
+
+		public BigDecimal getFcy5()
+		{
+			return fcy5;
+		}
+
+		public void setFcy5(BigDecimal fcy5)
+		{
+			this.fcy5 = fcy5;
 		}
 	}
 

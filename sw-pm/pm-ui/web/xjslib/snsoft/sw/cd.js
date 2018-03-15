@@ -32,3 +32,13 @@ table.masterTable.dataSet.refreshDetail(table.dataSet,null);
 }
 });
 Xjs.RInvoke.beansDef["SN-PM.LoadService"]={loadCards:{},calcCards:{}};
+snsoft.sw.cd.SkipTodayListener=Xjs.extend(Xjs.table.DefaultListener,{
+addTableNotify:function(table)
+{
+this.table=table;
+},
+dataLoaded:function(dataSet,e)
+{
+snsoft.sw.cd.SkipTodayListener.superclass.dataLoaded.call(this,dataSet,e);
+}
+});

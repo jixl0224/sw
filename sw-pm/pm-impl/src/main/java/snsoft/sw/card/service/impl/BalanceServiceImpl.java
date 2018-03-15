@@ -151,6 +151,11 @@ public class BalanceServiceImpl implements BalanceService
 			BigDecimal ratio1 = card.getCline().subtract(bill.getFcy4()).divide(card.getCline(), 4, BigDecimal.ROUND_HALF_UP);
 			bill.setRatio1(ratio1);
 		}
+		// 日均建议
+		{
+			BigDecimal fcy5 = bill.getFcy4().divide(new BigDecimal(bill.getDdays() == 0 ? 50 : bill.getDdays()), 0, BigDecimal.ROUND_HALF_UP);
+			bill.setFcy5(fcy5);
+		}
 	}
 
 	private SqlExpr buildDateFilter(Date fmDate, Date toDate)

@@ -47,3 +47,17 @@ snsoft.sw.cd.LoadListener=Xjs.extend(Xjs.table.DefaultTableListener,{
 });
 /*snsoft/sw/cd/LoadService.java*/
 Xjs.RInvoke.beansDef["SN-PM.LoadService"]={loadCards:{},calcCards:{}};
+/*snsoft/sw/cd/SkipTodayListener.java*/
+snsoft.sw.cd.SkipTodayListener=Xjs.extend(Xjs.table.DefaultListener,{
+  _js$className_:"snsoft.sw.cd.SkipTodayListener",
+    /*snsoft.sw.cd.SkipTodayListener.addTableNotify*/
+    addTableNotify:function(table)
+    {
+        this.table = table;
+    },
+    /*snsoft.sw.cd.SkipTodayListener.dataLoaded*/
+    dataLoaded:function(dataSet,e)
+    {
+        snsoft.sw.cd.SkipTodayListener.superclass.dataLoaded.call(this,dataSet,e);
+    }
+});
