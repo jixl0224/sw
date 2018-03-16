@@ -132,7 +132,7 @@ public class BalanceServiceImpl implements BalanceService
 		// 未出账
 		{
 			String sql = "select sum(fcy) from pm_consume where ccode=?";
-			sql += " and " + buildDateFilter(dates[1], odate).toString(db.getDialect());
+			sql += " and " + buildDateFilter(DateUtils.incDate(dates[1], 1), odate).toString(db.getDialect());
 			bill.setFcy2(DataUtils.obj2big(db.query1(sql, new SqlValue(card.getCcode()))));
 		}
 		// 已还款
@@ -153,7 +153,7 @@ public class BalanceServiceImpl implements BalanceService
 		}
 		// 日均建议
 		{
-			BigDecimal fcy5 = bill.getFcy4().divide(new BigDecimal(bill.getDdays() == 0 ? 50 : bill.getDdays()), 0, BigDecimal.ROUND_HALF_UP);
+			BigDecimal fcy5 = bill.getFcy4().divide(new BigDecimal(bill.getDdays() + 30), 0, BigDecimal.ROUND_HALF_UP);
 			bill.setFcy5(fcy5);
 		}
 	}
