@@ -1,0 +1,37 @@
+技术：Spring-MyBatis-Dubbo-WebService
+
+1、环境配置；
+2、配置MyBatis文件或注解；
+3、生成10W条数据；
+4、查询；
+5、处理；
+
+tableName = "test_users"
+dcs = new snsoft.dx.DataColumn[11]
+dcs[0] = new snsoft.dx.DataColumn("id", "主键", java.sql.Types.INTEGER).setFlags(3)
+i = 0
+while i < 10
+	dcs[i+1] = new snsoft.dx.DataColumn("var0"+i, "var0"+i, java.sql.Types.VARCHAR,64,0)
+	i = i + 1
+end while
+db = getDatabaseByDSID("4")
+sql = db.getDialect().buildCreateTableSql(tableName,null,null,dcs,null)
+println(sql)
+
+
+
+CREATE TABLE test_users
+(
+    id INTEGER not null,
+    var00 VARCHAR(64) null,
+    var01 VARCHAR(64) null,
+    var02 VARCHAR(64) null,
+    var03 VARCHAR(64) null,
+    var04 VARCHAR(64) null,
+    var05 VARCHAR(64) null,
+    var06 VARCHAR(64) null,
+    var07 VARCHAR(64) null,
+    var08 VARCHAR(64) null,
+    var09 VARCHAR(64) null,
+    CONSTRAINT test_users_pk PRIMARY KEY(id)
+)
