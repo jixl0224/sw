@@ -28,9 +28,9 @@ public class Main
 		{
 			context.refresh();
 			context.start();
-			//
 			UserService userService = (UserService) context.getBean("userService");
-			userService.printUsers(1);
+			//
+			userService.createRecords(10000);
 		}
 	}
 }

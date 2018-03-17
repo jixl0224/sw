@@ -135,4 +135,10 @@ public class User
 	{
 		this.var09 = var09;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "User [id=" + id + "]";
+	}
 }
