@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Order xmlns="http://snsoft.cn/schema/Order" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://snsoft.cn/schema/Order Order.xsd ">
+  <billid>0</billid>
+  <odate>2001-01-01</odate>
+  <user>user</user>
+  <fcode>fcode</fcode>
+  <fcy>0.0</fcy>
+  <fee>0.0</fee>
+  <goods>
+    <goodid>0</goodid>
+    <gcode>gcode</gcode>
+    <unit>unit</unit>
+    <upric>0.0</upric>
+    <qtc>0.0</qtc>
+    <fcy>0.0</fcy>
+  </goods>
+  <goods>
+    <goodid>0</goodid>
+    <gcode>gcode</gcode>
+    <unit>unit</unit>
+    <upric>0.0</upric>
+    <qtc>0.0</qtc>
+    <fcy>0.0</fcy>
+  </goods>
+</Order>

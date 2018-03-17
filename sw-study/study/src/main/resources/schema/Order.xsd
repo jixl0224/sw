@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://snsoft.cn/schema/Order" xmlns="http://snsoft.cn/schema/Order" elementFormDefault="qualified">
+
+	<xs:element name="Order" type="Order"></xs:element>
+
+	<xs:complexType name="Order">
+		<xs:sequence>
+			<xs:element name="billid">
+				<xs:simpleType>
+					<xs:restriction base="xs:int"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="odate">
+				<xs:simpleType>
+					<xs:restriction base="xs:date"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="user">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="fcode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="fcy">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="fee">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="goods" type="Good" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Good">
+		<xs:sequence>
+			<xs:element name="goodid">
+				<xs:simpleType>
+					<xs:restriction base="xs:int"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="gcode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="unit">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="upric">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="qtc">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="fcy">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
