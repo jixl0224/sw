@@ -23,6 +23,15 @@
 				<menu title="信用卡还款" cmd="ui:SW-CD.Repayment"></menu>
 			</menu>
 		</menu>
+		<menu title="P2P">
+			<menu title="基础资料">
+				<menu title="P2P用户" cmd="ui:SW-P2P.Users"></menu>
+				<menu title="P2P平台" cmd="ui:SW-P2P.Plats"></menu>
+			</menu>
+			<menu title="查询面板">
+				<menu title="购买记录" cmd="ui:SW-P2P.Records"></menu>
+			</menu>
+		</menu>
 	</menu>
 	<include id="90" sysid="90" title="引入管控中心菜单定义" />
 </menumodel>

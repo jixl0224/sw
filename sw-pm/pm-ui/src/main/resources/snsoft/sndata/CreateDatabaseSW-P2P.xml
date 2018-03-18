@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<db id="SW-P2P" title="P2P" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/db"
+	xsi:schemaLocation="http://snsoft.cn/schema/db
+		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/CreateDatabase.xsd">
+	<table id="1020120" name="p2p_user" title="P2P用户" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
+		<column id="10" name="ucode" title="用户编码" type="CHAR(3)" primkey="true" />
+		<column id="20" name="uname" title="用户名称" type="VARCHAR(16)" notnull="true" />
+		<column id="30" name="idno" title="身份证号" type="CHAR(18)" />
+		<column id="40" name="iddate" title="有效期" type="DATE" />
+		<column id="50" name="mobile" title="手机号" type="CHAR(11)" />
+	</table>
+	<table id="1020120" name="p2p_plat" title="P2P平台" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
+		<column id="10" name="pcode" title="平台编码" type="CHAR(3)" primkey="true" />
+		<column id="20" name="pname" title="平台名称" type="VARCHAR(32)" notnull="true" />
+		<column id="25" name="ptype" title="平台类型" type="CHAR(1)" />
+		<column id="30" name="remark" title="相关说明" type="CLOB" />
+	</table>
+	<table id="1020120" name="p2p_record" title="P2P购买记录" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
+		<column id="5" name="id" title="主键" type="INTEGER" primkey="true" />
+		<column id="10" name="ucode" title="用户" type="CHAR(3)" notnull="true" />
+		<column id="20" name="pcode" title="平台" type="CHAR(3)" notnull="true" />
+		<column id="30" name="prddesc" title="产品说明" type="VARCHAR(256)" />
+		<column id="40" name="ratio1" title="年化" type="NUMERIC(10.2)" />
+		<column id="50" name="fcy1" title="购买金额" type="NUMERIC(10.2)" />
+		<column id="60" name="fcy2" title="优惠额" type="NUMERIC(10.2)" />
+		<column id="70" name="fcy3" title="返现" type="NUMERIC(10.2)" />
+		<column id="80" name="fcy4" title="预期收益" type="NUMERIC(10.2)" />
+		<column id="90" name="fcy5" title="实际收益" type="NUMERIC(10.2)" />
+		<column id="100" name="bedate" title="起购日期" type="DATE" />
+		<column id="110" name="ledate" title="回购日期" type="DATE" />
+		<column id="120" name="remark" title="说明" type="VARCHAR(512)" />
+	</table>
+</db>

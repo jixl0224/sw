@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<B title="P2P用户" fullPage="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/UI" xsi:schemaLocation="http://snsoft.cn/schema/UI
+		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
+		">
+	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
+	</m:DialogPane>
+	<m:GridTable name="user" title="P2P用户" region="center" sqlexpr="p2p_user" mainui="param" xprops.LoadDataService="SN-PM.P2pService#queryUsers" xprops.SaveDataService="SN-PM.P2pService#saveUsers"
+		noCollapseQPaneAfterRefresh="true" showToolbar="true" autoRefresh="true">
+		<c name="ucode" title="编码" sqltype="12" width="80" noblank="true" asceOrd="true" />
+		<c name="uname" title="名称" sqltype="12" width="70" noblank="true" />
+		<c name="idno" title="身份证号" sqltype="12" width="140" />
+		<c name="iddate" title="有效期" sqltype="91" width="100" aidInputerBtn="true" disableed="true"/>
+		<c name="mobile" title="手机号" sqltype="12" width="100" />
+	</m:GridTable>
+</B>
