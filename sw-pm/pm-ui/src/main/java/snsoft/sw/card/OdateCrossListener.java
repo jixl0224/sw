@@ -5,7 +5,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import snsoft.bas.service.util.NullQueryParams;
+import snsoft.commons.spring.SpringBeanUtils;
 import snsoft.commons.util.DateUtils;
+import snsoft.dx.codedata.CodeData;
+import snsoft.dx.codedata.CodeDataService;
+import snsoft.sw.card.entity.PMUcard;
+import snsoft.sw.card.service.CreditUIService;
 import snsoft.ui.DefaultUIListener;
 import snsoft.ui.UIComponent;
 import snsoft.ui.UIEvent;
@@ -41,6 +47,17 @@ public class OdateCrossListener extends DefaultUIListener
 			{
 				String date = dateFormat.format(DateUtils.toDate(year, month, i + 1));
 				list.add(new String[] { date, "" + (i + 1) });
+			}
+			return list.toArray(new String[list.size()][]);
+		} else if ("ccode".equals(component.uiname))
+		{
+			CreditUIService service = SpringBeanUtils.getBeanByName("SN-PM.CreditUIService");
+			PMUcard[] cards = service.queryPMUcard(new NullQueryParams());
+			List<String[]> list = new ArrayList<>();
+			CodeData codeData = CodeDataService.impl.loadCodeData("SW-CD.ccard", null);
+			for (PMUcard card : cards)
+			{
+				list.add(new String[] { card.getCcode(), (String) codeData.get(card.getCcode()) });
 			}
 			return list.toArray(new String[list.size()][]);
 		}
