@@ -7,4 +7,10 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="SN-ORD.BillService" class="snsoft.tst.ord.service.impl.BillServiceImpl"/>
+	<bean id="SN-SHEET.DefaultValueService" class="snsoft.bas.sheet.dft.service.impl.DefaultValueServiceImpl"/>
+	<bean id="SN-Busi.SheetAccodeService" class="snsoft.bas.sheet.busi.service.impl.SheetAccodeServiceImpl"/>
+	<bean id="SN-CORE.UCodeServiceFactory" class="snsoft.dx.data.service.impl.UCodeServiceFactoryImpl"/>
+	<bean id="SN-BAS.AccodeService" class="snsoft.bas.sheet.accode.service.impl.AccodeServiceImpl"/>
+	
+	
 </beans>

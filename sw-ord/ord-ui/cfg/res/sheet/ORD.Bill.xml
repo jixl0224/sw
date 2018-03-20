@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sheet xmlns="http://snsoft.cn/schema/Sheet" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<name>订单</name>
+	<tblname>tst_bill</tblname>
+	<innerfld>billicode</innerfld>
+	<outerfld>billcode</outerfld>
+	<voclass>snsoft.help.mq.vo.HelpMQ</voclass>
+	<remark>
+	<![CDATA[
+	订单：
+	1、使用编码规则；
+	2、使用权限：
+	（1）权限字段：ucode=创建人；
+	（2）操作：
+		C=增删改；
+		R=读；
+	]]>
+	</remark>
+</Sheet>

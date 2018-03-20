@@ -2,6 +2,7 @@ package snsoft.tst.ord.service;
 
 import java.util.List;
 import snsoft.bas.service.QueryParams;
+import snsoft.commons.annotation.AuthParam;
 import snsoft.commons.spring.SpringBean;
 import snsoft.tst.ord.vo.Tst_bill;
 
@@ -20,8 +21,10 @@ import snsoft.tst.ord.vo.Tst_bill;
 @SpringBean(name = "SN-ORD.BillService")
 public interface BillService
 {
+	@AuthParam(sheetCode = "ORD.Bill", opids = { "R", "C" })
 	List<Tst_bill> queryBills(BillParams params);
 
+	@AuthParam(sheetCode = "ORD.Bill", opids = { "C" })
 	void saveBills(List<Tst_bill> bills);
 
 	class BillParams extends QueryParams

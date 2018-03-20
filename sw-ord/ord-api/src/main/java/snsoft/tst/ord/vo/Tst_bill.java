@@ -27,12 +27,12 @@ public class Tst_bill extends VO
 	/**主键*/
 	@Id
 	@Column
-	@DefaultValue("AutoAlloc:INNER_____")
+	@DefaultValue("Accode:tst_bill-inner")
 	private String				billicode;
 
 	/**外码*/
 	@Column
-	@DefaultValue("AutoAlloc:OUTTER_____")
+	@DefaultValue("SheetAccode:ORD.Bill")
 	private String				billcode;
 
 	/**日期*/
