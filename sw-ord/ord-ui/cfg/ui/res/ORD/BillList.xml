@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <m:B title="订单列表" fullPage="true">
-	<m:DialogPane name="param" region="north" title="param" showToolbar="true">
+	<m:DialogPane name="param" region="north" title="param" showToolbar="true" layoutm="grid">
+		<c name="odatefm" sqltype="91" title="日期从" aidInputerBtn="true" disableed="true" />
+		<c name="odateto" sqltype="91" title="日期到" aidInputerBtn="true" disableed="true" />
+		<c name="fcode" sqltype="12" title="币种" mutiple="true" />
+		<c name="remark" sqltype="12" title="备注" prefixMatch="true" suffixMatch="true" />
 	</m:DialogPane>
-	<m:GridTable mainui="param" name="bill" readwspid="ORD" region="center" sqlexpr="tst_bill" title="bill" writewspid="ORD" xprops.LoadDataService="SN-ORD.BillService#queryBills"
-		xprops.SaveDataService="SN-ORD.BillService#saveBills">
-		<uilisteners>
-		snsoft.bas.sheet.VOListener.new
-		</uilisteners>
-		<c name="billcode" sqltype="12" title="外码" rdonly="true"/>
-		<c name="billicode" sqltype="12" title="主键" rdonly="true"/>
-		<c name="fcode" sqltype="12" title="币种" />
-		<c name="fcy" sqltype="2" title="金额" />
-		<c name="flags" sqltype="4" title="标识" />
-		<c name="odate" sqltype="91" title="日期" aidInputerBtn="true" disableed="true"/>
-		<c name="remark" sqltype="12" title="备注" />
-	</m:GridTable>
+	<m:V region="center" uiprops.leftSize="400">
+		<m:GridTable mainui="param" name="bill" readwspid="ORD" region="center" sqlexpr="tst_bill" title="bill" writewspid="ORD" xprops.LoadDataService="SN-ORD.BillService#queryBills"
+			xprops.SaveDataService="SN-ORD.BillService#saveBills">
+			<uilisteners>
+				snsoft.bas.sheet.VOListener.new
+			</uilisteners>
+			<c name="billcode" sqltype="12" title="外码" rdonly="true" />
+			<c name="billicode" sqltype="12" title="主键" rdonly="true" />
+			<c name="fcode" sqltype="12" title="币种" />
+			<c name="fcy" sqltype="2" title="金额" />
+			<c name="flags" sqltype="4" title="标识" />
+			<c name="odate" sqltype="91" title="日期" aidInputerBtn="true" disableed="true" />
+			<c name="remark" sqltype="12" title="备注" />
+		</m:GridTable>
+		<m:GridTable mainui="bill" name="good" readwspid="ORD" sqlexpr="tst_good" writewspid="ORD" xprops.LoadDataService="SN-ORD.BillService#queryGoods">
+			<c name="billgicode" title="主键" sqltype="12" />
+			<c name="billicode" title="外键" sqltype="12" xprops.cpmastercol=":billicode" />
+			<c name="gcode" title="日期" sqltype="12" />
+			<c name="qtc" title="币种" sqltype="2" />
+			<c name="upric" title="金额" sqltype="2" />
+			<c name="fcy" title="备注" sqltype="2" />
+
+		</m:GridTable>
+	</m:V>
 </m:B>

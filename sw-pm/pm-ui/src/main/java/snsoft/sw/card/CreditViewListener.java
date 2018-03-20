@@ -3,11 +3,17 @@ package snsoft.sw.card;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import snsoft.bas.service.util.NullQueryParams;
+import snsoft.commons.spring.SpringBeanUtils;
 import snsoft.commons.util.DateUtils;
 import snsoft.dx.ReadDataSet;
 import snsoft.dx.ReadDataSetFactory;
+import snsoft.dx.codedata.CodeData;
+import snsoft.dx.codedata.CodeDataService;
 import snsoft.dx.dataset.ArrayReadDataSet;
 import snsoft.dx.ui.CrossDataInfo;
+import snsoft.sw.card.entity.PMUcard;
+import snsoft.sw.card.service.CreditUIService;
 import snsoft.ui.DefaultUIListener;
 import snsoft.ui.UIComponent;
 import snsoft.ui.UIEvent;
@@ -43,6 +49,17 @@ public class CreditViewListener extends DefaultUIListener
 				list.add(new Object[] { i + 1, String.format("%1$02d", i + 1) });
 			}
 			return list.toArray(new Object[list.size()][]);
+		} else if ("ccode".equals(component.uiname))
+		{
+			CreditUIService service = SpringBeanUtils.getBeanByName("SN-PM.CreditUIService");
+			PMUcard[] cards = service.queryPMUcard(new NullQueryParams());
+			List<String[]> list = new ArrayList<>();
+			CodeData codeData = CodeDataService.impl.loadCodeData("SW-CD.ccard", null);
+			for (PMUcard card : cards)
+			{
+				list.add(new String[] { card.getCcode(), (String) codeData.get(card.getCcode()) });
+			}
+			return list.toArray(new String[list.size()][]);
 		}
 		return super.getCodeNameMap(event, component);
 	}
@@ -51,17 +68,17 @@ public class CreditViewListener extends DefaultUIListener
 	public ReadDataSet onDataLoaded(UIEvent event, ReadDataSet rs)
 	{
 		ArrayReadDataSet ars = ReadDataSetFactory.impl.toArrayReadDataSet(rs, true);
-//		PMCcard[] cards;
-//		{
-//			CreditUIService service = SpringBeanUtils.getBeanByName("SN-HELP.CreditUIService");
-//			NullQueryParams param = new NullQueryParams();
-//			param.setSort(new Sort("code"));
-//			cards = service.queryPMCcard(param);
-//		}
-//		for(Object[] vs : ars.loadDataSetValues())
-//		{
-//			
-//		}
+		//		PMCcard[] cards;
+		//		{
+		//			CreditUIService service = SpringBeanUtils.getBeanByName("SN-HELP.CreditUIService");
+		//			NullQueryParams param = new NullQueryParams();
+		//			param.setSort(new Sort("code"));
+		//			cards = service.queryPMCcard(param);
+		//		}
+		//		for(Object[] vs : ars.loadDataSetValues())
+		//		{
+		//			
+		//		}
 		return ars;
 	}
 

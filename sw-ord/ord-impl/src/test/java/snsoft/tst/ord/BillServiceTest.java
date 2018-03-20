@@ -3,6 +3,7 @@ package snsoft.tst.ord;
 import java.util.ArrayList;
 import java.util.List;
 import org.testng.annotations.Test;
+import snsoft.bas.sheet.dft.service.DefaultValueService;
 import snsoft.test.SnsoftTest;
 import snsoft.tst.ord.service.BillService;
 import snsoft.tst.ord.vo.Tst_bill;
@@ -33,8 +34,10 @@ public class BillServiceTest extends SnsoftTest
 		BillService service = newBean("SN-ORD.BillService");
 		List<Tst_bill> bills = new ArrayList<>();
 		Tst_bill bill = new Tst_bill();
-		bill.setBillicode("001");
-		bill.setBillcode("001");
+		{
+			DefaultValueService dftService = newBean("SN-SHEET.DefaultValueService");
+			dftService.setDefaultValues(new Object[] { bill }, false);
+		}
 		bills.add(bill);
 		service.saveBills(bills);
 		BillService.BillParams params = new BillService.BillParams();

@@ -4,6 +4,7 @@ import java.util.List;
 import snsoft.dx.DefaultDAO;
 import snsoft.tst.ord.service.BillService;
 import snsoft.tst.ord.vo.Tst_bill;
+import snsoft.tst.ord.vo.Tst_good;
 
 /**
  * <p>标题：</p>
@@ -29,5 +30,11 @@ public class BillServiceImpl implements BillService
 	public void saveBills(List<Tst_bill> bills)
 	{
 		new DefaultDAO<Tst_bill>().save(bills);
+	}
+
+	@Override
+	public List<Tst_good> queryGoods(GoodParams params)
+	{
+		return new DefaultDAO<Tst_good>().queryList(Tst_good.class, params.buildDBQueryParams());
 	}
 }

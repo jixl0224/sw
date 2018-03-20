@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<db id="ORD" title="订单管理" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/db"
-	xsi:schemaLocation="http://snsoft.cn/schema/db
+<db id="ORD" title="订单管理" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/db" xsi:schemaLocation="http://snsoft.cn/schema/db
 		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/CreateDatabase.xsd">
 	<table id="20002" name="tst_bill" title="订单" datasrcid="ORD" storegrp="SNSYSDATA_TBS" localcache="false">
 		<column id="10" name="billicode" title="主键" type="VARCHAR(32)" primkey="true" />
@@ -11,5 +10,15 @@
 		<column id="50" name="fcy" title="金额" type="NUMERIC(10.2)" />
 		<column id="60" name="remark" title="备注" type="CLOB" />
 		<column id="70" name="flags" title="标识" type="SMALLINT" />
+	</table>
+	<table id="20002" name="tst_good" title="订单明细" datasrcid="ORD" storegrp="SNSYSDATA_TBS" localcache="false">
+		<column id="10" name="billgicode" title="主键" type="VARCHAR(32)" primkey="true" />
+		<column id="20" name="billicode" title="外键" type="VARCHAR(32)" notnull="true" />
+		<column id="30" name="gcode" title="日期" type="VARCHAR(64)" />
+		<column id="40" name="qtc" title="币种" type="NUMERIC(10.2)" />
+		<column id="50" name="upric" title="金额" type="NUMERIC(10.2)" />
+		<column id="60" name="fcy" title="备注" type="NUMERIC(10.2)" />
+		<fkeycontraint name="tst_good_icode" foreignKey="billicode" references="tst_bill(billicode)" />
+		<index name="tst_good_billicode" fields="billicode" unique="false" storegrp="SNSYSINDX_TBS" />
 	</table>
 </db>

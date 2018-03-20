@@ -1,10 +1,15 @@
 package snsoft.tst.ord.vo;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import org.hibernate.validator.constraints.Length;
 import snsoft.bas.sheet.dft.annotation.DefaultValue;
 import snsoft.dx.VO;
@@ -27,12 +32,12 @@ public class Tst_bill extends VO
 	/**主键*/
 	@Id
 	@Column
-	@DefaultValue("AutoAlloc:INNER_____")
+	@DefaultValue("Accode:tst_bill-inner")
 	private String				billicode;
 
 	/**外码*/
 	@Column
-	@DefaultValue("AutoAlloc:OUTTER_____")
+	@DefaultValue("SheetAccode:ORD.Bill")
 	private String				billcode;
 
 	/**日期*/
@@ -45,18 +50,23 @@ public class Tst_bill extends VO
 	private String				fcode;
 
 	/**金额*/
-	@Column(scale=2)
-	
+	@Column(scale = 2)
+
 	private BigDecimal			fcy;
 
 	/**备注*/
 	@Column
-	@Length(max=8)
+	@Length(max = 8)
 	private String				remark;
 
 	/**标识*/
 	@Column
 	private int					flags;
+
+	@OneToMany
+	@JoinColumn(name = "billicode", referencedColumnName = "billicode")
+	@Valid
+	private List<Tst_good>		goods;
 
 	public String getBillicode()
 	{
@@ -126,5 +136,20 @@ public class Tst_bill extends VO
 	public void setFlags(int flags)
 	{
 		this.flags = flags;
+	}
+
+	// JAXB
+	public List<Tst_good> getGoods()
+	{
+		if (goods == null)
+		{
+			goods = new ArrayList<Tst_good>();
+		}
+		return goods;
+	}
+
+	public void setGoods(List<Tst_good> goods)
+	{
+		this.goods = goods;
 	}
 }

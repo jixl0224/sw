@@ -153,6 +153,7 @@ public class BalanceServiceImpl implements BalanceService
 		}
 		// 日均建议
 		{
+			// 总额度 50%
 			BigDecimal fcy5 = bill.getFcy4().divide(new BigDecimal(bill.getDdays() + 30), 0, BigDecimal.ROUND_HALF_UP);
 			bill.setFcy5(fcy5);
 		}

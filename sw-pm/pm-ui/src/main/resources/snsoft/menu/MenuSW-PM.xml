@@ -17,10 +17,12 @@
 			<menu title="信用卡">
 				<menu title="信用卡定义" cmd="ui:SW-CD.Ccard"></menu>
 				<menu title="用户信用卡" cmd="ui:SW-CD.Ucard"></menu>
-				<menu title="信用卡看板" cmd="ui:SW-CD.CardView"></menu>
+				<menu title="--" ></menu>
 				<menu title="信用卡筹款" cmd="ui:SW-CD.Cload"></menu>
 				<menu title="信用卡消费" cmd="ui:SW-CD.Consume"></menu>
 				<menu title="信用卡还款" cmd="ui:SW-CD.Repayment"></menu>
+				<menu title="--" ></menu>
+				<menu title="信用卡看板" cmd="ui:SW-CD.CardView"></menu>
 			</menu>
 		</menu>
 		<menu title="P2P">

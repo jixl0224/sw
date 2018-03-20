@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Codelike>
+	<name>订单号编码规则</name>
+	<codeinfo>
+	<![CDATA[ 
+	proc  getCodeLike(refData)
+		return "YYMMdd"+inc(2)
+	end proc
+	]]>
+	</codeinfo>
+</Codelike>
