@@ -17,6 +17,11 @@
   >
     <c name="code" title="编码" sqltype="12" width="100" noblank="true" asceOrd="true"/>
     <c name="name" title="名称" sqltype="12" width="160" noblank="true" />
+    <c name="flags#1" title="国航" sqltype="4" width="40" />
+    <c name="flags#2" title="海航" sqltype="4" width="40" />
+    <c name="flags#4" title="南航" sqltype="4" width="40" />
+    <c name="flags#8" title="亚万" sqltype="4" width="40" />
+    <c name="flags#16" title="东航" sqltype="4" width="40" />
     <c name="remark" title="描述" sqltype="12" width="300" aidInputerBtn="true" tipIfOverflow="true" mutipleLine="true" />
   </m:GridTable>
 </B>

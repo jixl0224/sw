@@ -28,6 +28,8 @@ public class PMCcard extends VO
 	/**名称*/
 	@Column
 	private String				name;
+	@Column
+	private int					flags;
 	/**描述*/
 	@Column
 	private String				remark;
@@ -50,6 +52,16 @@ public class PMCcard extends VO
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	public int getFlags()
+	{
+		return flags;
+	}
+
+	public void setFlags(int flags)
+	{
+		this.flags = flags;
 	}
 
 	public String getRemark()

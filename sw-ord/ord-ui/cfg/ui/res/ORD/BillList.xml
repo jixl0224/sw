@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<m:B title="订单列表" fullPage="true">
+	<m:DialogPane name="param" region="north" title="param" showToolbar="true">
+	</m:DialogPane>
+	<m:GridTable mainui="param" name="bill" readwspid="ORD" region="center" sqlexpr="tst_bill" title="bill" writewspid="ORD" xprops.LoadDataService="SN-ORD.BillService#queryBills"
+		xprops.SaveDataService="SN-ORD.BillService#saveBills">
+		<uilisteners>
+		snsoft.bas.sheet.VOListener.new
+		</uilisteners>
+		<c name="billcode" sqltype="12" title="外码" rdonly="true"/>
+		<c name="billicode" sqltype="12" title="主键" rdonly="true"/>
+		<c name="fcode" sqltype="12" title="币种" />
+		<c name="fcy" sqltype="2" title="金额" />
+		<c name="flags" sqltype="4" title="标识" />
+		<c name="odate" sqltype="91" title="日期" aidInputerBtn="true" disableed="true"/>
+		<c name="remark" sqltype="12" title="备注" />
+	</m:GridTable>
+</m:B>

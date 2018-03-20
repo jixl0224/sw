@@ -1,0 +1,16 @@
+#
+#  使用相对路径： ${BASEDIR}  为当前文件所在目录
+#
+
+#define ROOT ${BASEDIR}/../..
+
+
+-classpath ${ROOT}/xjs/target/classes
+
+-path  ${ROOT}/xjs/src/main/java=>${ROOT}/pm-ui/web/xjslib
+
+
+
+-langs=
+-buildfiles js+java+css
+-copyfiles html+gif+png+jpg
