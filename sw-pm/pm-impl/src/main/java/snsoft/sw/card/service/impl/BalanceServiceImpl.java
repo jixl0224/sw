@@ -92,6 +92,12 @@ public class BalanceServiceImpl implements BalanceService
 		int year = DateUtils.getDateYear(odate);
 		int month = DateUtils.getDateMonth(odate);
 		int day = DateUtils.getDateDay(odate);
+		// 还款日
+		{
+			Date date = DateUtils.toDate(year, month - 1, bill.getSdate());
+			date = DateUtils.incDate(date, card.getDdate());
+			bill.setDdate(DateUtils.getDateDay(date));
+		}
 		// 天数
 		{
 			// 账单日
@@ -104,12 +110,12 @@ public class BalanceServiceImpl implements BalanceService
 				bill.setSdays(DateUtils.diffDate(fm, odate));
 			}
 			// 还款日
-			if (day <= card.getDdate())
+			if (day <= bill.getDdate())
 			{
-				bill.setDdays(card.getDdate() - day);
+				bill.setDdays(bill.getDdate() - day);
 			} else
 			{
-				Date fm = DateUtils.toDate(year, month + 1, card.getDdate());
+				Date fm = DateUtils.toDate(year, month + 1, bill.getDdate());
 				bill.setDdays(DateUtils.diffDate(fm, odate));
 			}
 		}

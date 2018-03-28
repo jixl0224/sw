@@ -22,6 +22,7 @@
     <c name="flags#4" title="南航" sqltype="4" width="40" />
     <c name="flags#8" title="亚万" sqltype="4" width="40" />
     <c name="flags#16" title="东航" sqltype="4" width="40" />
+    <c name="inturl" title="积分商城" sqltype="12" width="160" aidInputerBtn="true" tipIfOverflow="true" mutipleLine="true"/>
     <c name="remark" title="描述" sqltype="12" width="300" aidInputerBtn="true" tipIfOverflow="true" mutipleLine="true" />
   </m:GridTable>
 </B>

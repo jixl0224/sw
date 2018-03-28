@@ -7,6 +7,7 @@
 			droplist="true" droplistWithSearchPane="true" codeNameMatch="true" aiprops="cellTextFmt:['${pcode}:${pname}']"
 		/>
 		<c name="status" title="完成状态" sqltype="12" width="80" initval="0" showname="true" codedata="#DT_PM.evt_status" droplist="true" disableed="true"/>
+		<c name="event_desc" title="事件描述" sqltype="12" prefixMatch="true" suffixMatch="true"/>
 	</m:DialogPane>
 	<m:GridTable name="event" region="center" sqlexpr="pm_event" mainui="param" noCollapseQPaneAfterRefresh="true" showToolbar="true">
 		<jslistener>
