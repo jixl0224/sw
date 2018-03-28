@@ -1,9 +1,14 @@
 package snsoft.sw.card.service.impl;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 import snsoft.bas.service.util.NullQueryParams;
 import snsoft.bas.service.util.Sort;
 import snsoft.commons.login.UserSession;
+import snsoft.commons.util.DateUtils;
+import snsoft.commons.util.StrUtils;
 import snsoft.context.AppContext;
 import snsoft.dx.Database;
 import snsoft.dx.DefaultDAO;
@@ -60,17 +65,45 @@ public class CreditUIServiceImpl implements CreditUIService
 	{
 		UserSession userSession = AppContext.getUserSession(true);
 		SqlExpr filter = SqlExpr.columnEqValue("ucode", userSession.getUserCode());
-		String sql = "select ccode,sdate odate,'S' datetype";
+		String sql = "select ccode,sdate,ddate";
 		sql += " from pm_ucard";
 		sql += " where " + filter;
-		sql += " union ";
-		sql += " select ccode,ddate odate,'D' datetype";
-		sql += " from pm_ucard";
-		sql += " where " + filter;
-		sql += " order by 1,2";
+		Object[][] values;
 		try (Database db = userSession.newDatabaseByTable("pm_ucard", true))
 		{
-			return db.query(CardView.class, sql, (Map<String,?>) null);
+			values = db.query3(sql);
 		}
+		Date odate = DateUtils.getServerDate();
+		int year = DateUtils.getDateYear(odate);
+		int month = DateUtils.getDateMonth(odate);
+		List<CardView> list = new ArrayList<>();
+		for (Object[] vs : values)
+		{
+			CardView v1 = new CardView();
+			v1.setCcode((String) vs[0]);
+			int sdate = StrUtils.obj2int(vs[1]);
+			v1.setOdate(sdate);
+			v1.setDatetype("S");
+			list.add(v1);
+			//
+			CardView v2 = new CardView();
+			v2.setCcode((String) vs[0]);
+			int ddate = StrUtils.obj2int(vs[2]);
+			v2.setDatetype("D");
+			Date date = DateUtils.toDate(year, month - 1, sdate);
+			date = DateUtils.incDate(date, ddate);
+			v2.setOdate(DateUtils.getDateDay(date));
+			list.add(v2);
+		}
+		Collections.sort(list, (o1, o2) -> {
+
+			int c = o1.getCcode().compareTo(o2.getCcode());
+			if (c != 0)
+			{
+				return c;
+			}
+			return o1.getOdate() - o2.getOdate();
+		});
+		return list.toArray(new CardView[list.size()]);
 	}
 }

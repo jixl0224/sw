@@ -23,7 +23,13 @@
 			<c name="fcy5" title="日均建议" sqltype="2" width="80" maxdeci="2" bottomval="*"/>
 		</m:GridTable>
 		<m:GridTable name="ucard" title="账单/还款日"   sqlexpr="pm_ucard" mainui="param" xprops.LoadDataService="SN-PM.CreditUIService#queryCardView" nmpre="filter" rdonly="true"
-			noCollapseQPaneAfterRefresh="true" readwspid="PM" writewspid="PM" uilisteners="snsoft.sw.card.CreditViewListener.new">
+			noCollapseQPaneAfterRefresh="true" readwspid="PM" writewspid="PM" uilisteners="snsoft.sw.card.CreditViewListener.new"
+			showToolbar="true"
+		>
+			<attrs>
+				<attr type="203" name="sortBySdate" title="账单日"/>
+				<attr type="203" name="sortByDdate" title="还款日"/>
+			</attrs> 
 			<jslistener>
 		  	<![CDATA[
 		  	date:new Date().getDate(),
@@ -32,7 +38,7 @@
 		  		var name = table.columns[e.col].name;
 		  		if(name.indexOf("$CRCOL$") == 0)
 		  		{
-		  			if("D" == table.dataSet.getValue(e.col-1,e.row))
+		  			if("D" == table.dataSet.getValue(e.col,e.row))
 		  			{
 		  				e.renderInfo.background="#f44336";
 		  			} else {
@@ -43,12 +49,44 @@
 				  		}
 			  		}
 		  		}
+		  	},
+		  	oncmd_sortBySdate:function(tbl,e)
+		  	{
+		  		var ds = tbl.dataSet;
+		  		this.sort(ds,'S');
+		  	},
+		  	oncmd_sortByDdate:function(tbl,e)
+		  	{
+		  		var ds = tbl.dataSet;
+		  		this.sort(ds,'D');
+		  	},
+		  	sort:function(ds,v)
+		  	{
+		  		var idx = ds.columnAt("days");
+		  		for(var r = 0;r < ds.getRowCount();r++)
+		  		{
+  					ds.gotoRow(r);
+		  			for(var c = 1;c < ds.columns.length;c++)
+		  			{
+		  				if(ds.getValue(c,r) == v)
+		  				{
+		  					var name = ds.getColumn(c).name;
+		  					var start = name.lastIndexOf("$");
+		  					var end = name.lastIndexOf("-");
+		  					var days = Number.parseInt(name.substring(start+1,end));
+		  					ds.rows[r][idx]=days;
+		  					break;
+		  				}
+		  			}
+		  		}
+		  		ds.setSort([idx]);
 		  	}
 		  	]]>
 			</jslistener>
 			<c name="ccode" title="信用卡" sqltype="12" width="120" asceOrd="true" crossRow="true" codedata="#SW-CD.ccard" showname="true" />
 			<c name="odate" title="账单日" sqltype="4" width="70" asceOrd="true" crossCol="true" codedata="1:1" />
 			<c name="datetype" title="还款日" sqltype="12" width="30" crossData="true" codedata="#DT_CD.datetype" showname="true" />
+			<c name="days" title="序" sqltype="4" width="40" />
 		</m:GridTable>
 	</m:T>
 </B>
