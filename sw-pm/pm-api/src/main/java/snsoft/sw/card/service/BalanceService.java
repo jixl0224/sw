@@ -42,7 +42,7 @@ public interface BalanceService
 		 */
 		private BigDecimal	cline;
 		/**
-		 * 未还款：从上个账单日的出账金额
+		 * 已出账：从上个账单日的出账金额
 		 */
 		private BigDecimal	fcy1;
 		/**
@@ -57,6 +57,10 @@ public interface BalanceService
 		 * 剩余额度
 		 */
 		private BigDecimal	fcy4;
+		/**
+		 * 未还款
+		 */
+		private BigDecimal	fcy6;
 		/**
 		 * 消费占比
 		 */
@@ -154,6 +158,16 @@ public interface BalanceService
 			this.fcy4 = fcy4;
 		}
 
+		public BigDecimal getFcy6()
+		{
+			return fcy6;
+		}
+
+		public void setFcy6(BigDecimal fcy6)
+		{
+			this.fcy6 = fcy6;
+		}
+
 		public BigDecimal getRatio1()
 		{
 			return ratio1;
@@ -199,6 +213,7 @@ public interface BalanceService
 	{
 		private static final long	serialVersionUID	= 2803096142335091328L;
 		private Date				odate;
+		private int					days;
 
 		public Date getOdate()
 		{
@@ -208,6 +223,16 @@ public interface BalanceService
 		public void setOdate(Date odate)
 		{
 			this.odate = odate;
+		}
+
+		public int getDays()
+		{
+			return days;
+		}
+
+		public void setDays(int days)
+		{
+			this.days = days;
 		}
 	}
 }

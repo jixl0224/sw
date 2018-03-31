@@ -80,14 +80,14 @@ public class BalanceServiceImpl implements BalanceService
 			{
 				Bill bill = new Bill();
 				mapperService.mapper(card, bill);
-				queryBill(db, card, bill, params.getOdate());
+				queryBill(db, card, bill, params.getOdate(), params.getDays());
 				bills.add(bill);
 			}
 		}
 		return bills;
 	}
 
-	private void queryBill(Database db, PMUcard card, Bill bill, Date odate)
+	private void queryBill(Database db, PMUcard card, Bill bill, Date odate, int refdays)
 	{
 		int year = DateUtils.getDateYear(odate);
 		int month = DateUtils.getDateMonth(odate);
@@ -129,7 +129,7 @@ public class BalanceServiceImpl implements BalanceService
 			dates[0] = DateUtils.toDate(year, month - 1, card.getSdate());
 			dates[1] = DateUtils.toDate(year, month, card.getSdate());
 		}
-		// 未还款
+		// 已出账
 		{
 			String sql = "select sum(fcy) from pm_consume where ccode=?";
 			sql += " and " + buildDateFilter(dates[0], dates[1]).toString(db.getDialect());
@@ -147,6 +147,10 @@ public class BalanceServiceImpl implements BalanceService
 			sql += " and " + buildDateFilter(dates[1], odate).toString(db.getDialect());
 			bill.setFcy3(DataUtils.obj2big(db.query1(sql, new SqlValue(card.getCcode()))));
 		}
+		// 未还款
+		{
+			bill.setFcy6(bill.getFcy1().subtract(bill.getFcy3()));
+		}
 		// 剩余额度
 		{
 			BigDecimal fcy4 = card.getCline().subtract(bill.getFcy1()).subtract(bill.getFcy2()).add(bill.getFcy3());
@@ -159,9 +163,14 @@ public class BalanceServiceImpl implements BalanceService
 		}
 		// 日均建议
 		{
-			// 总额度 50%
-			BigDecimal fcy5 = bill.getFcy4().divide(new BigDecimal(bill.getDdays() + 30), 0, BigDecimal.ROUND_HALF_UP);
-			bill.setFcy5(fcy5);
+			Date date = DateUtils.toDate(year, day < card.getSdate() ? month - 1 : month, card.getSdate());
+			int days = DateUtils.diffDate(odate, date);
+			BigDecimal half = card.getCline().divide(new BigDecimal("2"));
+			if (days < refdays && bill.getFcy2().subtract(half).signum() < 0)
+			{
+				BigDecimal fcy = half.subtract(bill.getFcy4()).signum() > 0 ? bill.getFcy4() : half;
+				bill.setFcy5(fcy.divide(new BigDecimal(refdays-days), 0, BigDecimal.ROUND_HALF_UP));
+			}
 		}
 	}
 

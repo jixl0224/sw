@@ -1,8 +1,10 @@
 package snsoft.sw.p2p.service;
 
+import java.util.Date;
 import java.util.List;
 import snsoft.bas.service.QueryParams;
 import snsoft.bas.service.util.NullQueryParams;
+import snsoft.sql.SqlExpr;
 import snsoft.sql.annotation.SqlColumn;
 import snsoft.sw.p2p.vo.P2p_plat;
 import snsoft.sw.p2p.vo.P2p_record;
@@ -44,6 +46,9 @@ public interface P2pService
 		@SqlColumn
 		private String				pcode;
 
+		@SqlColumn(sqlop = SqlExpr.GE, column = "ledate")
+		private Date				ledatefm;
+
 		public String getUcode()
 		{
 			return ucode;
@@ -62,6 +67,16 @@ public interface P2pService
 		public void setPcode(String pcode)
 		{
 			this.pcode = pcode;
+		}
+
+		public Date getLedatefm()
+		{
+			return ledatefm;
+		}
+
+		public void setLedatefm(Date ledatefm)
+		{
+			this.ledatefm = ledatefm;
 		}
 	}
 }

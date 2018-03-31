@@ -38,6 +38,24 @@ public class PMUcard extends VO
 	/**额度*/
 	@Column
 	private BigDecimal			cline;
+	/**羊毛*/
+	@Column
+	private String				ymdesc;
+	/**权益*/
+	@Column
+	private String				rgtdesc;
+	/**首刷*/
+	@Column
+	private String				fstdesc;
+	/**积分*/
+	@Column
+	private String				intdesc;
+	/**年费*/
+	@Column
+	private String				feedesc;
+	/**里程*/
+	@Column
+	private String				mlgdesc;
 
 	public String getCcode()
 	{
@@ -87,5 +105,65 @@ public class PMUcard extends VO
 	public void setCline(BigDecimal cline)
 	{
 		this.cline = cline;
+	}
+
+	public String getRgtdesc()
+	{
+		return rgtdesc;
+	}
+
+	public void setRgtdesc(String rgtdesc)
+	{
+		this.rgtdesc = rgtdesc;
+	}
+
+	public String getFstdesc()
+	{
+		return fstdesc;
+	}
+
+	public void setFstdesc(String fstdesc)
+	{
+		this.fstdesc = fstdesc;
+	}
+
+	public String getIntdesc()
+	{
+		return intdesc;
+	}
+
+	public void setIntdesc(String intdesc)
+	{
+		this.intdesc = intdesc;
+	}
+
+	public String getFeedesc()
+	{
+		return feedesc;
+	}
+
+	public void setFeedesc(String feedesc)
+	{
+		this.feedesc = feedesc;
+	}
+
+	public String getYmdesc()
+	{
+		return ymdesc;
+	}
+
+	public void setYmdesc(String ymdesc)
+	{
+		this.ymdesc = ymdesc;
+	}
+
+	public String getMlgdesc()
+	{
+		return mlgdesc;
+	}
+
+	public void setMlgdesc(String mlgdesc)
+	{
+		this.mlgdesc = mlgdesc;
 	}
 }

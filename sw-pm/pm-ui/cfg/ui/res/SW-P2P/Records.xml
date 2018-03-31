@@ -4,6 +4,7 @@
 		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
 		">
 	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
+		<c name="ledatefm" title="回购日期从" sqltype="91" width="90" aidInputerBtn="true" disableed="true" initval="%CURDATE"/>
 	</m:DialogPane>
 	<m:GridTable name="record" title="P2P购买记录" region="center" sqlexpr="p2p_record" mainui="param" xprops.LoadDataService="SN-PM.P2pService#queryRecords" xprops.SaveDataService="SN-PM.P2pService#saveRecords"
 		noCollapseQPaneAfterRefresh="true" showToolbar="true" autoRefresh="true">
