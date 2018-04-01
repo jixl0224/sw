@@ -169,7 +169,11 @@ public class BalanceServiceImpl implements BalanceService
 			if (days < refdays && bill.getFcy2().subtract(half).signum() < 0)
 			{
 				BigDecimal fcy = half.subtract(bill.getFcy4()).signum() > 0 ? bill.getFcy4() : half;
-				bill.setFcy5(fcy.divide(new BigDecimal(refdays-days), 0, BigDecimal.ROUND_HALF_UP));
+				if ((fcy = fcy.subtract(new BigDecimal("2000"))).signum() > 0)
+				{
+					BigDecimal fcy5 = fcy.divide(new BigDecimal(refdays - days), 0, BigDecimal.ROUND_HALF_UP);
+					bill.setFcy5(fcy5);
+				}
 			}
 		}
 	}
