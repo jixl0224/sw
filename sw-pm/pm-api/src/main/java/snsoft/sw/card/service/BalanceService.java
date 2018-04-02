@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import snsoft.bas.service.QueryParams;
+import snsoft.commons.annotation.AuthParam;
 import snsoft.commons.spring.SpringBean;
 import snsoft.sw.card.entity.Consume;
 import snsoft.sw.card.entity.Repayment;
@@ -23,8 +24,10 @@ import snsoft.sw.card.entity.Repayment;
 @SpringBean(name = "SN-PM.BalanceService")
 public interface BalanceService
 {
+	@AuthParam(sheetCode = "CD.Ucode", opids = { "R", "C" })
 	List<Consume> queryConsume(BalanceParams params);
 
+	@AuthParam(sheetCode = "CD.Ucode", opids = { "R", "C" })
 	List<Repayment> queryRepayment(BalanceParams params);
 
 	List<Bill> queryBill(BalanceParams params);

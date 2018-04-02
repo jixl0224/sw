@@ -65,11 +65,13 @@
 		<column id="90" name="mlgdesc" title="里程" type="VARCHAR(512)" />
 	</table>
 	<table id="1020103" name="pm_consume" title="消费记录" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
+		<column id="1" name="ucode" title="信用卡" type="VARCHAR(32)" primkey="true" />
 		<column id="1" name="ccode" title="信用卡" type="VARCHAR(32)" primkey="true" />
 		<column id="2" name="odate" title="消费日期" type="CHAR(10)" primkey="true" />
 		<column id="20" name="fcy" title="金额" type="NUMERIC(10.2)" />
 	</table>
 	<table id="1020103" name="pm_repayment" title="还款记录" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
+		<column id="1" name="ucode" title="信用卡" type="VARCHAR(32)" primkey="true" />
 		<column id="1" name="ccode" title="信用卡" type="VARCHAR(32)" primkey="true" />
 		<column id="2" name="odate" title="消费日期" type="CHAR(10)" primkey="true" />
 		<column id="20" name="fcy" title="金额" type="NUMERIC(10.2)" />

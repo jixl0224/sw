@@ -3,6 +3,7 @@ package snsoft.sw.card.entity;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Id;
+import snsoft.bas.sheet.dft.annotation.DefaultValue;
 import snsoft.dx.VO;
 
 /**
@@ -24,6 +25,11 @@ public class Balance extends VO
 	/**信用卡*/
 	@Id
 	@Column
+	@DefaultValue("%EnvParam(USERCODE)")
+	private String				ucode;
+	/**信用卡*/
+	@Id
+	@Column
 	private String				ccode;
 	/**消费日期*/
 	@Id
@@ -32,6 +38,16 @@ public class Balance extends VO
 	/**金额*/
 	@Column
 	private BigDecimal			fcy;
+
+	public String getUcode()
+	{
+		return ucode;
+	}
+
+	public void setUcode(String ucode)
+	{
+		this.ucode = ucode;
+	}
 
 	public String getCcode()
 	{

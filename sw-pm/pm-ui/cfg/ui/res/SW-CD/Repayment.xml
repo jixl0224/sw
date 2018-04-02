@@ -10,10 +10,12 @@
 		xprops.LoadDataService="SN-PM.BalanceService#queryRepayment"
 	>
 		<uilisteners>
-			snsoft.sw.card.OdateCrossListener.new
+			snsoft.sw.card.OdateCrossListener.new;
+			snsoft.bas.sheet.VOListener.new
 		</uilisteners>
+		<c name="ucode" title="用户" sqltype="12" asceOrd="true" hidden="true"/>
 		<c name="ccode" title="信用卡" sqltype="12" width="80" noblank="true" fixedLeft="true" asceOrd="true" crossRow="true" codedata="#SW-CD.ccard" showname="true" aidInputerBtn="true" />
 		<c name="odate" title="日期" sqltype="12" width="30" asceOrd="true" crossCol="true" />
-		<c name="fcy" title="金额" sqltype="2" width="80" crossData="true" bottomval="*" maxdeci="2"/>
+		<c name="fcy" title="金额" sqltype="2" width="70" crossData="true" bottomval="*" maxdeci="2"/>
 	</m:GridTable>
 </B>
