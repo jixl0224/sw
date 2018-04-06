@@ -14,6 +14,7 @@ import snsoft.dx.Database;
 import snsoft.dx.DefaultDAO;
 import snsoft.dx.QueryColumn;
 import snsoft.sql.SqlExpr;
+import snsoft.sw.card.entity.Activity;
 import snsoft.sw.card.entity.CardView;
 import snsoft.sw.card.entity.PMCcard;
 import snsoft.sw.card.entity.PMUcard;
@@ -105,5 +106,20 @@ public class CreditUIServiceImpl implements CreditUIService
 			return o1.getOdate() - o2.getOdate();
 		});
 		return list.toArray(new CardView[list.size()]);
+	}
+
+	@Override
+	public List<Activity> queryActivity(ActivityParams params)
+	{
+		// ledate is null or ledate >= odate
+		SqlExpr filter = SqlExpr.isnull(SqlExpr.id("ledate")).or(new SqlExpr(SqlExpr.GE, SqlExpr.id("ledate"), SqlExpr.constExpr(params.getOdate())));
+		params.addFilter(filter);
+		return new DefaultDAO<Activity>().queryList(Activity.class, params.buildDBQueryParams());
+	}
+
+	@Override
+	public void saveActivity(List<Activity> activities)
+	{
+		new DefaultDAO<Activity>().save(activities);
 	}
 }

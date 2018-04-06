@@ -1,7 +1,13 @@
 package snsoft.sw.card.service;
 
+import java.util.Date;
+import java.util.List;
+import javax.validation.constraints.NotNull;
+import snsoft.bas.service.QueryParams;
 import snsoft.bas.service.util.NullQueryParams;
+import snsoft.commons.annotation.AuthParam;
 import snsoft.commons.spring.SpringBean;
+import snsoft.sw.card.entity.Activity;
 import snsoft.sw.card.entity.CardView;
 import snsoft.sw.card.entity.PMCcard;
 import snsoft.sw.card.entity.PMUcard;
@@ -25,9 +31,34 @@ public interface CreditUIService
 
 	void savePMCcard(PMCcard[] ccards);
 
+	@AuthParam(sheetCode = "CD.Ucode", opids = { "R", "C" })
 	PMUcard[] queryPMUcard(NullQueryParams param);
 
+	@AuthParam(sheetCode = "CD.Ucode", opids = { "C" })
 	void savePMUcard(PMUcard[] ucards);
 
 	CardView[] queryCardView(NullQueryParams param);
+
+	@AuthParam(sheetCode = "CD.Ucode", opids = { "R", "C" })
+	List<Activity> queryActivity(ActivityParams params);
+
+	@AuthParam(sheetCode = "CD.Ucode", opids = { "C" })
+	void saveActivity(List<Activity> activities);
+
+	public static class ActivityParams extends QueryParams
+	{
+		private static final long	serialVersionUID	= 4155508805877391427L;
+		@NotNull(message = "日期参数不可为空")
+		private Date				odate;
+
+		public Date getOdate()
+		{
+			return odate;
+		}
+
+		public void setOdate(Date odate)
+		{
+			this.odate = odate;
+		}
+	}
 }

@@ -96,6 +96,25 @@
 		<column id="50" name="cdays" title="无息天数" type="INTEGER" />
 		<column id="60" name="cv" title="筹款金额" type="NUMERIC(10.0)" />
 	</table>
+	<table id="1020104" name="pm_activity" title="信用卡活动" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
+		<column id="5" name="id" title="主键" type="INTEGER" primkey="true" />
+		<column id="10" name="ucode" title="用户" type="VARCHAR(32)" notnull="true" />
+		<column id="11" name="ccode" title="信用卡" type="VARCHAR(32)" notnull="true" />
+		<column id="20" name="bedate" title="生效日期" type="DATE" />
+		<column id="30" name="ledate" title="失效日期" type="DATE" />
+		<column id="31" name="remark" title="说明" type="CLOB" />
+		<!-- 
+		0x01=周一
+		0x02=周二
+		0x04=周三
+		0x08=周四
+		0x10=周五
+		0x20=周六
+		0x40=周日
+		0x80=所有
+		-->
+		<column id="50" name="flags" title="日期" type="SMALLINT" />
+	</table>
 
 
 	<table id="1020104" name="pm_mcc" title="MCC" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">

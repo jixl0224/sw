@@ -23,6 +23,7 @@
 				<menu title="信用卡还款" cmd="ui:SW-CD.Repayment"></menu>
 				<menu title="--" ></menu>
 				<menu title="信用卡看板" cmd="ui:SW-CD.CardView"></menu>
+				<menu title="信用卡活动" cmd="ui:SW-CD.Activity"></menu>
 			</menu>
 		</menu>
 		<menu title="P2P">
