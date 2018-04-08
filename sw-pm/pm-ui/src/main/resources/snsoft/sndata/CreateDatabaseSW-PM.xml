@@ -114,6 +114,7 @@
 		0x80=所有
 		-->
 		<column id="50" name="flags" title="日期" type="SMALLINT" />
+		<column id="60" name="status" title="状态" type="CHAR(1)" />
 	</table>
 
 

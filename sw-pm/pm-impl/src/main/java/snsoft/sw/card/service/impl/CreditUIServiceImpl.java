@@ -111,9 +111,13 @@ public class CreditUIServiceImpl implements CreditUIService
 	@Override
 	public List<Activity> queryActivity(ActivityParams params)
 	{
-		// ledate is null or ledate >= odate
-		SqlExpr filter = SqlExpr.isnull(SqlExpr.id("ledate")).or(new SqlExpr(SqlExpr.GE, SqlExpr.id("ledate"), SqlExpr.constExpr(params.getOdate())));
-		params.addFilter(filter);
+		if (params.getOdate() != null)
+		{
+			// (ledate is null or ledate >= odate) and bedate<=odate
+			SqlExpr filter = SqlExpr.isnull(SqlExpr.id("ledate")).or(new SqlExpr(SqlExpr.GE, SqlExpr.id("ledate"), SqlExpr.constExpr(params.getOdate())));
+			filter = filter.and(new SqlExpr(SqlExpr.LE, SqlExpr.id("bedate"), SqlExpr.constExpr(params.getOdate())));
+			params.addFilter(filter);
+		}
 		return new DefaultDAO<Activity>().queryList(Activity.class, params.buildDBQueryParams());
 	}
 

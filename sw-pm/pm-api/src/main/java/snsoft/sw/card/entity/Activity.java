@@ -55,6 +55,11 @@ public class Activity extends VO
 	@Column
 	private int					flags;
 
+	/**状态*/
+	@Column
+	@DefaultValue("N")
+	private String				status;
+
 	public int getId()
 	{
 		return id;
@@ -123,5 +128,15 @@ public class Activity extends VO
 	public void setFlags(int flags)
 	{
 		this.flags = flags;
+	}
+
+	public String getStatus()
+	{
+		return status;
+	}
+
+	public void setStatus(String status)
+	{
+		this.status = status;
 	}
 }
