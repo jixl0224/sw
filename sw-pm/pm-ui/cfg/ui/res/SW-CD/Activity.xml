@@ -12,6 +12,19 @@
 		<uilisteners>
 			snsoft.bas.sheet.VOListener.new
 		</uilisteners>
+		<jslistener>
+		<![CDATA[
+		days:['日','一','二','三','四','五','六'],
+		onTableCellRender:function(table,e)
+		{
+			var day = this.days[new Date().getDay()];
+			if(table.columns[e.col].title == "周|"+day)
+			{
+				e.renderInfo.background="#ffff40";
+			}
+		}
+		]]>
+		</jslistener>
 		<c name="id" title="主键" sqltype="4" hidden="true" />
 		<c name="ucode" title="编码" sqltype="12" hidden="true" />
 		<c name="ccode" title="信用卡" sqltype="12" width="100" noblank="true" disableed="true" codedata="#SW-CD.ccard" showname="true" aidInputerBtn="true" droplist="true"
