@@ -2,7 +2,6 @@ package snsoft.sw.card.service;
 
 import java.util.Date;
 import java.util.List;
-import javax.validation.constraints.NotNull;
 import snsoft.bas.service.QueryParams;
 import snsoft.bas.service.util.NullQueryParams;
 import snsoft.commons.annotation.AuthParam;
@@ -48,7 +47,6 @@ public interface CreditUIService
 	public static class ActivityParams extends QueryParams
 	{
 		private static final long	serialVersionUID	= 4155508805877391427L;
-		@NotNull(message = "日期参数不可为空")
 		private Date				odate;
 
 		public Date getOdate()
