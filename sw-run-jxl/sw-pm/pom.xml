@@ -9,8 +9,8 @@
 		<relativePath>../sw-parents/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>sw-pm-run</artifactId>
-	<name>sw-pm-run</name>
+	<artifactId>sw-pm-run-jxl</artifactId>
+	<name>sw-pm-run-jxl</name>
 	<packaging>jar</packaging>
 
 	<dependencies>
