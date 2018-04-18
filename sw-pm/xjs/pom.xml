@@ -4,9 +4,9 @@
 
 	<parent>
 		<groupId>cn.eport.sw</groupId>
-		<artifactId>parents-sw-xjs</artifactId>
+		<artifactId>parents-sw-jxl-xjs</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../../parents-sw-xjs/pom.xml</relativePath>
+		<relativePath>../../parents-sw-jxl-xjs/pom.xml</relativePath>
 	</parent>
 
 	<artifactId>sw-pm-xjs</artifactId>
