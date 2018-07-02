@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- type= 
+1:SqlServer 
+2:Oracle 
+4:MySql 
+-->
+
+<workspace-list>
+	<!--
+	1、不存在默认数据源；
+	2、认为一个帐套文件仅存在一个帐套；
+	-->
+	<workspace id="00" title="PM" startTimerTask="false" CREATEDB.EXCLUDEDS="N7,1,2,4">
+		<datasource id="DEFAULT" host="127.0.0.1" port="1521" database="orcl" user="dev_default" password="sn1234" type="2" />
+		<datasource id="CONFIG" host="127.0.0.1" port="1521" database="orcl" user="dev_config" password="sn1234" type="2" />
+		<datasource id="UCODECFG" host="127.0.0.1" port="1521" database="orcl" user="dev_ucodecfg" password="sn1234" type="2" />
+		<datasource id="SW" host="127.0.0.1" port="1521" database="orcl" user="dev_ucodecfg" password="sn1234" type="2" />
+		<datasource id="PM" host="127.0.0.1" port="1521" database="orcl" user="sw_pm" password="snjixl" type="2" />
+	</workspace>
+</workspace-list> 
+ 
+

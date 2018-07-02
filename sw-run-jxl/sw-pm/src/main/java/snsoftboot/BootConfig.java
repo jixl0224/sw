@@ -20,13 +20,10 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import snsoft.servlet.SessionTrace;
-import snsoft.servlet.WebStartServlet;
 import snsoft.servlet.cxf.CXFWebServiceServlet;
 import snsoft.servlet.filter.DefaultFilter;
 import snsoft.servlet.filter.UserSessionFilter;
-import snsoft.servlet.fs.FileSystemServlet;
 import snsoft.servlet.jdbc.JdbcServlet;
-import snsoft.ui.servlet.UIInvokeServlet;
 /**
  * <p>标题：</p>
  * <p>功能：</p>
@@ -116,53 +113,6 @@ public class BootConfig
 		ServletRegistrationBean bean = new ServletRegistrationBean();
 		bean.setServlet(servlet);
 		bean.addUrlMappings("/cxfservices/*");
-		return bean;
-	}
-
-	@Bean
-	public UIInvokeServlet servlet_uiinvoke()
-	{
-		return new UIInvokeServlet();
-	}
-
-	@Bean
-	public ServletRegistrationBean servlet_uiinvoke_mapping(UIInvokeServlet servlet)
-	{
-		ServletRegistrationBean bean = new ServletRegistrationBean();
-		bean.setServlet(servlet);
-		bean.setOrder(0);
-		bean.addUrlMappings("/uiinvoke/*");
-		return bean;
-	}
-
-	@Bean
-	public FileSystemServlet servlet_fileSystem()
-	{
-		return new FileSystemServlet();
-	}
-
-	@Bean
-	public ServletRegistrationBean servlet_fileSystem_mapping(FileSystemServlet servlet)
-	{
-		ServletRegistrationBean bean = new ServletRegistrationBean();
-		bean.setServlet(servlet);
-		bean.setOrder(0);
-		bean.addUrlMappings("/fs/*");
-		return bean;
-	}
-
-	@Bean
-	public WebStartServlet servlet_webStart()
-	{
-		return new WebStartServlet();
-	}
-
-	@Bean
-	public ServletRegistrationBean servlet_webStart_mapping(WebStartServlet servlet)
-	{
-		ServletRegistrationBean bean = new ServletRegistrationBean();
-		bean.setServlet(servlet);
-		bean.addUrlMappings("/webstart.jnlp");
 		return bean;
 	}
 

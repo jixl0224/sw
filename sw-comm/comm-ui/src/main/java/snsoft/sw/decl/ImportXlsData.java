@@ -18,8 +18,9 @@ import snsoft.dx.codedata.CodeDataService;
 import snsoft.dx.mc.service.MakeCodeService;
 import snsoft.dx.mc.service.MakeCodeService.BatchCodeMaker;
 import snsoft.dx.mc.service.MakeCodeService.MakeCodeParam;
-import snsoft.tools.bigxls.BigExcelFactory;
-import snsoft.tools.bigxls.BigExcelReader;
+import snsoft.tools.bigxls.ExcelFactory;
+import snsoft.tools.bigxls.ExcelFactory.ReadOptions;
+import snsoft.tools.bigxls.ExcelReader;
 
 /**
  * <p>标题：导入Excel数据</p>
@@ -70,7 +71,7 @@ public class ImportXlsData
 
 			UpdateData updateData = new UpdateData();
 			List<String> codes = new ArrayList<>(Arrays.asList(codeService.makeCodes(param)));
-			BigExcelReader reader = BigExcelFactory.fac.newBigExcelReader(is, "导出工作表", 1);
+			ExcelReader reader = ExcelFactory.fac.newXlsxReader(is, new ReadOptions("导出工作表", 1));
 			long lines = reader.read(row -> {
 				int int1 = row.getInt(8);
 				if (int1 == 0)
@@ -128,13 +129,13 @@ public class ImportXlsData
 			Map<String,String> nameMap = new HashMap<>();
 			{
 				Object[][] values = CodeDataService.impl.loadCodeData("DT_SW.curr", null).getValues();
-				for(Object[] vs : values)
+				for (Object[] vs : values)
 				{
-					nameMap.put((String)vs[1], (String)vs[0]);
+					nameMap.put((String) vs[1], (String) vs[0]);
 				}
 			}
 			BatchCodeMaker codeMaker = codeService.batchMacker(0, n, param);
-			BigExcelReader reader = BigExcelFactory.fac.newBigExcelReader(is, "导出工作表", 1);
+			ExcelReader reader = ExcelFactory.fac.newXlsxReader(is, new ReadOptions("导出工作表", 1));
 			long lines = reader.read(row -> {
 				int int1 = row.getInt(5);
 				if (int1 == 0)
