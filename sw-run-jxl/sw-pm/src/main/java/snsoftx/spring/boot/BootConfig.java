@@ -1,4 +1,4 @@
-package snsoftboot;
+package snsoftx.spring.boot;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -20,10 +19,9 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import snsoft.servlet.SessionTrace;
-import snsoft.servlet.cxf.CXFWebServiceServlet;
 import snsoft.servlet.filter.DefaultFilter;
 import snsoft.servlet.filter.UserSessionFilter;
-import snsoft.servlet.jdbc.JdbcServlet;
+
 /**
  * <p>标题：</p>
  * <p>功能：</p>
@@ -77,74 +75,16 @@ public class BootConfig
 		filterRegistrationBean.addUrlPatterns("/uiinvoke/*");
 		filterRegistrationBean.addUrlPatterns("/fs/*");
 		filterRegistrationBean.addUrlPatterns("/ws/*");
+		filterRegistrationBean.addUrlPatterns("/do/*");
 		return filterRegistrationBean;
 	}
-	//	@Bean
-	//	public RequestMappingHandlerMapping handlerMapping()
-	//	{
-	//		return new RequestMappingHandlerMapping();
-	//	}
 
-	//	@Bean
-	//	public RequestMappingHandlerAdapter RequestMappingHandlerAdapter()
-	//	{
-	//		RequestMappingHandlerAdapter adapter = new RequestMappingHandlerAdapter();
-	//		List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
-	//		messageConverters.add(new Jaxb2RootElementHttpMessageConverter());
-	//		messageConverters.add(new MappingJackson2HttpMessageConverter());
-	//		adapter.setMessageConverters(messageConverters );
-	//		return adapter;
-	//	}
 	@Bean
 	public SessionTrace listener_SessionTrace()
 	{
 		return new SessionTrace();
 	}
 
-	@Bean
-	public CXFWebServiceServlet servlet_cxf()
-	{
-		return new CXFWebServiceServlet();
-	}
-
-	@Bean
-	public ServletRegistrationBean servlet_cxf_mapping(CXFWebServiceServlet servlet)
-	{
-		ServletRegistrationBean bean = new ServletRegistrationBean();
-		bean.setServlet(servlet);
-		bean.addUrlMappings("/cxfservices/*");
-		return bean;
-	}
-
-	@Bean
-	public JdbcServlet servlet_jdbc()
-	{
-		return new JdbcServlet();
-	}
-
-	@Bean
-	public ServletRegistrationBean servlet_jdbc_mapping(JdbcServlet servlet)
-	{
-		ServletRegistrationBean bean = new ServletRegistrationBean();
-		bean.setServlet(servlet);
-		bean.addUrlMappings("/jdbc/*");
-		return bean;
-	}
-
-	//	@Bean
-	//	public UIController servlet_uicontroller()
-	//	{
-	//		return new UIController();
-	//	}
-	//	
-	//	@Bean
-	//	public ServletRegistrationBean servlet_uicontroller_mapping(UIController servlet)
-	//	{
-	//		ServletRegistrationBean bean = new ServletRegistrationBean();
-	//		bean.setServlet(servlet);
-	//		bean.addUrlMappings("/ui/*");
-	//		return bean;
-	//	}
 	@Bean
 	public BootFactory bootFactory()
 	{
@@ -198,7 +138,7 @@ public class BootConfig
 						StandardContext context = (StandardContext) evt.getSource();
 						WebResourceRoot root = context.getResources();
 						StandardRoot xx = (StandardRoot) root;
-						for (int i = 1;; i++)
+						for (int i = 1; ; i++)
 						{
 							String path = env.getProperty("web.path" + i);
 							if (path == null)

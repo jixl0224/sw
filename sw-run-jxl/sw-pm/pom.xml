@@ -20,10 +20,6 @@
 		</dependency>
 		<dependency>
 			<groupId>cn.snsoft.snadk</groupId>
-			<artifactId>snadk-bpm-impl</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>cn.snsoft.snadk</groupId>
 			<artifactId>snadk-sso-client</artifactId>
 		</dependency>
 		<dependency>
