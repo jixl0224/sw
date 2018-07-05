@@ -114,7 +114,7 @@ public class LoadServiceImpl implements LoadService
 	public void calcCards(int lid)
 	{
 		//
-		Load load = new DefaultDAO<Load>().casecadeQuery(Load.class, lid);
+		Load load = new DefaultDAO<Load>().query(Load.class, lid);
 		if (load == null)
 		{
 			throw new InfoException("记录不存在！");
