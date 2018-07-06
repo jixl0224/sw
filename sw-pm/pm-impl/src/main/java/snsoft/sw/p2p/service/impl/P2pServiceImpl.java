@@ -27,36 +27,36 @@ public class P2pServiceImpl implements P2pService
 	@Override
 	public List<P2p_user> queryUsers(NullQueryParams params)
 	{
-		return new DefaultDAO<P2p_user>().queryList(P2p_user.class, params.buildDBQueryParams());
+		return new DefaultDAO<P2p_user>(P2p_user.class).queryList(params.buildDBQueryParams());
 	}
 
 	@Override
 	public void saveUsers(List<P2p_user> users)
 	{
-		new DefaultDAO<P2p_user>().save(users);
+		new DefaultDAO<P2p_user>(P2p_user.class).save(users);
 	}
 
 	@Override
 	public List<P2p_plat> queryPlats(NullQueryParams params)
 	{
-		return new DefaultDAO<P2p_plat>().queryList(P2p_plat.class, params.buildDBQueryParams());
+		return new DefaultDAO<P2p_plat>(P2p_plat.class).queryList(params.buildDBQueryParams());
 	}
 
 	@Override
 	public void savePlats(List<P2p_plat> plats)
 	{
-		new DefaultDAO<P2p_plat>().save(plats);
+		new DefaultDAO<P2p_plat>(P2p_plat.class).save(plats);
 	}
 
 	@Override
 	public List<P2p_record> queryRecords(RecordParams params)
 	{
-		return new DefaultDAO<P2p_record>().queryList(P2p_record.class, params.buildDBQueryParams());
+		return new DefaultDAO<P2p_record>(P2p_record.class).queryList(params.buildDBQueryParams());
 	}
 
 	@Override
 	public void saveRecords(List<P2p_record> plats)
 	{
-		new DefaultDAO<P2p_record>().save(plats);
+		new DefaultDAO<P2p_record>(P2p_record.class).save(plats);
 	}
 }

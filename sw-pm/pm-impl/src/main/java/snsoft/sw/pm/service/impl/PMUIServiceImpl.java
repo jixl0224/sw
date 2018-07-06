@@ -32,31 +32,31 @@ public class PMUIServiceImpl implements PMUIService
 	@Override
 	public Actor[] queryActors(NullQueryParams param)
 	{
-		return new DefaultDAO<Actor>().query(Actor.class, param.buildDBQueryParams());
+		return new DefaultDAO<Actor>(Actor.class).query(param.buildDBQueryParams());
 	}
 
 	@Override
 	public void saveActors(Actor[] actors)
 	{
-		new DefaultDAO<Actor>().save(actors);
+		new DefaultDAO<Actor>(Actor.class).save(actors);
 	}
 
 	@Override
 	public Project[] queryProjects(NullQueryParams param)
 	{
-		return new DefaultDAO<Project>().query(Project.class, param.buildDBQueryParams());
+		return new DefaultDAO<Project>(Project.class).query(param.buildDBQueryParams());
 	}
 
 	@Override
 	public PActor[] queryPActors(PActorParam param)
 	{
-		return new DefaultDAO<PActor>().query(PActor.class, param.buildDBQueryParams());
+		return new DefaultDAO<PActor>(PActor.class).query(param.buildDBQueryParams());
 	}
 
 	@Override
 	public void saveProjects(Project[] projects)
 	{
-		new DefaultDAO<Project>().save(projects);
+		new DefaultDAO<Project>(Project.class).save(projects);
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class PMUIServiceImpl implements PMUIService
 		}
 		param.setQueryColumns(null);
 		param.setSort(new Sort("ucode", "pcode", "sortidx"));
-		PActor[] pactors = new DefaultDAO<PActor>().query(PActor.class, param.buildDBQueryParams());
+		PActor[] pactors = new DefaultDAO<PActor>(PActor.class).query(param.buildDBQueryParams());
 		Map<String,PMView> map = new TreeMap<>();
 		for (PActor pa : pactors)
 		{
@@ -103,7 +103,7 @@ public class PMUIServiceImpl implements PMUIService
 		}
 		param.setQueryColumns(null);
 		param.setSort(new Sort("ucode", "pcode", "sortidx"));
-		PActor[] pactors = new DefaultDAO<PActor>().query(PActor.class, param.buildDBQueryParams());
+		PActor[] pactors = new DefaultDAO<PActor>(PActor.class).query(param.buildDBQueryParams());
 		Map<String,PMView> map = new TreeMap<>();
 		for (PActor pa : pactors)
 		{

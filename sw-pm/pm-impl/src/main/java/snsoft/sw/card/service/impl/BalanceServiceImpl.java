@@ -47,7 +47,7 @@ public class BalanceServiceImpl implements BalanceService
 	public List<Consume> queryConsume(BalanceParams params)
 	{
 		buildParams(params);
-		return new DefaultDAO<Consume>().queryList(Consume.class, params.buildDBQueryParams());
+		return new DefaultDAO<Consume>(Consume.class).queryList(params.buildDBQueryParams());
 	}
 
 	private void buildParams(BalanceParams params)
@@ -66,7 +66,7 @@ public class BalanceServiceImpl implements BalanceService
 	public List<Repayment> queryRepayment(BalanceParams params)
 	{
 		buildParams(params);
-		return new DefaultDAO<Repayment>().queryList(Repayment.class, params.buildDBQueryParams());
+		return new DefaultDAO<Repayment>(Repayment.class).queryList(params.buildDBQueryParams());
 	}
 
 	@Override
