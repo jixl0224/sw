@@ -8,6 +8,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import snsoft.bas.service.util.NullQueryParams;
+import snsoft.bas.service.util.ParamUtils;
 import snsoft.commons.util.DataUtils;
 import snsoft.commons.util.DateUtils;
 import snsoft.dx.DBUtils;
@@ -47,7 +48,7 @@ public class BalanceServiceImpl implements BalanceService
 	public List<Consume> queryConsume(BalanceParams params)
 	{
 		buildParams(params);
-		return new DefaultDAO<Consume>(Consume.class).queryList(params.buildDBQueryParams());
+		return new DefaultDAO<Consume>(Consume.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	private void buildParams(BalanceParams params)
@@ -66,7 +67,7 @@ public class BalanceServiceImpl implements BalanceService
 	public List<Repayment> queryRepayment(BalanceParams params)
 	{
 		buildParams(params);
-		return new DefaultDAO<Repayment>(Repayment.class).queryList(params.buildDBQueryParams());
+		return new DefaultDAO<Repayment>(Repayment.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	@Override

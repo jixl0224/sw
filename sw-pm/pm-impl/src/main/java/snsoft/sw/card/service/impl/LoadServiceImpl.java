@@ -8,6 +8,7 @@ import snsoft.bas.service.QueryResults;
 import snsoft.bas.service.SaveParams;
 import snsoft.bas.service.SaveResults;
 import snsoft.bas.service.util.NullQueryParams;
+import snsoft.bas.service.util.ParamUtils;
 import snsoft.commons.util.DateUtils;
 import snsoft.commons.util.InfoException;
 import snsoft.dx.DBUtils;
@@ -49,7 +50,7 @@ public class LoadServiceImpl implements LoadService
 	@Override
 	public QueryResults<Load> query(LoadParams params)
 	{
-		List<Load> list = new DefaultDAO<Load>(Load.class).queryList(params.buildDBQueryParams());
+		List<Load> list = new DefaultDAO<Load>(Load.class).queryList(ParamUtils.buildDBQueryParams(params));
 		return new QueryResults<>(list);
 	}
 
@@ -63,7 +64,7 @@ public class LoadServiceImpl implements LoadService
 	@Override
 	public List<LoadDetail> queryDetail(LoadDetailParams params)
 	{
-		return new DefaultDAO<LoadDetail>(LoadDetail.class).queryList(params.buildDBQueryParams());
+		return new DefaultDAO<LoadDetail>(LoadDetail.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	private void assertExists(int lid)

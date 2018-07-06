@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import snsoft.bas.service.util.NullQueryParams;
+import snsoft.bas.service.util.ParamUtils;
 import snsoft.bas.service.util.Sort;
 import snsoft.dx.DefaultDAO;
 import snsoft.sql.SqlExpr;
@@ -32,7 +33,7 @@ public class PMUIServiceImpl implements PMUIService
 	@Override
 	public Actor[] queryActors(NullQueryParams param)
 	{
-		return new DefaultDAO<Actor>(Actor.class).query(param.buildDBQueryParams());
+		return new DefaultDAO<Actor>(Actor.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
@@ -44,13 +45,13 @@ public class PMUIServiceImpl implements PMUIService
 	@Override
 	public Project[] queryProjects(NullQueryParams param)
 	{
-		return new DefaultDAO<Project>(Project.class).query(param.buildDBQueryParams());
+		return new DefaultDAO<Project>(Project.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
 	public PActor[] queryPActors(PActorParam param)
 	{
-		return new DefaultDAO<PActor>(PActor.class).query(param.buildDBQueryParams());
+		return new DefaultDAO<PActor>(PActor.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
@@ -71,7 +72,7 @@ public class PMUIServiceImpl implements PMUIService
 		}
 		param.setQueryColumns(null);
 		param.setSort(new Sort("ucode", "pcode", "sortidx"));
-		PActor[] pactors = new DefaultDAO<PActor>(PActor.class).query(param.buildDBQueryParams());
+		PActor[] pactors = new DefaultDAO<PActor>(PActor.class).query(ParamUtils.buildDBQueryParams(param));
 		Map<String,PMView> map = new TreeMap<>();
 		for (PActor pa : pactors)
 		{
@@ -103,7 +104,7 @@ public class PMUIServiceImpl implements PMUIService
 		}
 		param.setQueryColumns(null);
 		param.setSort(new Sort("ucode", "pcode", "sortidx"));
-		PActor[] pactors = new DefaultDAO<PActor>(PActor.class).query(param.buildDBQueryParams());
+		PActor[] pactors = new DefaultDAO<PActor>(PActor.class).query(ParamUtils.buildDBQueryParams(param));
 		Map<String,PMView> map = new TreeMap<>();
 		for (PActor pa : pactors)
 		{

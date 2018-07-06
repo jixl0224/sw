@@ -3,6 +3,7 @@ package snsoft.sw.p2p.service.impl;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import snsoft.bas.service.util.NullQueryParams;
+import snsoft.bas.service.util.ParamUtils;
 import snsoft.dx.DefaultDAO;
 import snsoft.sw.p2p.service.P2pService;
 import snsoft.sw.p2p.vo.P2p_plat;
@@ -27,7 +28,7 @@ public class P2pServiceImpl implements P2pService
 	@Override
 	public List<P2p_user> queryUsers(NullQueryParams params)
 	{
-		return new DefaultDAO<P2p_user>(P2p_user.class).queryList(params.buildDBQueryParams());
+		return new DefaultDAO<P2p_user>(P2p_user.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	@Override
@@ -39,7 +40,7 @@ public class P2pServiceImpl implements P2pService
 	@Override
 	public List<P2p_plat> queryPlats(NullQueryParams params)
 	{
-		return new DefaultDAO<P2p_plat>(P2p_plat.class).queryList(params.buildDBQueryParams());
+		return new DefaultDAO<P2p_plat>(P2p_plat.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	@Override
@@ -51,7 +52,7 @@ public class P2pServiceImpl implements P2pService
 	@Override
 	public List<P2p_record> queryRecords(RecordParams params)
 	{
-		return new DefaultDAO<P2p_record>(P2p_record.class).queryList(params.buildDBQueryParams());
+		return new DefaultDAO<P2p_record>(P2p_record.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	@Override

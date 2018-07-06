@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import snsoft.bas.service.util.NullQueryParams;
+import snsoft.bas.service.util.ParamUtils;
 import snsoft.bas.service.util.Sort;
 import snsoft.commons.login.UserSession;
 import snsoft.commons.util.DateUtils;
@@ -37,7 +38,7 @@ public class CreditUIServiceImpl implements CreditUIService
 	@Override
 	public PMCcard[] queryPMCcard(NullQueryParams param)
 	{
-		return new DefaultDAO<PMCcard>(PMCcard.class).query(param.buildDBQueryParams());
+		return new DefaultDAO<PMCcard>(PMCcard.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
@@ -52,7 +53,7 @@ public class CreditUIServiceImpl implements CreditUIService
 		param.setQueryColumns(null);
 		param.setSort(new Sort("ccode"));
 		param.addExtQueryParams(new QueryColumn("ucode", AppContext.getUserSession(true).getUserCode()));
-		return new DefaultDAO<PMUcard>(PMUcard.class).query(param.buildDBQueryParams());
+		return new DefaultDAO<PMUcard>(PMUcard.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
@@ -118,7 +119,7 @@ public class CreditUIServiceImpl implements CreditUIService
 			filter = filter.and(new SqlExpr(SqlExpr.LE, SqlExpr.id("bedate"), SqlExpr.constExpr(params.getOdate())));
 			params.addFilter(filter);
 		}
-		return new DefaultDAO<Activity>(Activity.class).queryList(params.buildDBQueryParams());
+		return new DefaultDAO<Activity>(Activity.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	@Override
