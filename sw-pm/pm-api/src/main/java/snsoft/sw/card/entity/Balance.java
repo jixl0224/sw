@@ -3,8 +3,8 @@ package snsoft.sw.card.entity;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Id;
-import snsoft.bas.sheet.dft.annotation.DefaultValue;
-import snsoft.dx.VO;
+import snsoft.api.dft.DefaultValue;
+import snsoft.api.dx.VO;
 
 /**
  * <p>标题：收支</p>

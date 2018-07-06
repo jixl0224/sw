@@ -3,7 +3,7 @@ package snsoft.sw.pm.entity;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
-import snsoft.dx.VO;
+import snsoft.api.dx.VO;
 
 /**
  * <p>标题：</p>

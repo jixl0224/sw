@@ -3,9 +3,9 @@ package snsoft.sw.card.service;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-import snsoft.bas.service.QueryParams;
-import snsoft.commons.annotation.AuthParam;
-import snsoft.commons.spring.SpringBean;
+import snsoft.api.bas.QueryParams;
+import snsoft.api.service.AuthParam;
+import snsoft.api.service.SpringBean;
 import snsoft.sw.card.entity.Consume;
 import snsoft.sw.card.entity.Repayment;
 

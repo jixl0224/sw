@@ -6,9 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import snsoft.bas.sheet.dft.annotation.DefaultValue;
-import snsoft.dx.VO;
-import snsoft.dx.vo.validate.constrains.CodeTable;
+import snsoft.api.dft.DefaultValue;
+import snsoft.api.dx.VO;
+import snsoft.api.validation.annotation.CodeTable;
 
 /**
  * <p>标题：筹款明细</p>

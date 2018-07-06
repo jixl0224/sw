@@ -17,7 +17,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import snsoft.dx.VO;
+import snsoft.api.dx.VO;
 @Table(name = "p2p_record")
 public class P2p_record extends VO
 {

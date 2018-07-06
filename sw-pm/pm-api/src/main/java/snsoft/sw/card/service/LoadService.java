@@ -1,13 +1,13 @@
 package snsoft.sw.card.service;
 
 import java.util.List;
-import snsoft.bas.service.QueryParams;
-import snsoft.bas.service.QueryResults;
-import snsoft.bas.service.SaveParams;
-import snsoft.bas.service.SaveResults;
-import snsoft.commons.annotation.Remoteable;
-import snsoft.commons.spring.SpringBean;
-import snsoft.sql.annotation.SqlColumn;
+import snsoft.api.bas.QueryParams;
+import snsoft.api.bas.QueryResults;
+import snsoft.api.bas.SaveParams;
+import snsoft.api.bas.SaveResults;
+import snsoft.api.service.Remoteable;
+import snsoft.api.service.SpringBean;
+import snsoft.api.sql.SqlColumn;
 import snsoft.sw.card.entity.Load;
 import snsoft.sw.card.entity.LoadDetail;
 

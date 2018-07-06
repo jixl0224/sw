@@ -3,7 +3,7 @@ package snsoft.sw.card.entity;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import snsoft.dx.VO;
+import snsoft.api.dx.VO;
 
 /**
  * <p>标题：</p>

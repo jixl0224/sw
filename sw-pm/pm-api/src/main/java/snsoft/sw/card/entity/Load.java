@@ -12,8 +12,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import snsoft.bas.sheet.dft.annotation.DefaultValue;
-import snsoft.dx.VO;
+import snsoft.api.dft.DefaultValue;
+import snsoft.api.dx.VO;
 
 /**
  * <p>标题：筹款主表</p>

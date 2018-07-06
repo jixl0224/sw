@@ -15,7 +15,7 @@ package snsoft.sw.p2p.vo;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import snsoft.dx.VO;
+import snsoft.api.dx.VO;
 @Table(name = "p2p_plat")
 public class P2p_plat extends VO
 {

@@ -2,10 +2,10 @@ package snsoft.sw.card.service;
 
 import java.util.Date;
 import java.util.List;
-import snsoft.bas.service.QueryParams;
+import snsoft.api.bas.QueryParams;
+import snsoft.api.service.AuthParam;
+import snsoft.api.service.SpringBean;
 import snsoft.bas.service.util.NullQueryParams;
-import snsoft.commons.annotation.AuthParam;
-import snsoft.commons.spring.SpringBean;
 import snsoft.sw.card.entity.Activity;
 import snsoft.sw.card.entity.CardView;
 import snsoft.sw.card.entity.PMCcard;
