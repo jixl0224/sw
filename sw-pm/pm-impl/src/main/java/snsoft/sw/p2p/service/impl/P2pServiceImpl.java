@@ -2,9 +2,9 @@ package snsoft.sw.p2p.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import snsoft.bas.service.util.NullQueryParams;
-import snsoft.bas.service.util.ParamUtils;
+import snsoft.api.bas.NullQueryParams;
 import snsoft.dx.DefaultDAO;
+import snsoft.dx.util.ParamUtils;
 import snsoft.sw.p2p.service.P2pService;
 import snsoft.sw.p2p.vo.P2p_plat;
 import snsoft.sw.p2p.vo.P2p_record;

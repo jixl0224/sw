@@ -2,10 +2,10 @@ package snsoft.sw.pm.service;
 
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import snsoft.api.bas.NullQueryParams;
 import snsoft.api.bas.QueryParams;
 import snsoft.api.service.SpringBean;
 import snsoft.api.sql.SqlColumn;
-import snsoft.bas.service.util.NullQueryParams;
 import snsoft.sw.pm.entity.Actor;
 import snsoft.sw.pm.entity.PActor;
 import snsoft.sw.pm.entity.PMView;

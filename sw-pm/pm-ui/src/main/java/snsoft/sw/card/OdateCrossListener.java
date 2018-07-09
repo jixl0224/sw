@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-import snsoft.bas.service.util.NullQueryParams;
+import snsoft.api.bas.NullQueryParams;
 import snsoft.commons.spring.SpringBeanUtils;
 import snsoft.commons.util.DateUtils;
 import snsoft.dx.codedata.CodeData;

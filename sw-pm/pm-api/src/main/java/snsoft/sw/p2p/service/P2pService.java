@@ -2,9 +2,9 @@ package snsoft.sw.p2p.service;
 
 import java.util.Date;
 import java.util.List;
+import snsoft.api.bas.NullQueryParams;
 import snsoft.api.bas.QueryParams;
 import snsoft.api.sql.SqlColumn;
-import snsoft.bas.service.util.NullQueryParams;
 import snsoft.sql.SqlExpr;
 import snsoft.sw.p2p.vo.P2p_plat;
 import snsoft.sw.p2p.vo.P2p_record;
