@@ -33,31 +33,31 @@ public class PMUIServiceImpl implements PMUIService
 	@Override
 	public Actor[] queryActors(NullQueryParams param)
 	{
-		return new DefaultDAO<Actor>(Actor.class).query(ParamUtils.buildDBQueryParams(param));
+		return DefaultDAO.newInstance(Actor.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
 	public void saveActors(Actor[] actors)
 	{
-		new DefaultDAO<Actor>(Actor.class).save(actors);
+		DefaultDAO.newInstance(Actor.class).save(actors);
 	}
 
 	@Override
 	public Project[] queryProjects(NullQueryParams param)
 	{
-		return new DefaultDAO<Project>(Project.class).query(ParamUtils.buildDBQueryParams(param));
+		return DefaultDAO.newInstance(Project.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
 	public PActor[] queryPActors(PActorParam param)
 	{
-		return new DefaultDAO<PActor>(PActor.class).query(ParamUtils.buildDBQueryParams(param));
+		return DefaultDAO.newInstance(PActor.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
 	public void saveProjects(Project[] projects)
 	{
-		new DefaultDAO<Project>(Project.class).save(projects);
+		DefaultDAO.newInstance(Project.class).save(projects);
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class PMUIServiceImpl implements PMUIService
 		}
 		param.setQueryColumns(null);
 		param.setSort(new Sort("ucode", "pcode", "sortidx"));
-		PActor[] pactors = new DefaultDAO<PActor>(PActor.class).query(ParamUtils.buildDBQueryParams(param));
+		PActor[] pactors = DefaultDAO.newInstance(PActor.class).query(ParamUtils.buildDBQueryParams(param));
 		Map<String,PMView> map = new TreeMap<>();
 		for (PActor pa : pactors)
 		{
@@ -104,7 +104,7 @@ public class PMUIServiceImpl implements PMUIService
 		}
 		param.setQueryColumns(null);
 		param.setSort(new Sort("ucode", "pcode", "sortidx"));
-		PActor[] pactors = new DefaultDAO<PActor>(PActor.class).query(ParamUtils.buildDBQueryParams(param));
+		PActor[] pactors = DefaultDAO.newInstance(PActor.class).query(ParamUtils.buildDBQueryParams(param));
 		Map<String,PMView> map = new TreeMap<>();
 		for (PActor pa : pactors)
 		{

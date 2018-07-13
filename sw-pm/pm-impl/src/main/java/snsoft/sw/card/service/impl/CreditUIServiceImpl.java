@@ -38,13 +38,13 @@ public class CreditUIServiceImpl implements CreditUIService
 	@Override
 	public PMCcard[] queryPMCcard(NullQueryParams param)
 	{
-		return new DefaultDAO<PMCcard>(PMCcard.class).query(ParamUtils.buildDBQueryParams(param));
+		return DefaultDAO.newInstance(PMCcard.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
 	public void savePMCcard(PMCcard[] ccards)
 	{
-		new DefaultDAO<PMCcard>(PMCcard.class).save(ccards);
+		DefaultDAO.newInstance(PMCcard.class).save(ccards);
 	}
 
 	@Override
@@ -53,13 +53,13 @@ public class CreditUIServiceImpl implements CreditUIService
 		param.setQueryColumns(null);
 		param.setSort(new Sort("ccode"));
 		param.addExtQueryParams(new QueryColumn("ucode", AppContext.getUserSession(true).getUserCode()));
-		return new DefaultDAO<PMUcard>(PMUcard.class).query(ParamUtils.buildDBQueryParams(param));
+		return DefaultDAO.newInstance(PMUcard.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
 	public void savePMUcard(PMUcard[] ucards)
 	{
-		new DefaultDAO<PMUcard>(PMUcard.class).save(ucards);
+		DefaultDAO.newInstance(PMUcard.class).save(ucards);
 	}
 
 	@Override
@@ -119,12 +119,12 @@ public class CreditUIServiceImpl implements CreditUIService
 			filter = filter.and(new SqlExpr(SqlExpr.LE, SqlExpr.id("bedate"), SqlExpr.constExpr(params.getOdate())));
 			params.addFilter(filter);
 		}
-		return new DefaultDAO<Activity>(Activity.class).queryList(ParamUtils.buildDBQueryParams(params));
+		return DefaultDAO.newInstance(Activity.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	@Override
 	public void saveActivity(List<Activity> activities)
 	{
-		new DefaultDAO<Activity>(Activity.class).save(activities);
+		DefaultDAO.newInstance(Activity.class).save(activities);
 	}
 }

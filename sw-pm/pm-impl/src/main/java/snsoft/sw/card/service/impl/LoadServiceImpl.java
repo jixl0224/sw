@@ -50,21 +50,21 @@ public class LoadServiceImpl implements LoadService
 	@Override
 	public QueryResults<Load> query(LoadParams params)
 	{
-		List<Load> list = new DefaultDAO<Load>(Load.class).queryList(ParamUtils.buildDBQueryParams(params));
+		List<Load> list = DefaultDAO.newInstance(Load.class).queryList(ParamUtils.buildDBQueryParams(params));
 		return new QueryResults<>(list);
 	}
 
 	@Override
 	public SaveResults save(SaveParams<Load> params)
 	{
-		new DefaultDAO<Load>(Load.class).save(params.getSaveValues());
+		DefaultDAO.newInstance(Load.class).save(params.getSaveValues());
 		return new SaveResults();
 	}
 
 	@Override
 	public List<LoadDetail> queryDetail(LoadDetailParams params)
 	{
-		return new DefaultDAO<LoadDetail>(LoadDetail.class).queryList(ParamUtils.buildDBQueryParams(params));
+		return DefaultDAO.newInstance(LoadDetail.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	private void assertExists(int lid)
@@ -108,14 +108,14 @@ public class LoadServiceImpl implements LoadService
 			detail.setGid(codes[details.size()]);
 			details.add(detail);
 		}
-		new DefaultDAO<LoadDetail>(LoadDetail.class).insert(details.toArray(new LoadDetail[0]));
+		DefaultDAO.newInstance(LoadDetail.class).insert(details.toArray(new LoadDetail[0]));
 	}
 
 	@Override
 	public void calcCards(int lid)
 	{
 		//
-		Load load = new DefaultDAO<Load>(Load.class).queryByID(lid, false);
+		Load load = DefaultDAO.newInstance(Load.class).queryByID(lid, false);
 		if (load == null)
 		{
 			throw new InfoException("记录不存在！");
@@ -141,7 +141,7 @@ public class LoadServiceImpl implements LoadService
 			detail.addStoredColumn("cdays");
 		}
 		// 存盘
-		new DefaultDAO<LoadDetail>(LoadDetail.class).update(details.toArray(new LoadDetail[0]));
+		DefaultDAO.newInstance(LoadDetail.class).update(details.toArray(new LoadDetail[0]));
 	}
 
 }
