@@ -167,6 +167,11 @@
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
+				<artifactId>snadk-code-impl</artifactId>
+				<version>${snadk.core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-prt-api</artifactId>
 				<version>${snadk.ui.version}</version>
 			</dependency>
