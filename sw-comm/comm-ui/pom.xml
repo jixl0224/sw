@@ -22,7 +22,6 @@
 		 <dependency>
 			<groupId>cn.snsoft.snadk</groupId>
 			<artifactId>snadk-ui</artifactId>
-			<version>${snadk.core.version}</version>
 		</dependency>
 	</dependencies>
 

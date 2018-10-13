@@ -24,7 +24,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java-ver>1.8</java-ver>
 		<!-- 模块版本 -->
-		<snadk.core.version>4.0.0-SNAPSHOT</snadk.core.version>
+		<snadk.version>4.0.0.RELEASE</snadk.version>
 	</properties>
 	
 	<dependencyManagement>
@@ -32,7 +32,7 @@
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-xjs</artifactId>
-				<version>${snadk.core.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

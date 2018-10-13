@@ -20,6 +20,10 @@
 			<artifactId>sw-pm-api</artifactId>
 			<version>${sw-pm.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>cn.snsoft.snadk</groupId>
+			<artifactId>snadk-bas</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

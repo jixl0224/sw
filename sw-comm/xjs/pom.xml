@@ -18,7 +18,6 @@
 		<dependency>
 			<groupId>cn.snsoft.snadk</groupId>
 			<artifactId>snadk-xjs</artifactId>
-			<version>${snadk.core.version}</version>
 		</dependency>
 	</dependencies>
 

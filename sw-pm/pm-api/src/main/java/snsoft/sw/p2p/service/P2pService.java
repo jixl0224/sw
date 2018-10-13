@@ -5,7 +5,7 @@ import java.util.List;
 import snsoft.api.bas.NullQueryParams;
 import snsoft.api.bas.QueryParams;
 import snsoft.api.sql.SqlColumn;
-import snsoft.sql.SqlExpr;
+import snsoft.api.sql.SqlExpression;
 import snsoft.sw.p2p.vo.P2p_plat;
 import snsoft.sw.p2p.vo.P2p_record;
 import snsoft.sw.p2p.vo.P2p_user;
@@ -46,7 +46,7 @@ public interface P2pService
 		@SqlColumn
 		private String				pcode;
 
-		@SqlColumn(sqlop = SqlExpr.GE, column = "ledate")
+		@SqlColumn(sqlop = SqlExpression.GE, column = "ledate")
 		private Date				ledatefm;
 
 		public String getUcode()

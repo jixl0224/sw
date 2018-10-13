@@ -22,7 +22,7 @@
 		 <dependency>
 			<groupId>cn.snsoft.snadk</groupId>
 			<artifactId>snadk-ui</artifactId>
-			<version>${snadk.core.version}</version>
+			<version>${snadk.version}</version>
 		</dependency>
 	</dependencies>
 

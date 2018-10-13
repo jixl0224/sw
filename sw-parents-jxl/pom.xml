@@ -62,18 +62,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java-ver>1.8</java-ver>
 		<!-- 模块版本 -->
-		<snadk.version>4.0.0-SNAPSHOT</snadk.version>
-		<snadk.core.version>4.0.0-SNAPSHOT</snadk.core.version>
-		<snadk.ui.version>4.0.0-SNAPSHOT</snadk.ui.version>
-		<snadk.sso.version>4.0.0-SNAPSHOT</snadk.sso.version>
-		<snadk.approval.version>4.0.0-SNAPSHOT</snadk.approval.version>
-		<snadk.mq.version>4.0.0-SNAPSHOT</snadk.mq.version>
-		<snadk.cmc.version>4.0.0-SNAPSHOT</snadk.cmc.version>
-		<snadk.help.version>4.0.0-SNAPSHOT</snadk.help.version>
-		<snadk.mdm.version>4.0.0-SNAPSHOT</snadk.mdm.version>
-		<snadk.sla.version>4.0.0-SNAPSHOT</snadk.sla.version>
-		<snadk.acs.version>4.0.0-SNAPSHOT</snadk.acs.version>
-		<snadk.cms.version>4.0.0-SNAPSHOT</snadk.cms.version>
+		<snadk.version>4.0.0.RELEASE</snadk.version>
 	</properties>
 
 	<dependencyManagement>
@@ -82,113 +71,83 @@
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-bas</artifactId>
-				<version>${snadk.core.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>cn.snsoft.snadk</groupId>
-				<artifactId>snadk-bpm-api</artifactId>
-				<version>${snadk.core.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>cn.snsoft.snadk</groupId>
-				<artifactId>snadk-bpm-impl</artifactId>
-				<version>${snadk.core.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-dubo</artifactId>
-				<version>${snadk.core.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-dx</artifactId>
-				<version>${snadk.core.version}</version>
+				<version>${snadk.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.snsoft.snadk</groupId>
+				<artifactId>snadk-data</artifactId>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-utils</artifactId>
-				<version>${snadk.core.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<!-- -->
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-ui</artifactId>
-				<version>${snadk.ui.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>cn.snsoft.snadk</groupId>
-				<artifactId>snadk-approval-api</artifactId>
-				<version>${snadk.approval.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>cn.snsoft.snadk</groupId>
-				<artifactId>snadk-approval-impl</artifactId>
-				<version>${snadk.approval.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-cmc</artifactId>
-				<version>${snadk.cmc.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-cmc-ui</artifactId>
-				<version>${snadk.cmc.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>cn.snsoft.snadk</groupId>
-				<artifactId>snadk-cms-api</artifactId>
-				<version>${snadk.cms.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>cn.snsoft.snadk</groupId>
-				<artifactId>snadk-cms-impl</artifactId>
-				<version>${snadk.cms.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>cn.snsoft.snadk</groupId>
-				<artifactId>snadk-cms-ui</artifactId>
-				<version>${snadk.cms.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-sso-client</artifactId>
-				<version>${snadk.sso.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-sso-client-api</artifactId>
-				<version>${snadk.sso.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-sso-client-impl</artifactId>
-				<version>${snadk.sso.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-code-impl</artifactId>
-				<version>${snadk.core.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-prt-api</artifactId>
-				<version>${snadk.ui.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-prt-impl</artifactId>
-				<version>${snadk.ui.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-configkit-client</artifactId>
-				<version>${snadk.core.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-configkit-common</artifactId>
-				<version>${snadk.core.version}</version>
+				<version>${snadk.version}</version>
 			</dependency>
 
 
