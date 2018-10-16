@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-import snsoft.commons.spring.SpringBeanUtils;
 import snsoft.commons.util.StrUtils;
 import snsoft.dx.DBUtils;
 import snsoft.dx.Database;
@@ -56,7 +55,6 @@ public class ImportXlsData
 
 	public long importData() throws Exception
 	{
-		MakeCodeService codeService = SpringBeanUtils.getBeanByName("SN-CORE.MakeCodeService");
 		MakeCodeParam param = new MakeCodeParam("sw_decl", "declid");
 		param.setCodeLike(StrUtils.newString('_', 12));
 		int n = 1000;
@@ -70,7 +68,7 @@ public class ImportXlsData
 		{
 
 			UpdateData updateData = new UpdateData();
-			List<String> codes = new ArrayList<>(Arrays.asList(codeService.makeCodes(param)));
+			List<String> codes = new ArrayList<>(Arrays.asList(MakeCodeService.impl.makeCodes(param)));
 			ExcelReader reader = ExcelFactory.fac.newXlsxReader(is, new ReadOptions("导出工作表", 1));
 			long lines = reader.read(row -> {
 				int int1 = row.getInt(8);
@@ -97,7 +95,7 @@ public class ImportXlsData
 					db.updateData(updateData, true);
 					updateData.clear();
 					codes.clear();
-					codes.addAll(Arrays.asList(codeService.makeCodes(param)));
+					codes.addAll(Arrays.asList(MakeCodeService.impl.makeCodes(param)));
 				}
 			});
 			if (updateData.countUpdate() > 0)
@@ -114,7 +112,6 @@ public class ImportXlsData
 	 */
 	public long importCurr() throws Exception
 	{
-		MakeCodeService codeService = SpringBeanUtils.getBeanByName("SN-CORE.MakeCodeService");
 		MakeCodeParam param = new MakeCodeParam("sw_curr", "id");
 		int n = 1000;
 		AtomicLong counter = new AtomicLong();
@@ -134,7 +131,7 @@ public class ImportXlsData
 					nameMap.put((String) vs[1], (String) vs[0]);
 				}
 			}
-			BatchCodeMaker codeMaker = codeService.batchMacker(0, n, param);
+			BatchCodeMaker codeMaker = MakeCodeService.impl.batchMacker(0, n, param);
 			ExcelReader reader = ExcelFactory.fac.newXlsxReader(is, new ReadOptions("导出工作表", 1));
 			long lines = reader.read(row -> {
 				int int1 = row.getInt(5);
