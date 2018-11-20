@@ -1,5 +1,6 @@
 package snsoft.sw.pm.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -105,7 +106,7 @@ public class Project extends PMVO
 
 	public List<PActor> getPactors()
 	{
-		return pactors;
+		return pactors == null ? pactors = new ArrayList<>() : pactors;
 	}
 
 	public void setPactors(List<PActor> pactors)

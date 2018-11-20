@@ -8,20 +8,15 @@ import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.webresources.DirResourceSet;
 import org.apache.catalina.webresources.StandardRoot;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import snsoft.servlet.SessionTrace;
 import snsoft.servlet.filter.DefaultFilter;
 import snsoft.servlet.filter.UserSessionFilter;
-
 /**
  * <p>标题：</p>
  * <p>功能：</p>
@@ -76,6 +71,7 @@ public class BootConfig
 		filterRegistrationBean.addUrlPatterns("/fs/*");
 		filterRegistrationBean.addUrlPatterns("/ws/*");
 		filterRegistrationBean.addUrlPatterns("/do/*");
+		filterRegistrationBean.addUrlPatterns("/office/wopi/files/*");
 		return filterRegistrationBean;
 	}
 
@@ -90,39 +86,28 @@ public class BootConfig
 	{
 		return new BootFactory();
 	}
-
-	@Bean
-	public WebMvcConfigurerAdapter webMvcConfig()
-	{
-		return new WebMvcConfigurerAdapter()
-		{
-			@Override
-			public void addViewControllers(ViewControllerRegistry registry)
-			{
-				registry.addRedirectViewController("/", "/Login.html");
-				registry.addRedirectViewController("/admin", "/admin/index.html");
-				//			registry.addRedirectViewController("/error", "/error.html");
-				registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-				super.addViewControllers(registry);
-			}
-
-			@Override
-			public void addResourceHandlers(ResourceHandlerRegistry registry)
-			{
-			}
-		};
-	}
-
+	//	/**
+	//	 * 废弃
+	//	 * @return
+	//	 */
 	//	@Bean
-	//	public SimpleMappingExceptionResolver simpleMappingExceptionResolver()
+	//	public WebMvcConfigurerAdapter webMvcConfig()
 	//	{
-	//		Properties properties = new Properties();
-	//		properties.setProperty("java.lang.Throwable", "/Login.html");
-	//		SimpleMappingExceptionResolver exceptionResolver = new SimpleMappingExceptionResolver();
-	//		exceptionResolver.setExceptionMappings(properties);
-	//		return exceptionResolver;
+	//		return new WebMvcConfigurerAdapter()
+	//		{
+	//			@Override
+	//			public void addViewControllers(ViewControllerRegistry registry)
+	//			{
+	//
+	//			}
+	//
+	//			@Override
+	//			public void addResourceHandlers(ResourceHandlerRegistry registry)
+	//			{
+	//			}
+	//		};
 	//	}
-	public class BootFactory extends TomcatEmbeddedServletContainerFactory
+	public class BootFactory extends TomcatServletWebServerFactory
 	{
 		@Override
 		protected void configureContext(Context context, ServletContextInitializer[] initializers)
