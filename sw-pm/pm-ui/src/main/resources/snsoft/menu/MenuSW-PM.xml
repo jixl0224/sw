@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<menumodel id="SW-PM" title="项目管理" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://snsoft.cn/schema/Menu"
-	xsi:schemaLocation="http://snsoft.cn/schema/Menu
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/Menu.xsd">
+<menumodel id="SW-PM" title="项目管理" xmlns="http://snsoft.cn/schema/Menu">
 	<menu title="项目管理">
 		<menu title="项目管理">
 			<menu title="项目看板">
@@ -17,11 +14,11 @@
 			<menu title="信用卡">
 				<menu title="信用卡定义" cmd="ui:SW-CD.Ccard"></menu>
 				<menu title="用户信用卡" cmd="ui:SW-CD.Ucard"></menu>
-				<menu title="--" ></menu>
+				<menu title="--"></menu>
 				<menu title="信用卡筹款" cmd="ui:SW-CD.Cload"></menu>
 				<menu title="信用卡消费" cmd="ui:SW-CD.Consume"></menu>
 				<menu title="信用卡还款" cmd="ui:SW-CD.Repayment"></menu>
-				<menu title="--" ></menu>
+				<menu title="--"></menu>
 				<menu title="信用卡看板" cmd="ui:SW-CD.CardView"></menu>
 				<menu title="信用卡活动" cmd="ui:SW-CD.Activity"></menu>
 			</menu>
