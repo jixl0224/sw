@@ -11,9 +11,9 @@ import snsoft.api.bas.NullQueryParams;
 import snsoft.api.sql.QueryColumn;
 import snsoft.commons.util.DataUtils;
 import snsoft.commons.util.DateUtils;
+import snsoft.dx.DAO;
 import snsoft.dx.DBUtils;
 import snsoft.dx.Database;
-import snsoft.dx.DefaultDAO;
 import snsoft.dx.util.ParamUtils;
 import snsoft.dx.vo.convert.service.MapperService;
 import snsoft.sql.SqlExpr;
@@ -48,7 +48,7 @@ public class BalanceServiceImpl implements BalanceService
 	public List<Consume> queryConsume(BalanceParams params)
 	{
 		buildParams(params);
-		return DefaultDAO.newInstance(Consume.class).queryList(ParamUtils.buildDBQueryParams(params));
+		return DAO.newInstance(Consume.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	private void buildParams(BalanceParams params)
@@ -67,7 +67,7 @@ public class BalanceServiceImpl implements BalanceService
 	public List<Repayment> queryRepayment(BalanceParams params)
 	{
 		buildParams(params);
-		return DefaultDAO.newInstance(Repayment.class).queryList(ParamUtils.buildDBQueryParams(params));
+		return DAO.newInstance(Repayment.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	@Override

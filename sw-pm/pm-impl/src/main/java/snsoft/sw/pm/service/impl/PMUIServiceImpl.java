@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import snsoft.api.bas.NullQueryParams;
 import snsoft.api.bas.Sort;
-import snsoft.dx.DefaultDAO;
+import snsoft.dx.DAO;
 import snsoft.dx.util.ParamUtils;
 import snsoft.sql.SqlExpr;
 import snsoft.sw.pm.entity.Actor;
@@ -33,31 +33,31 @@ public class PMUIServiceImpl implements PMUIService
 	@Override
 	public Actor[] queryActors(NullQueryParams param)
 	{
-		return DefaultDAO.newInstance(Actor.class).query(ParamUtils.buildDBQueryParams(param));
+		return DAO.newInstance(Actor.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
 	public void saveActors(Actor[] actors)
 	{
-		DefaultDAO.newInstance(Actor.class).save(actors);
+		DAO.newInstance(Actor.class).save(actors);
 	}
 
 	@Override
 	public Project[] queryProjects(NullQueryParams param)
 	{
-		return DefaultDAO.newInstance(Project.class).query(ParamUtils.buildDBQueryParams(param));
+		return DAO.newInstance(Project.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
 	public PActor[] queryPActors(PActorParam param)
 	{
-		return DefaultDAO.newInstance(PActor.class).query(ParamUtils.buildDBQueryParams(param));
+		return DAO.newInstance(PActor.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
 	public void saveProjects(Project[] projects)
 	{
-		DefaultDAO.newInstance(Project.class).save(projects);
+		DAO.newInstance(Project.class).save(projects);
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class PMUIServiceImpl implements PMUIService
 		}
 		param.setQueryColumns(null);
 		param.setSort(new Sort("ucode", "pcode", "sortidx"));
-		PActor[] pactors = DefaultDAO.newInstance(PActor.class).query(ParamUtils.buildDBQueryParams(param));
+		PActor[] pactors = DAO.newInstance(PActor.class).query(ParamUtils.buildDBQueryParams(param));
 		Map<String,PMView> map = new TreeMap<>();
 		for (PActor pa : pactors)
 		{
@@ -104,7 +104,7 @@ public class PMUIServiceImpl implements PMUIService
 		}
 		param.setQueryColumns(null);
 		param.setSort(new Sort("ucode", "pcode", "sortidx"));
-		PActor[] pactors = DefaultDAO.newInstance(PActor.class).query(ParamUtils.buildDBQueryParams(param));
+		PActor[] pactors = DAO.newInstance(PActor.class).query(ParamUtils.buildDBQueryParams(param));
 		Map<String,PMView> map = new TreeMap<>();
 		for (PActor pa : pactors)
 		{

@@ -11,8 +11,8 @@ import snsoft.commons.login.UserSession;
 import snsoft.commons.util.DateUtils;
 import snsoft.commons.util.StrUtils;
 import snsoft.context.AppContext;
+import snsoft.dx.DAO;
 import snsoft.dx.Database;
-import snsoft.dx.DefaultDAO;
 import snsoft.dx.util.ParamUtils;
 import snsoft.sql.SqlExpr;
 import snsoft.sw.card.entity.Activity;
@@ -38,13 +38,13 @@ public class CreditUIServiceImpl implements CreditUIService
 	@Override
 	public PMCcard[] queryPMCcard(NullQueryParams param)
 	{
-		return DefaultDAO.newInstance(PMCcard.class).query(ParamUtils.buildDBQueryParams(param));
+		return DAO.newInstance(PMCcard.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
 	public void savePMCcard(PMCcard[] ccards)
 	{
-		DefaultDAO.newInstance(PMCcard.class).save(ccards);
+		DAO.newInstance(PMCcard.class).save(ccards);
 	}
 
 	@Override
@@ -53,13 +53,13 @@ public class CreditUIServiceImpl implements CreditUIService
 		param.setQueryColumns(null);
 		param.setSort(new Sort("ccode"));
 		param.addExtQueryParams(new QueryColumn("ucode", AppContext.getUserSession(true).getUserCode()));
-		return DefaultDAO.newInstance(PMUcard.class).query(ParamUtils.buildDBQueryParams(param));
+		return DAO.newInstance(PMUcard.class).query(ParamUtils.buildDBQueryParams(param));
 	}
 
 	@Override
 	public void savePMUcard(PMUcard[] ucards)
 	{
-		DefaultDAO.newInstance(PMUcard.class).save(ucards);
+		DAO.newInstance(PMUcard.class).save(ucards);
 	}
 
 	@Override
@@ -119,12 +119,12 @@ public class CreditUIServiceImpl implements CreditUIService
 			filter = filter.and(new SqlExpr(SqlExpr.LE, SqlExpr.id("bedate"), SqlExpr.constExpr(params.getOdate())));
 			params.addFilter(filter);
 		}
-		return DefaultDAO.newInstance(Activity.class).queryList(ParamUtils.buildDBQueryParams(params));
+		return DAO.newInstance(Activity.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
 	@Override
 	public void saveActivity(List<Activity> activities)
 	{
-		DefaultDAO.newInstance(Activity.class).save(activities);
+		DAO.newInstance(Activity.class).save(activities);
 	}
 }
