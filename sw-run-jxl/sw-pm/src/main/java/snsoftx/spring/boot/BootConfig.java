@@ -43,9 +43,9 @@ public class BootConfig
 	}
 
 	@Bean
-	public FilterRegistrationBean fitlerRegister(DefaultFilter myFilter)
+	public FilterRegistrationBean<DefaultFilter> fitlerRegister(DefaultFilter myFilter)
 	{
-		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+		FilterRegistrationBean<DefaultFilter> filterRegistrationBean = new FilterRegistrationBean<>();
 		filterRegistrationBean.setFilter(myFilter);
 		filterRegistrationBean.setEnabled(true);
 		filterRegistrationBean.addUrlPatterns("/*");
@@ -60,9 +60,9 @@ public class BootConfig
 	}
 
 	@Bean
-	public FilterRegistrationBean filter_userSession_register(UserSessionFilter myFilter)
+	public FilterRegistrationBean<UserSessionFilter> filter_userSession_register(UserSessionFilter myFilter)
 	{
-		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+		FilterRegistrationBean<UserSessionFilter> filterRegistrationBean = new FilterRegistrationBean<>();
 		filterRegistrationBean.setFilter(myFilter);
 		filterRegistrationBean.setEnabled(true);
 		filterRegistrationBean.addUrlPatterns("/ui/*");

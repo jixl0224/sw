@@ -67,14 +67,6 @@ public class LoadServiceImpl implements LoadService
 		return DAO.newInstance(LoadDetail.class).queryList(ParamUtils.buildDBQueryParams(params));
 	}
 
-	private void assertExists(int lid)
-	{
-		try (Database db = DBUtils.newDatabaseByTable("pm_cload", true))
-		{
-
-		}
-	}
-
 	@Override
 	public void loadCards(int lid)
 	{
