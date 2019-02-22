@@ -116,16 +116,6 @@
 			</dependency>
 			<dependency>
 				<groupId>cn.snsoft.snadk</groupId>
-				<artifactId>snadk-sso-client-api</artifactId>
-				<version>${snadk.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>cn.snsoft.snadk</groupId>
-				<artifactId>snadk-sso-client-impl</artifactId>
-				<version>${snadk.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>cn.snsoft.snadk</groupId>
 				<artifactId>snadk-code-impl</artifactId>
 				<version>${snadk.version}</version>
 			</dependency>
