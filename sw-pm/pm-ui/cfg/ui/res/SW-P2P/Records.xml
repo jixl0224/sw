@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<B title="购买记录" fullPage="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/UI" xsi:schemaLocation="http://snsoft.cn/schema/UI
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
-		">
+<B title="购买记录" fullPage="true" xmlns="http://snsoft.cn/schema/UI">
 	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
-		<c name="ledatefm" title="回购日期从" sqltype="91" width="90" aidInputerBtn="true" disableed="true" initval="%CURDATE"/>
+		<c name="ledatefm" title="回购日期从" sqltype="91" width="90" aidInputerBtn="true" disableed="true" initval="%CURDATE" />
 	</m:DialogPane>
 	<m:GridTable name="record" title="P2P购买记录" region="center" sqlexpr="p2p_record" mainui="param" xprops.LoadDataService="SN-PM.P2pService#queryRecords" xprops.SaveDataService="SN-PM.P2pService#saveRecords"
 		noCollapseQPaneAfterRefresh="true" showToolbar="true" autoRefresh="true">
-		<c name="id" title="主键" sqltype="4" width="60" initval="AutoAlloc:" rdonly="true"/>
+		<c name="id" title="主键" sqltype="4" width="60" initval="AutoAlloc:" rdonly="true" />
 		<c name="ucode" title="用户" sqltype="12" width="70" aidInputerBtn="true" disableed="true" codedata="#SW-P2P.ucode" showname="true" droplist="true" droplistWithSearchPane="true" codeNameMatch="true"
 			aiprops="cellTextFmt:['${ucode}:${uname}']" />
 		<c name="pcode" title="平台" sqltype="12" width="90" aidInputerBtn="true" disableed="true" codedata="#SW-P2P.pcode" showname="true" droplist="true" droplistWithSearchPane="true" codeNameMatch="true"
 			aiprops="cellTextFmt:['${pcode}:${pname}']" />
-		<c name="bedate" title="起购日期" sqltype="91" width="90" aidInputerBtn="true" disableed="true"/>
-		<c name="ledate" title="回购日期" sqltype="91" width="90" aidInputerBtn="true" disableed="true"/>
-		<c name="fcy1" title="购买金额" sqltype="2" width="80" maxdeci="2"/>
-		<c name="fcy2" title="优惠额" sqltype="2" width="80" maxdeci="2"/>
-		<c name="fcy3" title="返现" sqltype="2" width="80" maxdeci="2"/>
-		<c name="fcy4" title="预期收益" sqltype="2" width="80" maxdeci="2"/>
-		<c name="fcy5" title="实际收益" sqltype="2" width="80" maxdeci="2"/>
-		<c name="ratio1" title="年化" sqltype="2" width="80" maxdeci="2" percent="true"/>
+		<c name="bedate" title="起购日期" sqltype="91" width="90" aidInputerBtn="true" disableed="true" />
+		<c name="ledate" title="回购日期" sqltype="91" width="90" aidInputerBtn="true" disableed="true" />
+		<c name="fcy1" title="购买金额" sqltype="2" width="80" maxdeci="2" />
+		<c name="fcy2" title="优惠额" sqltype="2" width="80" maxdeci="2" />
+		<c name="fcy3" title="返现" sqltype="2" width="80" maxdeci="2" />
+		<c name="fcy4" title="预期收益" sqltype="2" width="80" maxdeci="2" />
+		<c name="fcy5" title="实际收益" sqltype="2" width="80" maxdeci="2" />
+		<c name="ratio1" title="年化" sqltype="2" width="80" maxdeci="2" percent="true" />
 		<c name="prddesc" title="产品说明" sqltype="12" />
 		<c name="remark" title="说明" sqltype="12" width="200" aidInputerBtn="true" mutipleLine="true" tipIfOverflow="true" mlineView="true" />
 	</m:GridTable>

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<B title="事件记录" fullPage="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/UI" xsi:schemaLocation="http://snsoft.cn/schema/UI
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
-		">
+<B title="事件记录" fullPage="true" xmlns="http://snsoft.cn/schema/UI">
 	<m:DialogPane name="param" region="north" layoutm="grid" showToolbar="true">
-		<c name="pcode" title="项目" sqltype="12" width="120"  aidInputerBtn="true" disableed="true" codedata="#SW-PM.project" showname="true" 
-			droplist="true" droplistWithSearchPane="true" codeNameMatch="true" aiprops="cellTextFmt:['${pcode}:${pname}']"
-		/>
-		<c name="status" title="完成状态" sqltype="12" width="80" initval="0" showname="true" codedata="#DT_PM.evt_status" droplist="true" disableed="true"/>
-		<c name="event_desc" title="事件描述" sqltype="12" prefixMatch="true" suffixMatch="true"/>
+		<c name="pcode" title="项目" sqltype="12" width="120" aidInputerBtn="true" disableed="true" codedata="#SW-PM.project" showname="true" droplist="true" droplistWithSearchPane="true" codeNameMatch="true"
+			aiprops="cellTextFmt:['${pcode}:${pname}']" />
+		<c name="status" title="完成状态" sqltype="12" width="80" initval="0" showname="true" codedata="#DT_PM.evt_status" droplist="true" disableed="true" />
+		<c name="event_desc" title="事件描述" sqltype="12" prefixMatch="true" suffixMatch="true" />
 	</m:DialogPane>
 	<m:GridTable name="event" region="center" sqlexpr="pm_event" mainui="param" noCollapseQPaneAfterRefresh="true" showToolbar="true">
 		<jslistener>
@@ -28,20 +25,18 @@
 		}
 		]]>
 		</jslistener>
-		<ctrlcol idx="1" name="status" sqltype="12"/>
-		<ctrlval idx="1" ctrlFor="btn:finish" val.status="1" disabled="true"/>
-		<ctrlval idx="1" ctrlFor="btn:close" val.status="2" disabled="true"/>
+		<ctrlcol idx="1" name="status" sqltype="12" />
+		<ctrlval idx="1" ctrlFor="btn:finish" val.status="1" disabled="true" />
+		<ctrlval idx="1" ctrlFor="btn:close" val.status="2" disabled="true" />
 		<attrs>
-			<attr type="203" name="finish" title="完成"/>
-			<attr type="203" name="close" title="关闭"/>
+			<attr type="203" name="finish" title="完成" />
+			<attr type="203" name="close" title="关闭" />
 		</attrs>
-		<c name="id" title="ID" sqltype="4" initval="AutoAlloc:" hidden="true"/>
-		<c name="pcode" title="项目" sqltype="12" width="120" lastAsDefault="true" asceOrd="true" noblank="true" 
-			aidInputerBtn="true" disableed="true" codedata="#SW-PM.project" showname="true" 
-			droplist="true" droplistWithSearchPane="true" codeNameMatch="true" aiprops="cellTextFmt:['${pcode}:${pname}']"
-		/>
-		<c name="event_desc" title="事件描述" sqltype="12" width="400" aidInputerBtn="true" mutipleLine="true" tipIfOverflow="true" mlineView="true"/>
-		<c name="status" title="完成状态" sqltype="12" width="70" initval="0" showname="true" codedata="#DT_PM.evt_status" droplist="true" disableed="true"/>
+		<c name="id" title="ID" sqltype="4" initval="AutoAlloc:" hidden="true" />
+		<c name="pcode" title="项目" sqltype="12" width="120" lastAsDefault="true" asceOrd="true" noblank="true" aidInputerBtn="true" disableed="true" codedata="#SW-PM.project" showname="true" droplist="true"
+			droplistWithSearchPane="true" codeNameMatch="true" aiprops="cellTextFmt:['${pcode}:${pname}']" />
+		<c name="event_desc" title="事件描述" sqltype="12" width="400" aidInputerBtn="true" mutipleLine="true" tipIfOverflow="true" mlineView="true" />
+		<c name="status" title="完成状态" sqltype="12" width="70" initval="0" showname="true" codedata="#DT_PM.evt_status" droplist="true" disableed="true" />
 		<c name="predate" title="创建时间" sqltype="91" width="135" descOrd="true" initval="=new Xjs.dx.util.CurrentDateDefaultValue({serverTime:true})" rdonly="true" />
 		<c name="findate" title="完成时间" sqltype="91" width="135" rdonly="true" />
 	</m:GridTable>

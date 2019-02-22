@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Order xmlns="http://snsoft.cn/schema/Order" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://snsoft.cn/schema/Order Order.xsd ">
+<Order xmlns="http://snsoft.cn/schema/Order" >
   <billid>0</billid>
   <odate>2001-01-01</odate>
   <user>user</user>

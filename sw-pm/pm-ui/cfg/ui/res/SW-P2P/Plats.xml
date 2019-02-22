@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<B title="P2P平台" fullPage="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/UI" xsi:schemaLocation="http://snsoft.cn/schema/UI
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
-		">
+<B title="P2P平台" fullPage="true" xmlns="http://snsoft.cn/schema/UI">
 	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
 	</m:DialogPane>
 	<m:GridTable name="plat" title="P2P平台" region="center" sqlexpr="p2p_plat" mainui="param" xprops.LoadDataService="SN-PM.P2pService#queryPlats" xprops.SaveDataService="SN-PM.P2pService#savePlats"
@@ -11,6 +9,6 @@
 		<c name="pname" title="名称" sqltype="12" width="120" noblank="true" />
 		<c name="ptype" title="平台类型" sqltype="12" aidInputerBtn="true" disableed="true" codedata="#DT_P2P.ptype" showname="true" droplist="true" droplistWithSearchPane="true" codeNameMatch="true"
 			aiprops="cellTextFmt:['${code}:${name}']" />
-		<c name="remark" title="相关说明" sqltype="12" width="200" aidInputerBtn="true" mutipleLine="true" tipIfOverflow="true" mlineView="true"/>
+		<c name="remark" title="相关说明" sqltype="12" width="200" aidInputerBtn="true" mutipleLine="true" tipIfOverflow="true" mlineView="true" />
 	</m:GridTable>
 </B>

@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<B title="项目看板[区间]" fullPage="true"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://snsoft.cn/schema/UI"
-	xsi:schemaLocation="http://snsoft.cn/schema/UI
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
-		"
->
-  <m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true" cellcols="5"
-  	saveParams="true" autoSaveParam="true"
-  >
-  	<c name="datefm" title="统计日期从" sqltype="91" aidInputerBtn="true" noblank="true" initval="%CURDATEYEAR-%CURDATEMONTH-1"/>
-  	<c name="dateto" title="到" sqltype="91" aidInputerBtn="true" noblank="true"/>
-  	<c name="ucode" title="参与者" sqltype="12" aidInputerBtn="true" disableed="true" codedata="#SW-PM.actor" showname="true" mutiple="true"/>
-  	<c name="pcode" title="项目" sqltype="12" aidInputerBtn="true" disableed="true" codedata="#SW-PM.project" showname="true"  mutiple="true"/>
-  	<c name="flags" initval="1" sqltype="12" button="true" codedata="1:过滤无效;2:忽略周末" mutiple="true"/>
-  </m:DialogPane>
-  <m:GridTable name="view" title="项目看板" region="center" sqlexpr="null" mainui="param" 
-      xprops.LoadDataService="SW-PM.PMUIService#queryPeriodViews"
-      noCollapseQPaneAfterRefresh="true" showToolbar="true" rdonly="true"
-      uilisteners="snsoft.sw.pm.PMViewListener.new"
-      jslistener="#new snsoft.sw.pm.ViewBottomValue()"
-  >
-    <c name="ucode" title="参与者" sqltype="12" width="80" crossRow="true" codedata="#SW-PM.actor" showname="true" asceOrd="true" bottomval="[cdis:总人数]$ucode" uiprops.renderer="new snsoft.sw.pm.ActorRender()"/>
-    <c name="pcode" title="项目" sqltype="12" width="200" crossCol="true" codedata="#SW-PM.project" showname="true" asceOrd="true"/>
-    <c name="infos" title="看板" sqltype="12" width="170" crossData="true" aidInputerBtn="true" uiprops.renderer="new snsoft.sw.pm.ViewRender()" mlineView="true"/>
-  </m:GridTable>
+<B title="项目看板[区间]" fullPage="true" xmlns="http://snsoft.cn/schema/UI">
+	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true" cellcols="5" saveParams="true" autoSaveParam="true">
+		<c name="datefm" title="统计日期从" sqltype="91" aidInputerBtn="true" noblank="true" initval="%CURDATEYEAR-%CURDATEMONTH-1" />
+		<c name="dateto" title="到" sqltype="91" aidInputerBtn="true" noblank="true" />
+		<c name="ucode" title="参与者" sqltype="12" aidInputerBtn="true" disableed="true" codedata="#SW-PM.actor" showname="true" mutiple="true" />
+		<c name="pcode" title="项目" sqltype="12" aidInputerBtn="true" disableed="true" codedata="#SW-PM.project" showname="true" mutiple="true" />
+		<c name="flags" initval="1" sqltype="12" button="true" codedata="1:过滤无效;2:忽略周末" mutiple="true" />
+	</m:DialogPane>
+	<m:GridTable name="view" title="项目看板" region="center" sqlexpr="null" mainui="param" xprops.LoadDataService="SW-PM.PMUIService#queryPeriodViews" noCollapseQPaneAfterRefresh="true"
+		showToolbar="true" rdonly="true" uilisteners="snsoft.sw.pm.PMViewListener.new" jslistener="#new snsoft.sw.pm.ViewBottomValue()">
+		<c name="ucode" title="参与者" sqltype="12" width="80" crossRow="true" codedata="#SW-PM.actor" showname="true" asceOrd="true" bottomval="[cdis:总人数]$ucode" uiprops.renderer="new snsoft.sw.pm.ActorRender()" />
+		<c name="pcode" title="项目" sqltype="12" width="200" crossCol="true" codedata="#SW-PM.project" showname="true" asceOrd="true" />
+		<c name="infos" title="看板" sqltype="12" width="170" crossData="true" aidInputerBtn="true" uiprops.renderer="new snsoft.sw.pm.ViewRender()" mlineView="true" />
+	</m:GridTable>
 </B>

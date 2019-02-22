@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<db id="IRMP-RMS" title="IRMP-RMS"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://snsoft.cn/schema/db"
-    xsi:schemaLocation="http://snsoft.cn/schema/db
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/CreateView.xsd">
+<db id="IRMP-RMS" title="IRMP-RMS" xmlns="http://snsoft.cn/schema/db">
 
-    <view name="rms_ctrlrule_history_v" title="历史风险对比查询" datasrcid="RMS_R"  viewexpr="历史风险对比查询所用视图，过滤生效状态">
+	<view name="rms_ctrlrule_history_v" title="历史风险对比查询" datasrcid="RMS_R" viewexpr="历史风险对比查询所用视图，过滤生效状态">
         <![CDATA[
             SELECT 
             	m.ctrlruleicode,m.ctrlrulecode,m.odate,m.bcode,m.wcode
@@ -19,8 +15,8 @@
             WHERE
 				m.ctrlruleicode=g.ctrlruleicode and m.status='70' and m.sheetcode='IRMP-RMS.CtrlRule'
         ]]>
-    </view>
-    <view name="rms_riskwarn_v" title="风险预警查询" datasrcid="RMS_R"  viewexpr="风险预警所用视图，过滤生效状态">
+	</view>
+	<view name="rms_riskwarn_v" title="风险预警查询" datasrcid="RMS_R" viewexpr="风险预警所用视图，过滤生效状态">
         <![CDATA[
             SELECT
             	m.ctrlruleicode,m.ctrlrulecode,m.odate,m.bcode,m.wcode
@@ -32,5 +28,5 @@
 				and g.ctrlrulegicode=r.ctrlrulegicode
 				and g.sup_code<%SQLISNULL$2(g.sup_code_last,'999')
         ]]>
-    </view>
+	</view>
 </db>

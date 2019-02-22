@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<db id="SW" title="单一窗口" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/db"
-	xsi:schemaLocation="http://snsoft.cn/schema/db
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/CreateDatabase.xsd">
+<db id="SW" title="单一窗口" xmlns="http://snsoft.cn/schema/db">
 	<table id="20002" name="sw_decl" title="货物申报" datasrcid="SW" storegrp="SNSYSDATA_TBS">
 		<column id="10" name="declid" title="主键" type="VARCHAR(32)" primkey="true" />
 		<column id="20" name="platid" title="平台" type="CHAR(16)" />
@@ -11,8 +9,8 @@
 		<column id="55" name="owner_name" title="生产制造单位|名称" type="VARCHAR(128)" />
 		<column id="60" name="trade_code" title="收发货单位|编码" type="CHAR(10)" />
 		<column id="70" name="trade_name" title="收发货单位|名称" type="VARCHAR(128)" />
-		<column id="80" name="agent_code" title="申报单位|编码" type="CHAR(10)"/>
-		<column id="90" name="agent_name" title="申报单位|名称" type="VARCHAR(128)"/>
+		<column id="80" name="agent_code" title="申报单位|编码" type="CHAR(10)" />
+		<column id="90" name="agent_name" title="申报单位|名称" type="VARCHAR(128)" />
 		<column id="100" name="cnt" title="单量" type="INTEGER" />
 		<column id="110" name="decl_date" title="申报日期" type="DATE" />
 	</table>

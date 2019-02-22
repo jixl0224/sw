@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<B title="项目维护" fullPage="true"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://snsoft.cn/schema/UI"
-	xsi:schemaLocation="http://snsoft.cn/schema/UI
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
-		"
->
-  <m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
-  </m:DialogPane>
-  <m:V region="center" uiprops.leftSize="240">
-	  <m:GridTable name="project" title="项目维护" region="center" sqlexpr="pm_project" mainui="param" 
-	      xprops.LoadDataService="SW-PM.PMUIService#queryProjects"
-	      xprops.SaveDataService="SW-PM.PMUIService#saveProjects"
-	      noCollapseQPaneAfterRefresh="true"
-	      showToolbar="true"
-	  >
-	  	<jslistener>
+<B title="项目维护" fullPage="true" xmlns="http://snsoft.cn/schema/UI">
+	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
+	</m:DialogPane>
+	<m:V region="center" uiprops.leftSize="240">
+		<m:GridTable name="project" title="项目维护" region="center" sqlexpr="pm_project" mainui="param" xprops.LoadDataService="SW-PM.PMUIService#queryProjects" xprops.SaveDataService="SW-PM.PMUIService#saveProjects"
+			noCollapseQPaneAfterRefresh="true" showToolbar="true">
+			<jslistener>
 	  	<![CDATA[
 	  	oncmd_viewForPcode:function(table)
 	  	{
@@ -25,29 +15,27 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	  		window.open(uri,"_blank");
 	  	}
 	  	]]>
-	  	</jslistener>
-		<attrs>
-			<attr name="viewForPcode" type="203" title="项目看板"/>
-		</attrs>
-	    <c name="pcode" title="项目|编码" sqltype="12" width="120" noblank="true" asceOrd="true"/>
-	    <c name="pname" title="项目|名称" sqltype="12" width="160" noblank="true"/>
-	    <c name="bedate" title="启用日期" sqltype="91" width="100" aidInputerBtn="true"  noblank="true"/>
-	    <c name="ledate" title="停用日期" sqltype="91" width="100" aidInputerBtn="true" />
-	    <c name="remark" title="说明" sqltype="12" width="120" aidInputerBtn="true" mutipleLine="true" tipIfOverflow="true"/>
-	    <c name="vprepare" title="创建人" sqltype="12" width="70" initval="%EnvParam(USERCODE)" rdonly="true" codedata="#users" showname="true"/>
-	    <c name="vpredate" title="创建时间" sqltype="91" width="135" initval="%CURDATETIME" rdonly="true"/>
-	    <c codedata="#users" modifierColumn="true" name="modifier" rdonly="true" showname="true" sqltype="12" title="修改人" width="70"/>
-    	<c modifydateColumn="true" name="modifydate" rdonly="true" sqltype="91" title="修改时间" width="135"/>
-	  </m:GridTable>
-	  <m:GridTable name="pactors" title="项目参与者" region="center" sqlexpr="pm_pactors" mainui="project" 
-	      xprops.LoadDataService="SW-PM.PMUIService#queryPActors"
-	  >
-	    <c name="pcode" title="项目|编码" sqltype="12" width="120" noblank="true" hidden="true" xprops.cpmastercol=":pcode"/>
-	    <c name="sortidx" title="序号" sqltype="4" width="90" noblank="true" asceOrd="true" autoInc="true" xprops="delta:10"/>
-	    <c name="ucode" title="参与者" sqltype="12" width="90" noblank="true" codedata="#SW-PM.actor" showname="true" disableed="true" aidInputerBtn="true"/>
-	    <c name="bedate" title="启用日期" sqltype="91" width="100" aidInputerBtn="true"  noblankOnSubmit="true"/>
-	    <c name="ledate" title="停用日期" sqltype="91" width="100" aidInputerBtn="true" />
-	    <c name="remark" title="说明" sqltype="12" width="120" aidInputerBtn="true" mutipleLine="true" tipIfOverflow="true"/>
-	  </m:GridTable>
-  </m:V>
+			</jslistener>
+			<attrs>
+				<attr name="viewForPcode" type="203" title="项目看板" />
+			</attrs>
+			<c name="pcode" title="项目|编码" sqltype="12" width="120" noblank="true" asceOrd="true" />
+			<c name="pname" title="项目|名称" sqltype="12" width="160" noblank="true" />
+			<c name="bedate" title="启用日期" sqltype="91" width="100" aidInputerBtn="true" noblank="true" />
+			<c name="ledate" title="停用日期" sqltype="91" width="100" aidInputerBtn="true" />
+			<c name="remark" title="说明" sqltype="12" width="120" aidInputerBtn="true" mutipleLine="true" tipIfOverflow="true" />
+			<c name="vprepare" title="创建人" sqltype="12" width="70" initval="%EnvParam(USERCODE)" rdonly="true" codedata="#users" showname="true" />
+			<c name="vpredate" title="创建时间" sqltype="91" width="135" initval="%CURDATETIME" rdonly="true" />
+			<c codedata="#users" modifierColumn="true" name="modifier" rdonly="true" showname="true" sqltype="12" title="修改人" width="70" />
+			<c modifydateColumn="true" name="modifydate" rdonly="true" sqltype="91" title="修改时间" width="135" />
+		</m:GridTable>
+		<m:GridTable name="pactors" title="项目参与者" region="center" sqlexpr="pm_pactors" mainui="project" xprops.LoadDataService="SW-PM.PMUIService#queryPActors">
+			<c name="pcode" title="项目|编码" sqltype="12" width="120" noblank="true" hidden="true" xprops.cpmastercol=":pcode" />
+			<c name="sortidx" title="序号" sqltype="4" width="90" noblank="true" asceOrd="true" autoInc="true" xprops="delta:10" />
+			<c name="ucode" title="参与者" sqltype="12" width="90" noblank="true" codedata="#SW-PM.actor" showname="true" disableed="true" aidInputerBtn="true" />
+			<c name="bedate" title="启用日期" sqltype="91" width="100" aidInputerBtn="true" noblankOnSubmit="true" />
+			<c name="ledate" title="停用日期" sqltype="91" width="100" aidInputerBtn="true" />
+			<c name="remark" title="说明" sqltype="12" width="120" aidInputerBtn="true" mutipleLine="true" tipIfOverflow="true" />
+		</m:GridTable>
+	</m:V>
 </B>

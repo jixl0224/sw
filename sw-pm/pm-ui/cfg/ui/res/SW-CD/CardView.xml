@@ -1,38 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<B title="用户信用卡" fullPage="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/UI" xsi:schemaLocation="http://snsoft.cn/schema/UI
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
-		">
+<B title="用户信用卡" fullPage="true" xmlns="http://snsoft.cn/schema/UI">
 	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
 		<c name="odate" title="日期" sqltype="91" noblank="true" initval="%CURDATE" aidInputerBtn="true" />
 		<c name="days" title="消费天数" sqltype="4" initval="10" width="40" />
 		<c name="limit" title="套现额度" sqltype="2" initval="150000" width="80" />
 	</m:DialogPane>
 	<m:T region="center">
-		<m:GridTable name="stat" title="金额信息"  sqlexpr="pm_ucard" mainui="param" xprops.LoadDataService="SN-PM.BalanceService#queryBill" nmpre="filter" rdonly="true"
-			noCollapseQPaneAfterRefresh="true" readwspid="PM" writewspid="PM" dsprops.resortOnLoad="true">
+		<m:GridTable name="stat" title="金额信息" sqlexpr="pm_ucard" mainui="param" xprops.LoadDataService="SN-PM.BalanceService#queryBill" nmpre="filter" rdonly="true" noCollapseQPaneAfterRefresh="true"
+			readwspid="PM" writewspid="PM" dsprops.resortOnLoad="true">
 			<c name="ccode" title="信用卡" sqltype="12" width="80" codedata="#SW-CD.ccard" showname="true" />
 			<c name="sdate" title="账单日" sqltype="4" width="60" />
 			<c name="ddate" title="还款日" sqltype="4" width="60" />
-			<c name="cline" title="额度" sqltype="2" width="80" maxdeci="2" bottomval="*"/>
-			<c name="fcy1" title="已出账" sqltype="2" width="80" maxdeci="2" bottomval="*"/>
-			<c name="fcy2" title="未出账" sqltype="2" width="80" maxdeci="2" bottomval="*"/>
-			<c name="fcy3" title="已还款" sqltype="2" width="80" maxdeci="2" bottomval="*"/>
-			<c name="fcy6" title="未还款" sqltype="2" width="80" maxdeci="2" bottomval="*"/>
-			<c name="fcy4" title="剩余额度" sqltype="2" width="80" maxdeci="2" bottomval="*"/>
-			<c name="ratio1" title="消费占比" sqltype="2" width="80" maxdeci="2" percent="true"/>
+			<c name="cline" title="额度" sqltype="2" width="80" maxdeci="2" bottomval="*" />
+			<c name="fcy1" title="已出账" sqltype="2" width="80" maxdeci="2" bottomval="*" />
+			<c name="fcy2" title="未出账" sqltype="2" width="80" maxdeci="2" bottomval="*" />
+			<c name="fcy3" title="已还款" sqltype="2" width="80" maxdeci="2" bottomval="*" />
+			<c name="fcy6" title="未还款" sqltype="2" width="80" maxdeci="2" bottomval="*" />
+			<c name="fcy4" title="剩余额度" sqltype="2" width="80" maxdeci="2" bottomval="*" />
+			<c name="ratio1" title="消费占比" sqltype="2" width="80" maxdeci="2" percent="true" />
 			<c name="sdays" title="天数|账单" sqltype="4" width="60" />
-			<c name="ddays" title="天数|还款" sqltype="4" width="60" asceOrd="true"/>
-			<c name="fcy5" title="日均建议" sqltype="2" width="80" maxdeci="2" bottomval="*"/>
+			<c name="ddays" title="天数|还款" sqltype="4" width="60" asceOrd="true" />
+			<c name="fcy5" title="日均建议" sqltype="2" width="80" maxdeci="2" bottomval="*" />
 		</m:GridTable>
-		<m:GridTable name="ucard" title="账单/还款日"   sqlexpr="pm_ucard" mainui="param" xprops.LoadDataService="SN-PM.CreditUIService#queryCardView" nmpre="filter" rdonly="true"
-			noCollapseQPaneAfterRefresh="true" readwspid="PM" writewspid="PM" uilisteners="snsoft.sw.card.CreditViewListener.new"
-			showToolbar="true"
-		>
+		<m:GridTable name="ucard" title="账单/还款日" sqlexpr="pm_ucard" mainui="param" xprops.LoadDataService="SN-PM.CreditUIService#queryCardView" nmpre="filter" rdonly="true"
+			noCollapseQPaneAfterRefresh="true" readwspid="PM" writewspid="PM" uilisteners="snsoft.sw.card.CreditViewListener.new" showToolbar="true">
 			<attrs>
-				<attr type="203" name="sortBySdate" title="账单日"/>
-				<attr type="203" name="sortByDdate" title="还款日"/>
-			</attrs> 
+				<attr type="203" name="sortBySdate" title="账单日" />
+				<attr type="203" name="sortByDdate" title="还款日" />
+			</attrs>
 			<jslistener>
 		  	<![CDATA[
 		  	date:new Date().getDate(),

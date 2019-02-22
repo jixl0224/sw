@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<codedata-list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/CodeData"
-	xsi:schemaLocation="http://snsoft.cn/schema/CodeData
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/CodeData.xsd">
+<codedata-list xmlns="http://snsoft.cn/schema/CodeData">
 
 	<codedata id="actor" table="pm_actor" ui.options4="0x20">
 		<column name="ucode" type="12" title="参与者编码" width="200" primkey="true" />

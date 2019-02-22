@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<B title="用户信用卡" fullPage="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/UI" xsi:schemaLocation="http://snsoft.cn/schema/UI
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
-		">
+<B title="用户信用卡" fullPage="true" xmlns="http://snsoft.cn/schema/UI">
 	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
 	</m:DialogPane>
 	<m:GridTable name="ucard" title="用户信用卡" region="center" sqlexpr="pm_ucard" mainui="param" xprops.LoadDataService="SN-PM.CreditUIService#queryPMUcard" xprops.SaveDataService="SN-PM.CreditUIService#savePMUcard"
 		noCollapseQPaneAfterRefresh="true" showToolbar="true" uiprops.rowMaxHeight="60">
 		<c name="ucode" title="编码" sqltype="12" width="100" noblank="true" hidden="true" initval="%EnvParam(USERCODE)" />
-		<c name="ccode" title="信用卡" sqltype="12" width="100" noblank="true" asceOrd="true" disableed="true" 
-			codedata="#SW-CD.ccard" showname="true" aidInputerBtn="true" 
-			droplist="true" droplistWithSearchPane="true" codeNameMatch="true" 
-			aiprops="cellTextFmt:['${code}:${name}']"
-		/>
+		<c name="ccode" title="信用卡" sqltype="12" width="100" noblank="true" asceOrd="true" disableed="true" codedata="#SW-CD.ccard" showname="true" aidInputerBtn="true" droplist="true"
+			droplistWithSearchPane="true" codeNameMatch="true" aiprops="cellTextFmt:['${code}:${name}']" />
 		<c name="sdate" title="账单日" sqltype="4" width="70" noblank="true" />
 		<c name="ddate" title="免息天数" sqltype="4" width="70" noblank="true" />
 		<c name="cline" title="额度" sqltype="2" width="70" noblank="true" bottomval="*" />
-		<c name="ymdesc" title="羊毛" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true"  tipIfOverflow="true"/>
-		<c name="rgtdesc" title="权益" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true"/>
-		<c name="intdesc" title="积分" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true"/>
-		<c name="fstdesc" title="首刷" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true"/>
-		<c name="feedesc" title="年费" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true"/>
-		<c name="mlgdesc" title="里程" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true"/>
+		<c name="ymdesc" title="羊毛" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true" />
+		<c name="rgtdesc" title="权益" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true" />
+		<c name="intdesc" title="积分" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true" />
+		<c name="fstdesc" title="首刷" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true" />
+		<c name="feedesc" title="年费" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true" />
+		<c name="mlgdesc" title="里程" sqltype="12" width="160" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true" />
 	</m:GridTable>
 </B>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Sheet xmlns="http://snsoft.cn/schema/Sheet" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Sheet xmlns="http://snsoft.cn/schema/Sheet">
 	<name>信用卡用户权限单据</name>
 	<tblname></tblname>
 	<innerfld></innerfld>

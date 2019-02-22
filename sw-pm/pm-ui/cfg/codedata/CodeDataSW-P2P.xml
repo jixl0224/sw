@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<codedata-list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/CodeData"
-	xsi:schemaLocation="http://snsoft.cn/schema/CodeData
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/CodeData.xsd">
-
-
+<codedata-list xmlns="http://snsoft.cn/schema/CodeData">
 	<codedata id="ucode" table="p2p_user" ui.options4="0x20">
 		<column name="ucode" type="12" title="用户编码" width="200" primkey="true" />
 		<column name="uname" type="12" title="用户名称" width="300" />
 	</codedata>
-	
+
 	<codedata id="pcode" table="p2p_plat" ui.options4="0x20">
 		<column name="pcode" type="12" title="平台编码" width="200" primkey="true" />
 		<column name="pname" type="12" title="平台名称" width="300" />

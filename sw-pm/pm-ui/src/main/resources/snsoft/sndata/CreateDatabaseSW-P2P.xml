@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<db id="SW-P2P" title="P2P" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/db"
-	xsi:schemaLocation="http://snsoft.cn/schema/db
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/CreateDatabase.xsd">
+<db id="SW-P2P" title="P2P" xmlns="http://snsoft.cn/schema/db">
 	<table id="1020120" name="p2p_user" title="P2P用户" datasrcid="PM" localcache="1" storegrp="SNSYSDATA_TBS">
 		<column id="10" name="ucode" title="用户编码" type="CHAR(3)" primkey="true" />
 		<column id="20" name="uname" title="用户名称" type="VARCHAR(16)" notnull="true" />

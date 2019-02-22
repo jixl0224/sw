@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<B title="信用卡活动" fullPage="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/UI" xsi:schemaLocation="http://snsoft.cn/schema/UI
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
-		">
+<B title="信用卡活动" fullPage="true" xmlns="http://snsoft.cn/schema/UI">
 	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
 		<c name="odate" title="日期" sqltype="91" initval="%CURDATE" aidInputerBtn="true" />
-		<c name="remark" title="说明" sqltype="12" prefixMatch="true" suffixMatch="true"/>
-		<c name="status" title="状态" sqltype="12" aidInputerBtn="true" droplist="true" disableed="true"  codedata="N:未完成;Y:已完成" showname="true" initval="N"/>
+		<c name="remark" title="说明" sqltype="12" prefixMatch="true" suffixMatch="true" />
+		<c name="status" title="状态" sqltype="12" aidInputerBtn="true" droplist="true" disableed="true" codedata="N:未完成;Y:已完成" showname="true" initval="N" />
 	</m:DialogPane>
 	<m:GridTable name="activity" region="center" sqlexpr="pm_activity" mainui="param" xprops.LoadDataService="SN-PM.CreditUIService#queryActivity" xprops.SaveDataService="SN-PM.CreditUIService#saveActivity"
 		noCollapseQPaneAfterRefresh="true" showToolbar="true" uiprops.rowMaxHeight="60" autoRefresh="true">
@@ -28,12 +26,12 @@
 		</jslistener>
 		<c name="id" title="主键" sqltype="4" hidden="true" />
 		<c name="ucode" title="编码" sqltype="12" hidden="true" />
-		<c name="ccode" title="信用卡" sqltype="12" width="100" noblank="true" disableed="true" codedata="#SW-CD.ccard" showname="true" aidInputerBtn="true" droplist="true"
-			droplistWithSearchPane="true" codeNameMatch="true" aiprops="cellTextFmt:['${code}:${name}']" />
-		<c name="bedate" title="生效日期" sqltype="91" disableed="true" aidInputerBtn="true"/>
-		<c name="ledate" title="失效日期" sqltype="91" disableed="true" aidInputerBtn="true" asceOrd="true"/>
+		<c name="ccode" title="信用卡" sqltype="12" width="100" noblank="true" disableed="true" codedata="#SW-CD.ccard" showname="true" aidInputerBtn="true" droplist="true" droplistWithSearchPane="true"
+			codeNameMatch="true" aiprops="cellTextFmt:['${code}:${name}']" />
+		<c name="bedate" title="生效日期" sqltype="91" disableed="true" aidInputerBtn="true" />
+		<c name="ledate" title="失效日期" sqltype="91" disableed="true" aidInputerBtn="true" asceOrd="true" />
 		<c name="remark" title="说明" sqltype="12" width="400" aidInputerBtn="true" mutipleLine="true" textwrap="true" mlineView="true" tipIfOverflow="true" />
-		<c name="status" title="状态" sqltype="12" width="60" aidInputerBtn="true" droplist="true" disableed="true"  codedata="N:未完成;Y:已完成" showname="true"/>
+		<c name="status" title="状态" sqltype="12" width="60" aidInputerBtn="true" droplist="true" disableed="true" codedata="N:未完成;Y:已完成" showname="true" />
 		<c name="flags#1" title="周|一" sqltype="4" width="22" />
 		<c name="flags#2" title="周|二" sqltype="4" width="22" />
 		<c name="flags#4" title="周|三" sqltype="4" width="22" />

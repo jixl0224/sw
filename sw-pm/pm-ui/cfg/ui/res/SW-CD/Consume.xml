@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<B title="信用卡消费" fullPage="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://snsoft.cn/schema/UI" xsi:schemaLocation="http://snsoft.cn/schema/UI
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
-		">
+<B title="信用卡消费" fullPage="true"   xmlns="http://snsoft.cn/schema/UI" >
 	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
 		<c name="odate" title="日期" sqltype="91" noblank="true" initval="%CURDATE" aidInputerBtn="true" />
 	</m:DialogPane>

@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<B title="信用卡" fullPage="true"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://snsoft.cn/schema/UI"
-	xsi:schemaLocation="http://snsoft.cn/schema/UI
-		https://adk-svn.sino-clink.com.cn/svn/adkdoc/configs/schema/UI.xsd
-		"
->
-  <m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
-  </m:DialogPane>
-  <m:GridTable name="ccard" title="信用卡" region="center" sqlexpr="pm_ccard" mainui="param" 
-      xprops.LoadDataService="SN-PM.CreditUIService#queryPMCcard"
-      xprops.SaveDataService="SN-PM.CreditUIService#savePMCcard"
-      noCollapseQPaneAfterRefresh="true"
-      showToolbar="true"
-  >
-    <c name="code" title="编码" sqltype="12" width="100" noblank="true" asceOrd="true"/>
-    <c name="name" title="名称" sqltype="12" width="160" noblank="true" />
-    <c name="flags#1" title="国航" sqltype="4" width="40" />
-    <c name="flags#2" title="海航" sqltype="4" width="40" />
-    <c name="flags#4" title="南航" sqltype="4" width="40" />
-    <c name="flags#8" title="亚万" sqltype="4" width="40" />
-    <c name="flags#16" title="东航" sqltype="4" width="40" />
-    <c name="inturl" title="积分商城" sqltype="12" width="160" aidInputerBtn="true" tipIfOverflow="true" mutipleLine="true"/>
-    <c name="remark" title="描述" sqltype="12" width="300" aidInputerBtn="true" tipIfOverflow="true" mutipleLine="true" />
-  </m:GridTable>
+<B title="信用卡" fullPage="true" xmlns="http://snsoft.cn/schema/UI">
+	<m:DialogPane name="param" title="参数" region="north" layoutm="grid" showToolbar="true">
+	</m:DialogPane>
+	<m:GridTable name="ccard" title="信用卡" region="center" sqlexpr="pm_ccard" mainui="param" xprops.LoadDataService="SN-PM.CreditUIService#queryPMCcard" xprops.SaveDataService="SN-PM.CreditUIService#savePMCcard"
+		noCollapseQPaneAfterRefresh="true" showToolbar="true">
+		<c name="code" title="编码" sqltype="12" width="100" noblank="true" asceOrd="true" />
+		<c name="name" title="名称" sqltype="12" width="160" noblank="true" />
+		<c name="flags#1" title="国航" sqltype="4" width="40" />
+		<c name="flags#2" title="海航" sqltype="4" width="40" />
+		<c name="flags#4" title="南航" sqltype="4" width="40" />
+		<c name="flags#8" title="亚万" sqltype="4" width="40" />
+		<c name="flags#16" title="东航" sqltype="4" width="40" />
+		<c name="inturl" title="积分商城" sqltype="12" width="160" aidInputerBtn="true" tipIfOverflow="true" mutipleLine="true" />
+		<c name="remark" title="描述" sqltype="12" width="300" aidInputerBtn="true" tipIfOverflow="true" mutipleLine="true" />
+	</m:GridTable>
 </B>
