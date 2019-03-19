@@ -28,6 +28,12 @@
 					tcs[i].valueAccess = access;
 				}
 			}
+		},
+		tableRefreshed:function()
+		{
+			var name = "$CRCOL$"+new Date().format(2)+"-fcy";
+			this.table.setSelectedColumn(this.table.indexOfColumn(name));
+			this.table.scrollToVisible(3);
 		}
 		]]>
 		</jslistener>

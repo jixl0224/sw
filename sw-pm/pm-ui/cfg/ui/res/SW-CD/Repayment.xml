@@ -9,6 +9,21 @@
 			snsoft.sw.card.OdateCrossListener.new;
 			snsoft.bas.sheet.VOListener.new
 		</uilisteners>
+		<jslistener>
+		<![CDATA[
+		table:null,
+		addTableNotify(table)
+		{
+			this.table = table;
+		},
+		tableRefreshed:function()
+		{
+			var name = "$CRCOL$"+new Date().format(2)+"-fcy";
+			this.table.setSelectedColumn(this.table.indexOfColumn(name));
+			this.table.scrollToVisible(3);
+		}
+		]]>
+		</jslistener>
 		<c name="ucode" title="用户" sqltype="12" asceOrd="true" hidden="true" />
 		<c name="ccode" title="信用卡" sqltype="12" width="80" noblank="true" fixedLeft="true" asceOrd="true" crossRow="true" codedata="#SW-CD.ccard" showname="true" aidInputerBtn="true" />
 		<c name="odate" title="日期" sqltype="12" width="30" asceOrd="true" crossCol="true" />
